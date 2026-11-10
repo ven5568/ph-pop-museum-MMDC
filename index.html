@@ -433,6 +433,54 @@
     @media(max-width:650px){.future-grid{grid-template-columns:1fr;}.future-hero{padding:25px 22px;}.future-step{font-size:10px;padding:9px 10px;}.future-arrow{display:none;}.future-layout-head{align-items:start;}.era-choice{flex:1;min-width:0;font-size:10px;padding:10px 10px;}.era-choices{width:100%;}.future-card-event{min-height:0;}}
     @media(prefers-reduced-motion:reduce){.future-card{transition:none}.future-card:hover{transform:none}}
 
+
+    /* TIMELINE / VERIFIED YEAR-BY-YEAR ARCHIVE */
+    .timeline-context{display:flex;gap:18px;align-items:start;margin:28px 0 25px;padding:19px 22px;border:1px solid rgba(117,228,250,.3);border-radius:14px;background:rgba(117,228,250,.055);color:#c6cde1;font-size:13px;line-height:1.6}
+    .timeline-context strong{flex:0 0 210px;color:var(--cyan);font:700 12px var(--mono);letter-spacing:.07em}
+    .timeline-context em{color:#f4f6ff;font-style:normal;font-weight:600}
+    .timeline-year-nav{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 38px}
+    .timeline-jump{min-height:41px;padding:10px 14px;border-radius:9px;border:1px solid rgba(255,255,255,.19);background:#1a1e33;color:#f1f3fc;font:700 12px var(--mono);cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+    .timeline-jump:hover,.timeline-jump:focus-visible{background:#2b3253;border-color:var(--cyan);transform:translateY(-2px)}
+    .timeline-rich{max-width:1120px;margin:0 0 0 auto;gap:20px}
+    .timeline-rich::before{left:21px;bottom:70px}
+    .timeline-rich .timeline-entry{padding-left:60px}
+    .timeline-rich .timeline-entry::before{left:8px;top:36px;width:26px;height:26px;box-shadow:0 0 0 2px var(--cyan)}
+    .timeline-rich .timeline-entry:nth-child(3n)::before{box-shadow:0 0 0 2px var(--lime);background:var(--lime)}
+    .timeline-rich .timeline-entry:nth-child(3n+2)::before{box-shadow:0 0 0 2px var(--pink);background:var(--pink)}
+    .timeline-year-card{overflow:hidden;border:1px solid rgba(255,255,255,.16);border-radius:21px;background:#191d31;box-shadow:0 10px 40px rgba(0,0,0,.11);padding:clamp(18px,3.2vw,29px)}
+    .timeline-year-head{display:flex;justify-content:space-between;align-items:start;gap:17px}
+    .timeline-year-tag{font:700 11px var(--mono);letter-spacing:.085em;color:var(--cyan)}
+    .timeline-year-head h2{margin:12px 0 12px;font:700 clamp(22px,3vw,33px)/1.13 var(--display);letter-spacing:-.045em;color:#f9f9ff;max-width:760px}
+    .timeline-year-head h2 span{color:var(--lime)}
+    .timeline-year-counter{white-space:nowrap;font:700 12px var(--mono);color:#a4adc5}
+    .timeline-year-summary{max-width:790px;color:#c9cedf;font-size:14px;line-height:1.67;margin:0 0 12px}
+    .timeline-original-date{margin:8px 0 22px;font:700 11px/1.5 var(--mono);color:#dcfbb7}
+    .timeline-media-grid{display:grid;grid-template-columns: minmax(0,1fr) minmax(0,1fr);gap:15px}
+    .timeline-media-photo,.timeline-media-video{min-width:0;border-radius:14px;background:#111627;border:1px solid rgba(255,255,255,.095);overflow:hidden;padding:12px}
+    .timeline-photo-wrap{height:206px;overflow:hidden;position:relative;border-radius:10px;background:radial-gradient(circle at 70% 12%,rgba(255,99,170,.36),transparent 58%),#242942}
+    .timeline-photo-wrap img{height:100%;width:100%;object-fit:cover;display:block;transition:transform .35s}
+    .timeline-media-photo:hover .timeline-photo-wrap img{transform:scale(1.04)}
+    .timeline-photo-badge{position:absolute;left:8px;bottom:8px;padding:7px 9px;background:rgba(13,16,29,.9);border-radius:6px;color:#fff;font:700 10px var(--mono);letter-spacing:.04em}
+    .timeline-photo-credit{font-size:10px;line-height:1.5;color:#abb3c9;margin:12px 2px 4px}
+    .timeline-photo-source,.timeline-youtube-link{display:inline-block;margin:6px 2px;color:var(--cyan);font:700 10px/1.5 var(--mono);letter-spacing:.025em;text-decoration:none}
+    .timeline-photo-source:hover,.timeline-youtube-link:hover,.timeline-source-row a:hover{text-decoration:underline}
+    .timeline-media-kicker{display:block;color:var(--pink);font:700 10px var(--mono);letter-spacing:.095em;margin:1px 0 10px}
+    .timeline-video-button{display:flex;align-items:center;gap:14px;border:0;border-radius:10px;width:100%;padding:10px;background:#1c2239;color:#fff;cursor:pointer;text-align:left;transition:background .2s}
+    .timeline-video-button:hover,.timeline-video-button:focus-visible{background:#293252;outline:2px solid var(--lime);outline-offset:2px}
+    .timeline-video-thumb{width:42%;aspect-ratio:16/9;position:relative;border-radius:8px;overflow:hidden;background:linear-gradient(90deg,#322445,#1b233f);flex:0 0 42%}
+    .timeline-video-thumb img{height:100%;width:100%;object-fit:cover}
+    .timeline-play-icon{display:grid;place-items:center;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;height:43px;width:43px;background:var(--pink);font-size:17px;box-shadow:0 5px 22px #0009}
+    .timeline-video-title{font:700 15px/1.28 var(--display)}
+    .timeline-upload-note{font:400 11px/1.6 var(--mono);color:#acb5ca;margin:11px 2px 5px}
+    .timeline-source-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding-top:16px;margin-top:15px;border-top:1px solid rgba(255,255,255,.11);font:700 10px var(--mono);letter-spacing:.07em;color:#949cb8}
+    .timeline-source-row a{color:var(--lime);text-decoration:none}
+    .timeline-outro{display:flex;justify-content:space-between;align-items:center;gap:25px;flex-wrap:wrap;border-radius:18px;padding:30px 33px;margin:28px 0 0;background:linear-gradient(115deg,#272c49,#1b1e34);border:1px solid rgba(217,255,122,.24)}
+    .timeline-outro h2{font:700 32px/1 var(--display);letter-spacing:-.055em;margin:11px 0}
+    .timeline-outro p{max-width:620px;color:#cbd1df;font-size:13px;line-height:1.6}
+    .timeline-source-note{color:#aeb6cc;font-size:11px;line-height:1.65;padding:18px 3px 0}
+    @media(max-width:760px){.timeline-context{display:block}.timeline-context strong{display:block;margin-bottom:9px}.timeline-rich::before{left:9px}.timeline-rich .timeline-entry{padding-left:27px}.timeline-rich .timeline-entry::before{left:-3px;width:19px;height:19px;top:32px;border-width:4px}.timeline-year-card{padding:17px}.timeline-media-grid{grid-template-columns:1fr}.timeline-year-counter{display:none}.timeline-photo-wrap{height:205px}.timeline-video-thumb{flex-basis:37%;width:37%}.timeline-year-head h2{font-size:23px}.timeline-outro{padding:24px}.timeline-outro h2{font-size:28px}}
+    @media(prefers-reduced-motion:reduce){.timeline-jump,.timeline-photo-wrap img{transition:none}}
+
   </style>
 </head>
 <body>
@@ -523,19 +571,162 @@
     <div id="room-views"></div>
 
     <section class="page inside-page" id="view-timeline" data-view="timeline" aria-labelledby="timeline-title" hidden>
-      <div class="container">
-        <span class="kicker">The evolution of an era</span>
-        <h1 class="section-heading" id="timeline-title" style="margin-top:19px">The Hinge<br><span style="color:var(--lime)">timeline.</span></h1>
-        <p class="section-sub">A high-level look at how youth culture moved from broadcast-centered experiences to new forms of digital connection.</p>
-        <div class="timeline">
-          <article class="timeline-entry"><div class="timeline-card"><div><small>CHAPTER 01</small><h3>2000–2002</h3></div><p>Y2K fashion, low-rise jeans, chunky shoes, and the rise of SMS texting shape everyday youth culture. Internet cafés become increasingly visible in urban life.</p></div></article>
-          <article class="timeline-entry"><div class="timeline-card"><div><small>CHAPTER 02</small><h3>2003–2006</h3></div><p>OPM rock makes waves in mainstream entertainment. Friendster becomes a social ritual, while Asian dramas and local television draw enthusiastic audiences.</p></div></article>
-          <article class="timeline-entry"><div class="timeline-card"><div><small>CHAPTER 03</small><h3>2007–2010</h3></div><p>Internet cafés, multiplayer games such as DotA and Counter-Strike, and reality talent programs remain important in youth leisure and entertainment. New social platforms gain traction.</p></div></article>
-          <article class="timeline-entry"><div class="timeline-card"><div><small>EPILOGUE / BEYOND 2010</small><h3>Today</h3></div><p>Digital payments, online marketplaces, social feeds, and networked communities become commonplace. Greater access also brings concerns about privacy and misinformation.</p></div></article>
+  <div class="container">
+    <span class="kicker">ARCHIVE / 2000–2010</span>
+    <h1 class="section-heading" id="timeline-title" style="margin-top:19px">THE HINGE<br><span style="color:var(--lime)">year by year.</span></h1>
+    <p class="section-sub">Eleven years. Real moments from Philippine television, music, youth culture and the shift from analog life to the internet. Open each video, explore the period pictures and read the dated sources.</p>
+    <div class="timeline-context"><strong>HOW THE DATES WORK</strong><span>Years here refer to the <em>original show premiere, event, recording or song release</em> — not necessarily the date a video was uploaded to YouTube. Photos are labeled as event photographs, period context, or archival video stills.</span></div>
+    <nav class="timeline-year-nav" aria-label="Jump to a year">
+      <button type="button" class="timeline-jump" data-target-year="2000" aria-label="Jump to 2000">2000</button>
+      <button type="button" class="timeline-jump" data-target-year="2001" aria-label="Jump to 2001">2001</button>
+      <button type="button" class="timeline-jump" data-target-year="2002" aria-label="Jump to 2002">2002</button>
+      <button type="button" class="timeline-jump" data-target-year="2003" aria-label="Jump to 2003">2003</button>
+      <button type="button" class="timeline-jump" data-target-year="2004" aria-label="Jump to 2004">2004</button>
+      <button type="button" class="timeline-jump" data-target-year="2005" aria-label="Jump to 2005">2005</button>
+      <button type="button" class="timeline-jump" data-target-year="2006" aria-label="Jump to 2006">2006</button>
+      <button type="button" class="timeline-jump" data-target-year="2007" aria-label="Jump to 2007">2007</button>
+      <button type="button" class="timeline-jump" data-target-year="2008" aria-label="Jump to 2008">2008</button>
+      <button type="button" class="timeline-jump" data-target-year="2009" aria-label="Jump to 2009">2009</button>
+      <button type="button" class="timeline-jump" data-target-year="2010" aria-label="Jump to 2010">2010</button>
+    </nav>
+    <div class="timeline timeline-rich" id="timeline-rich">
+      <article class="timeline-entry timeline-year" id="timeline-year-2000">
+        <div class="timeline-year-card">
+          <div class="timeline-year-head"><div><span class="timeline-year-tag">BROADCAST / NEW MILLENNIUM</span><h2><span>2000</span> / Pangako Sa ’Yo begins the teleserye era</h2></div><span class="timeline-year-counter">01 / 11</span></div>
+          <p class="timeline-year-summary">ABS-CBN&#x27;s Pangako Sa ’Yo premiered on November 13, 2000, becoming one of the defining teleseryes of the decade. TV remained a major shared cultural space as email and the internet entered everyday conversations.</p>
+          <p class="timeline-original-date"><span aria-hidden="true">◎</span> Original television premiere: 13 Nov 2000</p>
+          <div class="timeline-media-grid">
+            <div class="timeline-media-photo"><div class="timeline-photo-wrap"><img src="https://i.ytimg.com/vi/dRvyf35hDE4/hqdefault.jpg" data-fallback="https://i.ytimg.com/vi/dRvyf35hDE4/hqdefault.jpg" data-backup-room="forms" alt="Archival video thumbnail depicting Pangako Sa ’Yo (2000) — Episode 1 / ABS-CBN" loading="lazy" decoding="async"><span class="timeline-photo-badge">ARCHIVAL VIDEO STILL</span></div><p class="timeline-photo-credit">Video preview image from the linked YouTube archive (not a separate event photograph)</p></div>
+            <div class="timeline-media-video"><span class="timeline-media-kicker">WATCH THE ORIGINAL-ERA ARCHIVE</span><button type="button" class="timeline-video-button" data-video-id="dRvyf35hDE4" data-video-title="Pangako Sa ’Yo (2000) — Episode 1 / ABS-CBN" aria-label="Play Pangako Sa ’Yo (2000) — Episode 1 / ABS-CBN"><span class="timeline-video-thumb"><img src="https://i.ytimg.com/vi/dRvyf35hDE4/mqdefault.jpg" data-backup-room="forms" alt="" loading="lazy" decoding="async"><span class="timeline-play-icon" aria-hidden="true">▶</span></span><span class="timeline-video-title">Pangako Sa ’Yo (2000) — Episode 1 / ABS-CBN</span></button><p class="timeline-upload-note">YouTube: 2021 official replay. Original year: 2000.</p><a href="https://www.youtube.com/watch?v=dRvyf35hDE4" rel="noopener noreferrer" target="_blank" class="timeline-youtube-link">WATCH ON YOUTUBE ↗</a></div>
+          </div>
+          <div class="timeline-source-row"><span>FACT CHECK / ORIGINAL DATE</span><a href="https://www.pep.ph/news/local/151314/11-top-rating-abs-cbn-teleseryes-of-all-time-a724-a710-20200510-lfrm3" target="_blank" rel="noopener noreferrer">VIEW YEAR SOURCE ↗</a></div>
         </div>
-        <div style="margin-top:40px"><a href="#museum" class="btn btn-primary">EXPLORE THE EXHIBITS ↗</a></div>
-      </div>
-    </section>
+      </article>
+      <article class="timeline-entry timeline-year" id="timeline-year-2001">
+        <div class="timeline-year-card">
+          <div class="timeline-year-head"><div><span class="timeline-year-tag">CIVIC LIFE / TEXTING</span><h2><span>2001</span> / EDSA II: text messages meet street protests</h2></div><span class="timeline-year-counter">02 / 11</span></div>
+          <p class="timeline-year-summary">During the January 2001 EDSA II protests, mobile text messages helped circulate calls to gather. This surviving TV Patrol broadcast shows how television news and SMS communication coexisted.</p>
+          <p class="timeline-original-date"><span aria-hidden="true">◎</span> Original news coverage: 17 Jan 2001</p>
+          <div class="timeline-media-grid">
+            <div class="timeline-media-photo"><div class="timeline-photo-wrap"><img src="https://i.ytimg.com/vi/kVGdsJWLKxs/hqdefault.jpg" data-fallback="https://i.ytimg.com/vi/kVGdsJWLKxs/hqdefault.jpg" data-backup-room="society" alt="Archival video thumbnail depicting TV Patrol Throwback — EDSA II (2001)" loading="lazy" decoding="async"><span class="timeline-photo-badge">ARCHIVAL VIDEO STILL</span></div><p class="timeline-photo-credit">Video preview image from the linked YouTube archive (not a separate event photograph)</p></div>
+            <div class="timeline-media-video"><span class="timeline-media-kicker">WATCH THE ORIGINAL-ERA ARCHIVE</span><button type="button" class="timeline-video-button" data-video-id="kVGdsJWLKxs" data-video-title="TV Patrol Throwback — EDSA II (2001)" aria-label="Play TV Patrol Throwback — EDSA II (2001)"><span class="timeline-video-thumb"><img src="https://i.ytimg.com/vi/kVGdsJWLKxs/mqdefault.jpg" data-backup-room="society" alt="" loading="lazy" decoding="async"><span class="timeline-play-icon" aria-hidden="true">▶</span></span><span class="timeline-video-title">TV Patrol Throwback — EDSA II (2001)</span></button><p class="timeline-upload-note">YouTube: 2026 official archive upload. Original year: 2001.</p><a href="https://www.youtube.com/watch?v=kVGdsJWLKxs" rel="noopener noreferrer" target="_blank" class="timeline-youtube-link">WATCH ON YOUTUBE ↗</a></div>
+          </div>
+          <div class="timeline-source-row"><span>FACT CHECK / ORIGINAL DATE</span><a href="https://www.philstar.com/headlines/2001/01/18/89466/edsa-ii-erap-resign" target="_blank" rel="noopener noreferrer">VIEW YEAR SOURCE ↗</a></div>
+        </div>
+      </article>
+      <article class="timeline-entry timeline-year" id="timeline-year-2002">
+        <div class="timeline-year-card">
+          <div class="timeline-year-head"><div><span class="timeline-year-tag">TELEVISION / NEWS</span><h2><span>2002</span> / TV news and teleseryes still lead</h2></div><span class="timeline-year-counter">03 / 11</span></div>
+          <p class="timeline-year-summary">Broadcast television continued to shape shared routines. Bituin began airing in September 2002; this preserved TV Patrol report illustrates the news culture of the same year.</p>
+          <p class="timeline-original-date"><span aria-hidden="true">◎</span> Broadcast report: 21 Aug 2002 · Bituin premiere: Sep 2002</p>
+          <div class="timeline-media-grid">
+            <div class="timeline-media-photo"><div class="timeline-photo-wrap"><img src="https://i.ytimg.com/vi/vb0jRsFHdsE/hqdefault.jpg" data-fallback="https://i.ytimg.com/vi/vb0jRsFHdsE/hqdefault.jpg" data-backup-room="forms" alt="Archival video thumbnail depicting TV Patrol archival special report (2002)" loading="lazy" decoding="async"><span class="timeline-photo-badge">ARCHIVAL VIDEO STILL</span></div><p class="timeline-photo-credit">Video preview image from the linked YouTube archive (not a separate event photograph)</p></div>
+            <div class="timeline-media-video"><span class="timeline-media-kicker">WATCH THE ORIGINAL-ERA ARCHIVE</span><button type="button" class="timeline-video-button" data-video-id="vb0jRsFHdsE" data-video-title="TV Patrol archival special report (2002)" aria-label="Play TV Patrol archival special report (2002)"><span class="timeline-video-thumb"><img src="https://i.ytimg.com/vi/vb0jRsFHdsE/mqdefault.jpg" data-backup-room="forms" alt="" loading="lazy" decoding="async"><span class="timeline-play-icon" aria-hidden="true">▶</span></span><span class="timeline-video-title">TV Patrol archival special report (2002)</span></button><p class="timeline-upload-note">YouTube: 2010 archive upload. Original year: 2002.</p><a href="https://www.youtube.com/watch?v=vb0jRsFHdsE" rel="noopener noreferrer" target="_blank" class="timeline-youtube-link">WATCH ON YOUTUBE ↗</a></div>
+          </div>
+          <div class="timeline-source-row"><span>FACT CHECK / ORIGINAL DATE</span><a href="https://www.moviefone.com/tv-shows/bituin/n9XbSQrRBLUdHGWuO4rOa1/" target="_blank" rel="noopener noreferrer">VIEW YEAR SOURCE ↗</a></div>
+        </div>
+      </article>
+      <article class="timeline-entry timeline-year" id="timeline-year-2003">
+        <div class="timeline-year-card">
+          <div class="timeline-year-head"><div><span class="timeline-year-tag">ASIANOVELAS / SMS</span><h2><span>2003</span> / Meteor Garden reaches Philippine screens</h2></div><span class="timeline-year-counter">04 / 11</span></div>
+          <p class="timeline-year-summary">The Taiwanese drama Meteor Garden first aired in the Philippines in May 2003, reshaping local pop-cultural tastes. Feature phones and texting were part of the same rapidly changing media landscape.</p>
+          <p class="timeline-original-date"><span aria-hidden="true">◎</span> Philippine broadcast: May 2003</p>
+          <div class="timeline-media-grid">
+            <div class="timeline-media-photo"><div class="timeline-photo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Nokia_3310.jpg" data-fallback="https://i.ytimg.com/vi/QYG3ivjlpMQ/hqdefault.jpg" data-backup-room="tech" alt="Nokia 3310, period photograph taken in 2003" loading="lazy" decoding="async"><span class="timeline-photo-badge">PERIOD PHOTOGRAPH / 2003</span></div><p class="timeline-photo-credit">J-P Kärnä · CC BY-SA 3.0 · photo taken in 2003</p><a class="timeline-photo-source" target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Nokia_3310.jpg">PHOTO CREDIT / LICENSE ↗</a></div>
+            <div class="timeline-media-video"><span class="timeline-media-kicker">WATCH THE ORIGINAL-ERA ARCHIVE</span><button type="button" class="timeline-video-button" data-video-id="QYG3ivjlpMQ" data-video-title="Meteor Garden — 2003 ABS-CBN dub excerpt" aria-label="Play Meteor Garden — 2003 ABS-CBN dub excerpt"><span class="timeline-video-thumb"><img src="https://i.ytimg.com/vi/QYG3ivjlpMQ/mqdefault.jpg" data-backup-room="tech" alt="" loading="lazy" decoding="async"><span class="timeline-play-icon" aria-hidden="true">▶</span></span><span class="timeline-video-title">Meteor Garden — 2003 ABS-CBN dub excerpt</span></button><p class="timeline-upload-note">YouTube: 2022 archive upload. Original year: 2003.</p><a href="https://www.youtube.com/watch?v=QYG3ivjlpMQ" rel="noopener noreferrer" target="_blank" class="timeline-youtube-link">WATCH ON YOUTUBE ↗</a></div>
+          </div>
+          <div class="timeline-source-row"><span>FACT CHECK / ORIGINAL DATE</span><a href="https://www.pep.ph/news/local/134241/10-things-you-might-not-know-about-the-original-meteor-garden" target="_blank" rel="noopener noreferrer">VIEW YEAR SOURCE ↗</a></div>
+        </div>
+      </article>
+      <article class="timeline-entry timeline-year" id="timeline-year-2004">
+        <div class="timeline-year-card">
+          <div class="timeline-year-head"><div><span class="timeline-year-tag">REALITY TV / VOTING</span><h2><span>2004</span> / Star Circle Quest turns aspiring stars into a TV event</h2></div><span class="timeline-year-counter">05 / 11</span></div>
+          <p class="timeline-year-summary">Star Circle Quest debuted on March 1, 2004. Viewers followed young hopefuls including Sandara Park and Hero Angeles as reality talent competitions became a prominent part of TV culture.</p>
+          <p class="timeline-original-date"><span aria-hidden="true">◎</span> Original series premiere: 1 Mar 2004</p>
+          <div class="timeline-media-grid">
+            <div class="timeline-media-photo"><div class="timeline-photo-wrap"><img src="https://i.ytimg.com/vi/qG8--KSTcpk/hqdefault.jpg" data-fallback="https://i.ytimg.com/vi/qG8--KSTcpk/hqdefault.jpg" data-backup-room="forms" alt="Archival video thumbnail depicting Sandara’s Memory Box — Star Circle Quest archive" loading="lazy" decoding="async"><span class="timeline-photo-badge">ARCHIVAL VIDEO STILL</span></div><p class="timeline-photo-credit">Video preview image from the linked YouTube archive (not a separate event photograph)</p></div>
+            <div class="timeline-media-video"><span class="timeline-media-kicker">WATCH THE ORIGINAL-ERA ARCHIVE</span><button type="button" class="timeline-video-button" data-video-id="qG8--KSTcpk" data-video-title="Sandara’s Memory Box — Star Circle Quest archive" aria-label="Play Sandara’s Memory Box — Star Circle Quest archive"><span class="timeline-video-thumb"><img src="https://i.ytimg.com/vi/qG8--KSTcpk/mqdefault.jpg" data-backup-room="forms" alt="" loading="lazy" decoding="async"><span class="timeline-play-icon" aria-hidden="true">▶</span></span><span class="timeline-video-title">Sandara’s Memory Box — Star Circle Quest archive</span></button><p class="timeline-upload-note">YouTube: later fan archive; uploader date not verified. Original year: 2004.</p><a href="https://www.youtube.com/watch?v=qG8--KSTcpk" rel="noopener noreferrer" target="_blank" class="timeline-youtube-link">WATCH ON YOUTUBE ↗</a></div>
+          </div>
+          <div class="timeline-source-row"><span>FACT CHECK / ORIGINAL DATE</span><a href="https://mb.com.ph/2024/6/9/joross-gamboa-tags-sandara-park-as-he-marked-20th-anniversary-of-star-circle-quest" target="_blank" rel="noopener noreferrer">VIEW YEAR SOURCE ↗</a></div>
+        </div>
+      </article>
+      <article class="timeline-entry timeline-year" id="timeline-year-2005">
+        <div class="timeline-year-card">
+          <div class="timeline-year-head"><div><span class="timeline-year-tag">REALITY TV / EVERYDAY LIFE</span><h2><span>2005</span> / Pinoy Big Brother opens its doors</h2></div><span class="timeline-year-counter">06 / 11</span></div>
+          <p class="timeline-year-summary">The first Pinoy Big Brother housemates entered on August 21, 2005. The show made ordinary personalities, audience participation and everyday life into prime-time entertainment.</p>
+          <p class="timeline-original-date"><span aria-hidden="true">◎</span> Original premiere: 21 Aug 2005</p>
+          <div class="timeline-media-grid">
+            <div class="timeline-media-photo"><div class="timeline-photo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Jeepney_Quezon_City.jpg/960px-Jeepney_Quezon_City.jpg" data-fallback="https://i.ytimg.com/vi/brhcpK0pEiQ/hqdefault.jpg" data-backup-room="forms" alt="A jeepney on a Quezon City street, photographed in June 2005" loading="lazy" decoding="async"><span class="timeline-photo-badge">EVERYDAY PHOTOGRAPH / 2005</span></div><p class="timeline-photo-credit">Albert Hazan · Public domain · Quezon City, June 2005</p><a class="timeline-photo-source" target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Jeepney_Quezon_City.jpg">PHOTO CREDIT / LICENSE ↗</a></div>
+            <div class="timeline-media-video"><span class="timeline-media-kicker">WATCH THE ORIGINAL-ERA ARCHIVE</span><button type="button" class="timeline-video-button" data-video-id="brhcpK0pEiQ" data-video-title="TV Patrol Throwback — first PBB housemates (2005)" aria-label="Play TV Patrol Throwback — first PBB housemates (2005)"><span class="timeline-video-thumb"><img src="https://i.ytimg.com/vi/brhcpK0pEiQ/mqdefault.jpg" data-backup-room="forms" alt="" loading="lazy" decoding="async"><span class="timeline-play-icon" aria-hidden="true">▶</span></span><span class="timeline-video-title">TV Patrol Throwback — first PBB housemates (2005)</span></button><p class="timeline-upload-note">YouTube: 2025 official archival reupload. Original year: 2005.</p><a href="https://www.youtube.com/watch?v=brhcpK0pEiQ" rel="noopener noreferrer" target="_blank" class="timeline-youtube-link">WATCH ON YOUTUBE ↗</a></div>
+          </div>
+          <div class="timeline-source-row"><span>FACT CHECK / ORIGINAL DATE</span><a href="https://www.youtube.com/watch?v=brhcpK0pEiQ" target="_blank" rel="noopener noreferrer">VIEW YEAR SOURCE ↗</a></div>
+        </div>
+      </article>
+      <article class="timeline-entry timeline-year" id="timeline-year-2006">
+        <div class="timeline-year-card">
+          <div class="timeline-year-head"><div><span class="timeline-year-tag">MUSIC / TALENT SHOW</span><h2><span>2006</span> / Philippine Idol brings music competition to TV</h2></div><span class="timeline-year-counter">07 / 11</span></div>
+          <p class="timeline-year-summary">Philippine Idol premiered in July 2006 on ABC 5. Mau Marcelo eventually won the inaugural season in December; this 2006 performance preserves part of the competition.</p>
+          <p class="timeline-original-date"><span aria-hidden="true">◎</span> Premiere: 30 Jul 2006 · Finale: 10 Dec 2006</p>
+          <div class="timeline-media-grid">
+            <div class="timeline-media-photo"><div class="timeline-photo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Philippine_Idol_Stage.jpg/960px-Philippine_Idol_Stage.jpg" data-fallback="https://i.ytimg.com/vi/XGWODk-EvIM/hqdefault.jpg" data-backup-room="forms" alt="Philippine Idol stage photographed in November 2006" loading="lazy" decoding="async"><span class="timeline-photo-badge">EVENT PHOTOGRAPH / 2006</span></div><p class="timeline-photo-credit">Jerome Trinona / jher25 · CC BY-SA 2.0 · Nov 2006</p><a class="timeline-photo-source" target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Philippine_Idol_Stage.jpg">PHOTO CREDIT / LICENSE ↗</a></div>
+            <div class="timeline-media-video"><span class="timeline-media-kicker">WATCH THE ORIGINAL-ERA ARCHIVE</span><button type="button" class="timeline-video-button" data-video-id="XGWODk-EvIM" data-video-title="Mau Marcelo — Philippine Idol (21 Oct 2006)" aria-label="Play Mau Marcelo — Philippine Idol (21 Oct 2006)"><span class="timeline-video-thumb"><img src="https://i.ytimg.com/vi/XGWODk-EvIM/mqdefault.jpg" data-backup-room="forms" alt="" loading="lazy" decoding="async"><span class="timeline-play-icon" aria-hidden="true">▶</span></span><span class="timeline-video-title">Mau Marcelo — Philippine Idol (21 Oct 2006)</span></button><p class="timeline-upload-note">YouTube: 2006 original-era upload. Original year: 2006.</p><a href="https://www.youtube.com/watch?v=XGWODk-EvIM" rel="noopener noreferrer" target="_blank" class="timeline-youtube-link">WATCH ON YOUTUBE ↗</a></div>
+          </div>
+          <div class="timeline-source-row"><span>FACT CHECK / ORIGINAL DATE</span><a href="https://www.philstar.com/headlines/2006/12/12/374633/lucena-woman-wins-145idol146" target="_blank" rel="noopener noreferrer">VIEW YEAR SOURCE ↗</a></div>
+        </div>
+      </article>
+      <article class="timeline-entry timeline-year" id="timeline-year-2007">
+        <div class="timeline-year-card">
+          <div class="timeline-year-head"><div><span class="timeline-year-tag">NOVELTY MUSIC / TELEVISION</span><h2><span>2007</span> / Itaktak Mo becomes a dance craze</h2></div><span class="timeline-year-counter">08 / 11</span></div>
+          <p class="timeline-year-summary">Joey de Leon’s Itaktak Mo was a 2007 hit connected with Eat Bulaga! and the TV novelty-dance tradition. Physical CDs still sat alongside a growing digital music culture.</p>
+          <p class="timeline-original-date"><span aria-hidden="true">◎</span> Song and album release: 2007</p>
+          <div class="timeline-media-grid">
+            <div class="timeline-media-photo"><div class="timeline-photo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/CD_collection.jpg/960px-CD_collection.jpg" data-fallback="https://i.ytimg.com/vi/XYQkSlMuxZY/hqdefault.jpg" data-backup-room="music" alt="CD collection photograph dated 2007" loading="lazy" decoding="async"><span class="timeline-photo-badge">PERIOD PHOTOGRAPH / 2007</span></div><p class="timeline-photo-credit">Elizabeth Ellis · CC BY-SA 2.0 · 2007</p><a class="timeline-photo-source" target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:CD_collection.jpg">PHOTO CREDIT / LICENSE ↗</a></div>
+            <div class="timeline-media-video"><span class="timeline-media-kicker">WATCH THE ORIGINAL-ERA ARCHIVE</span><button type="button" class="timeline-video-button" data-video-id="XYQkSlMuxZY" data-video-title="Joey de Leon — Itaktak Mo (2007 music video)" aria-label="Play Joey de Leon — Itaktak Mo (2007 music video)"><span class="timeline-video-thumb"><img src="https://i.ytimg.com/vi/XYQkSlMuxZY/mqdefault.jpg" data-backup-room="music" alt="" loading="lazy" decoding="async"><span class="timeline-play-icon" aria-hidden="true">▶</span></span><span class="timeline-video-title">Joey de Leon — Itaktak Mo (2007 music video)</span></button><p class="timeline-upload-note">YouTube: 2011 official music-video upload. Original year: 2007.</p><a href="https://www.youtube.com/watch?v=XYQkSlMuxZY" rel="noopener noreferrer" target="_blank" class="timeline-youtube-link">WATCH ON YOUTUBE ↗</a></div>
+          </div>
+          <div class="timeline-source-row"><span>FACT CHECK / ORIGINAL DATE</span><a href="https://music.apple.com/us/song/316931305" target="_blank" rel="noopener noreferrer">VIEW YEAR SOURCE ↗</a></div>
+        </div>
+      </article>
+      <article class="timeline-entry timeline-year" id="timeline-year-2008">
+        <div class="timeline-year-card">
+          <div class="timeline-year-head"><div><span class="timeline-year-tag">OPM / LIVE CULTURE</span><h2><span>2008</span> / The Eraserheads reunion becomes an OPM milestone</h2></div><span class="timeline-year-counter">09 / 11</span></div>
+          <p class="timeline-year-summary">On August 30, 2008, Eraserheads reunited at The Fort in Taguig. The concert brought together fans of 1990s OPM during a decade of changing music and youth styles.</p>
+          <p class="timeline-original-date"><span aria-hidden="true">◎</span> Concert performance: 30 Aug 2008</p>
+          <div class="timeline-media-grid">
+            <div class="timeline-media-photo"><div class="timeline-photo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Late_2000s_fashion.jpg/960px-Late_2000s_fashion.jpg" data-fallback="https://i.ytimg.com/vi/r04-HhJSqDU/hqdefault.jpg" data-backup-room="music" alt="2008 fashion photograph reflecting the styles of the period, not the concert" loading="lazy" decoding="async"><span class="timeline-photo-badge">PERIOD FASHION PHOTO / 2008</span></div><p class="timeline-photo-credit">Jonathan Lin · CC BY-SA 2.0 · 2008 fashion; not a concert image</p><a class="timeline-photo-source" target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Late_2000s_fashion.jpg">PHOTO CREDIT / LICENSE ↗</a></div>
+            <div class="timeline-media-video"><span class="timeline-media-kicker">WATCH THE ORIGINAL-ERA ARCHIVE</span><button type="button" class="timeline-video-button" data-video-id="r04-HhJSqDU" data-video-title="Eraserheads — Alapaap at the 2008 reunion" aria-label="Play Eraserheads — Alapaap at the 2008 reunion"><span class="timeline-video-thumb"><img src="https://i.ytimg.com/vi/r04-HhJSqDU/mqdefault.jpg" data-backup-room="music" alt="" loading="lazy" decoding="async"><span class="timeline-play-icon" aria-hidden="true">▶</span></span><span class="timeline-video-title">Eraserheads — Alapaap at the 2008 reunion</span></button><p class="timeline-upload-note">YouTube: 2008 audience upload. Original year: 2008.</p><a href="https://www.youtube.com/watch?v=r04-HhJSqDU" rel="noopener noreferrer" target="_blank" class="timeline-youtube-link">WATCH ON YOUTUBE ↗</a></div>
+          </div>
+          <div class="timeline-source-row"><span>FACT CHECK / ORIGINAL DATE</span><a href="https://www.gmanetwork.com/news/showbiz/content/117229/update-ely-buendia-rushed-to-hospital-eraserheads-reunion-concert-cut-short/story/" target="_blank" rel="noopener noreferrer">VIEW YEAR SOURCE ↗</a></div>
+        </div>
+      </article>
+      <article class="timeline-entry timeline-year" id="timeline-year-2009">
+        <div class="timeline-year-card">
+          <div class="timeline-year-head"><div><span class="timeline-year-tag">OPM / ONLINE VIDEO</span><h2><span>2009</span> / Rico Blanco releases Antukin</h2></div><span class="timeline-year-counter">10 / 11</span></div>
+          <p class="timeline-year-summary">Rico Blanco’s Antukin was promoted as a single in May 2009, with its music video circulating on TV music channels and online. The accompanying concert photograph was also taken in 2009.</p>
+          <p class="timeline-original-date"><span aria-hidden="true">◎</span> Single and video: May 2009</p>
+          <div class="timeline-media-grid">
+            <div class="timeline-media-photo"><div class="timeline-photo-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Rico_Blanco_(2009).jpg/960px-Rico_Blanco_(2009).jpg" data-fallback="https://i.ytimg.com/vi/sstGezJYsf0/hqdefault.jpg" data-backup-room="music" alt="Rico Blanco performs onstage in March 2009" loading="lazy" decoding="async"><span class="timeline-photo-badge">CONCERT PHOTOGRAPH / 2009</span></div><p class="timeline-photo-credit">Johan Sisno · CC BY 2.0 · Mar 2009</p><a class="timeline-photo-source" target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Rico_Blanco_%282009%29.jpg">PHOTO CREDIT / LICENSE ↗</a></div>
+            <div class="timeline-media-video"><span class="timeline-media-kicker">WATCH THE ORIGINAL-ERA ARCHIVE</span><button type="button" class="timeline-video-button" data-video-id="sstGezJYsf0" data-video-title="Rico Blanco — Antukin (2009 upload)" aria-label="Play Rico Blanco — Antukin (2009 upload)"><span class="timeline-video-thumb"><img src="https://i.ytimg.com/vi/sstGezJYsf0/mqdefault.jpg" data-backup-room="music" alt="" loading="lazy" decoding="async"><span class="timeline-play-icon" aria-hidden="true">▶</span></span><span class="timeline-video-title">Rico Blanco — Antukin (2009 upload)</span></button><p class="timeline-upload-note">YouTube: 2009 original-era upload. Original year: 2009.</p><a href="https://www.youtube.com/watch?v=sstGezJYsf0" rel="noopener noreferrer" target="_blank" class="timeline-youtube-link">WATCH ON YOUTUBE ↗</a></div>
+          </div>
+          <div class="timeline-source-row"><span>FACT CHECK / ORIGINAL DATE</span><a href="https://www.philstar.com/entertainment/2009/05/23/470185/rico-scores-another-hit" target="_blank" rel="noopener noreferrer">VIEW YEAR SOURCE ↗</a></div>
+        </div>
+      </article>
+      <article class="timeline-entry timeline-year" id="timeline-year-2010">
+        <div class="timeline-year-card">
+          <div class="timeline-year-head"><div><span class="timeline-year-tag">ONLINE NEWS / CIVIC LIFE</span><h2><span>2010</span> / The first nationwide automated election</h2></div><span class="timeline-year-counter">11 / 11</span></div>
+          <p class="timeline-year-summary">On May 10, 2010, the Philippines held its first nationwide automated elections. This original 2010 GMA video captures how the country’s televised news coverage increasingly incorporated digital systems.</p>
+          <p class="timeline-original-date"><span aria-hidden="true">◎</span> Election: 10 May 2010</p>
+          <div class="timeline-media-grid">
+            <div class="timeline-media-photo"><div class="timeline-photo-wrap"><img src="https://i.ytimg.com/vi/R5pN3FgaHTQ/hqdefault.jpg" data-fallback="https://i.ytimg.com/vi/R5pN3FgaHTQ/hqdefault.jpg" data-backup-room="society" alt="Archival video thumbnail depicting GMA News — Eleksyon 2010 coverage" loading="lazy" decoding="async"><span class="timeline-photo-badge">ARCHIVAL VIDEO STILL</span></div><p class="timeline-photo-credit">Video preview image from the linked YouTube archive (not a separate event photograph)</p></div>
+            <div class="timeline-media-video"><span class="timeline-media-kicker">WATCH THE ORIGINAL-ERA ARCHIVE</span><button type="button" class="timeline-video-button" data-video-id="R5pN3FgaHTQ" data-video-title="GMA News — Eleksyon 2010 coverage" aria-label="Play GMA News — Eleksyon 2010 coverage"><span class="timeline-video-thumb"><img src="https://i.ytimg.com/vi/R5pN3FgaHTQ/mqdefault.jpg" data-backup-room="society" alt="" loading="lazy" decoding="async"><span class="timeline-play-icon" aria-hidden="true">▶</span></span><span class="timeline-video-title">GMA News — Eleksyon 2010 coverage</span></button><p class="timeline-upload-note">YouTube: 2010 original-era upload. Original year: 2010.</p><a href="https://www.youtube.com/watch?v=R5pN3FgaHTQ" rel="noopener noreferrer" target="_blank" class="timeline-youtube-link">WATCH ON YOUTUBE ↗</a></div>
+          </div>
+          <div class="timeline-source-row"><span>FACT CHECK / ORIGINAL DATE</span><a href="https://www.comelec.gov.ph/?r=References%2FComelecResolutions%2FNLE%2F2010NLE%2Fnbcres10003" target="_blank" rel="noopener noreferrer">VIEW YEAR SOURCE ↗</a></div>
+        </div>
+      </article>
+    </div>
+    <div class="timeline-outro"><div><span class="kicker">BEYOND 2010</span><h2>From feeds to the future.</h2><p>Broadcast media did not disappear in 2010; it grew alongside mobile internet, social platforms and new forms of participation. Explore the class worksheet's present-day comparisons and 2030 predictions next.</p></div><a href="#future" class="btn btn-primary">PAST → PRESENT → 2030 ↗</a></div>
+    <div class="timeline-source-note">Media belong to their original creators and broadcasters. YouTube videos are shown through YouTube's player; playback depends on availability and embedding permissions. A thumbnail or reupload posted later does not change the year of the historical event.</div>
+  </div>
+</section>
 
 
     <!-- Phase 3: original supplied workbook, 2000–2010 / present / 2030 -->
@@ -1108,6 +1299,46 @@
 
     buildMuseum();
     buildRooms();
+    // Timeline clips deliberately use the original event year, NOT the YouTube upload year.
+    // Reuse the same accessible YouTube video dialog as the seven museum rooms.
+    document.querySelectorAll('[data-video-id]').forEach(button => {
+      button.addEventListener('click', () => {
+        const id = button.dataset.videoId;
+        if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return;
+        openExhibit({ type:'video', title: button.dataset.videoTitle,
+          url:'https://www.youtube.com/watch?v='+id }, rooms.find(room=>room.slug==='forms'));
+      });
+    });
+    document.querySelectorAll('[data-target-year]').forEach(button => {
+      button.addEventListener('click', () => {
+        const target=document.getElementById('timeline-year-'+button.dataset.targetYear);
+        if (target) target.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
+      });
+    });
+    document.querySelectorAll('.timeline-photo-wrap img[data-fallback]').forEach(img => {
+      let fallbackStage=0;
+      img.addEventListener('error', () => {
+        const videoStill=img.dataset.fallback;
+        const builtIn=coverFallbackPhotos[img.dataset.backupRoom];
+        if (fallbackStage++===0 && img.src!==videoStill) { img.src=videoStill;return; }
+        if (builtIn && img.src!==builtIn) {
+          img.src=builtIn;
+          const card=img.closest('.timeline-media-photo');
+          card.querySelector('.timeline-photo-badge').textContent='ILLUSTRATIVE BACKUP';
+          card.querySelector('.timeline-photo-credit').textContent='Illustration preserved from the group presentation. Not a dated event photograph.';
+          const creditLink=card.querySelector('.timeline-photo-source');
+          if (creditLink) creditLink.hidden=true;
+        } else img.style.display='none';
+      });
+    });
+    document.querySelectorAll('.timeline-video-thumb img[data-backup-room]').forEach(img => {
+      img.addEventListener('error', () => {
+        const builtIn=coverFallbackPhotos[img.dataset.backupRoom];
+        if(builtIn && img.src!==builtIn) img.src=builtIn;
+        else img.style.display='none';
+      });
+    });
+
     // A tactile 3D hinge: from broadcast life to early social internet.
     const portal = document.getElementById('era-portal');
     const portalToggle = document.getElementById('hinge-toggle');
