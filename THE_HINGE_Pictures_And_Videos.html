@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0e1b">
+  <meta name="description" content="THE HINGE is an interactive digital museum exploring Philippine popular culture, youth identity, music, and technology from 2000 to 2010.">
+  <title>THE HINGE — A Decade in Philippine Pop Culture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d0e1b;
+      --bg-raised: #17192d;
+      --panel: #1b1d32;
+      --panel-2: #22243d;
+      --cream: #f8f6ee;
+      --muted: #aaaec8;
+      --line: rgba(255,255,255,.13);
+      --pink: #ff69b5;
+      --cyan: #75e4fa;
+      --lime: #daff7a;
+      --yellow: #ffdb7c;
+      --max: 1192px;
+      --display: 'Space Grotesk', Arial, sans-serif;
+      --body: 'DM Sans', Arial, sans-serif;
+      --mono: 'Space Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--cream); font-family: var(--body); line-height: 1.55; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: -1; background: radial-gradient(circle at 12% 7%, rgba(254,103,174,.11), transparent 28%), radial-gradient(circle at 85% 34%, rgba(85,190,247,.08), transparent 35%); }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    img { display: block; max-width: 100%; }
+    [hidden] { display: none !important; }
+    :focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; }
+    ::selection { background: var(--pink); color: var(--bg); }
+    .skip-link { position: fixed; left: 12px; top: -70px; z-index: 300; background: var(--lime); color: #101218; padding: 12px 18px; font-weight: 800; }
+    .skip-link:focus { top: 12px; }
+    .container { width: min(var(--max), calc(100% - 64px)); margin-inline: auto; }
+    .kicker { display: inline-flex; align-items: center; gap: 10px; font: 700 11px/1.6 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--lime); }
+    .kicker::before { content: ''; width: 8px; height: 8px; background: currentColor; border-radius: 100%; box-shadow: 0 0 15px currentColor; }
+    .eyebrow { font: 700 11px/1.5 var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--cyan); }
+    .pill { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: rgba(255,255,255,.045); border-radius: 50px; padding: 8px 12px; font: 700 10px/1.2 var(--mono); letter-spacing: .06em; }
+    .section-top { display: flex; justify-content: space-between; align-items: end; gap: 22px; margin-bottom: 28px; }
+    .section-heading { margin: 8px 0 0; font: 700 clamp(32px, 4.8vw, 59px)/1.04 var(--display); letter-spacing: -.045em; }
+    .section-sub { max-width: 570px; margin: 13px 0 0; color: var(--muted); font-size: 15px; }
+    .page { min-height: min(800px, 80vh); animation: page-in .35s ease both; }
+    @keyframes page-in { from { opacity: .4; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Navigation */
+    .site-header { position: sticky; top: 0; z-index: 60; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); background: rgba(13,14,27,.91); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 28px; min-height: 78px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; flex: 0 0 auto; }
+    .brand-mark { width: 37px; height: 37px; display: grid; place-items: center; color: #11121f; font: 700 24px/1 var(--display); background: var(--lime); border-radius: 11px; transform: rotate(-8deg); box-shadow: 3px 3px 0 var(--pink); }
+    .brand-text { display: grid; font: 700 15px/1.05 var(--display); letter-spacing: -.06em; }
+    .brand-text small { margin-top: 5px; font: 700 8px/1.4 var(--mono); letter-spacing: .1em; color: var(--muted); }
+    .nav-links { display: flex; align-items: center; gap: 7px; margin-left: auto; }
+    .nav-links a { border: 1px solid transparent; border-radius: 10px; padding: 10px 15px; text-decoration: none; font: 700 12px/1.3 var(--mono); color: #bfc0d6; transition: background .2s, color .2s; }
+    .nav-links a:hover { background: rgba(255,255,255,.06); color: white; }
+    .nav-links a[aria-current="page"] { color: var(--bg); background: var(--lime); }
+    .nav-meta { flex: 0 0 auto; border-left: 1px solid var(--line); padding-left: 24px; color: var(--pink); font: 700 10px/1.55 var(--mono); letter-spacing: .06em; }
+    .menu-toggle { display: none; align-items: center; justify-content: center; width: 44px; height: 44px; background: #22253c; border: 1px solid var(--line); border-radius: 10px; color: white; font-size: 20px; cursor: pointer; }
+
+    /* Hero */
+    .hero { position: relative; padding: 84px 0 42px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0,1.02fr) minmax(0,.98fr); gap: clamp(28px, 5vw, 74px); align-items: center; }
+    .hero-title { font: 700 clamp(75px, 10.6vw, 144px)/.79 var(--display); letter-spacing: -.095em; margin: 33px 0 26px; text-transform: uppercase; }
+    .hero-title span { display: block; }
+    .hero-title .second-line { position: relative; color: var(--lime); }
+    .hero-title .second-line::after { content: '✳'; position: absolute; right: 0; top: -23px; font-size: .33em; color: var(--pink); letter-spacing: 0; transform: rotate(18deg); }
+    .hero-lead { font-size: clamp(16px, 1.7vw, 19px); line-height: 1.65; max-width: 525px; color: #c8cada; margin: 0 0 31px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 13px; border-radius: 12px; min-height: 49px; padding: 13px 20px; border: 1px solid transparent; font: 700 12px/1.2 var(--mono); text-decoration: none; cursor: pointer; transition: transform .2s, background .2s, border-color .2s; }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-primary { color: #171523; background: var(--lime); }
+    .btn-primary:hover { background: #ebffb3; }
+    .btn-secondary { background: rgba(255,255,255,.05); color: var(--cream); border-color: rgba(255,255,255,.2); }
+    .btn-secondary:hover { border-color: var(--cyan); }
+    .hero-facts { display: flex; gap: 30px; flex-wrap: wrap; margin-top: 58px; padding-top: 25px; border-top: 1px solid var(--line); }
+    .hero-facts strong { display: block; color: var(--cream); font: 700 26px/1 var(--display); letter-spacing: -.04em; }
+    .hero-facts span { display: block; margin-top: 7px; font: 700 10px/1.4 var(--mono); letter-spacing: .04em; color: var(--muted); }
+    .hero-art { position: relative; min-height: 535px; isolation: isolate; }
+    .art-board { position: absolute; inset: 35px 8px 30px 13px; overflow: hidden; border: 1px solid #494964; background: radial-gradient(circle at 50% 60%, #45496e 0, #24273f 46%, #1a1d31 82%); border-radius: 24px; box-shadow: 18px 18px 0 #070811, 0 28px 68px rgba(0,0,0,.36); }
+    .art-board::before { content: ''; position: absolute; inset: 0; opacity: .23; background: linear-gradient(90deg, transparent 97%, #fff 98%), linear-gradient(transparent 97%, #fff 98%); background-size: 29px 29px; }
+    .art-board-head { position: absolute; inset: 0 0 auto; display: flex; align-items: center; gap: 7px; padding: 15px 18px; border-bottom: 1px solid rgba(255,255,255,.17); background: #30334e; }
+    .art-board-head i { width: 9px; height: 9px; border-radius: 50%; background: var(--pink); }
+    .art-board-head i:nth-child(2) { background: var(--yellow); }
+    .art-board-head i:nth-child(3) { background: var(--lime); }
+    .art-board-head span { margin-left: auto; font: 700 9px var(--mono); color: #cdd0e7; letter-spacing: .04em; }
+    .crt { position: absolute; width: 66%; height: 57%; left: 15%; top: 19%; transform: rotate(-6deg); border: 15px solid #e2dfd9; border-bottom-width: 42px; border-right-width: 20px; border-radius: 34px 36px 42px 42px; background: #1b1b29; box-shadow: 10px 12px 0 #a29da8, 13px 18px 15px rgba(0,0,0,.32); }
+    .crt::after { content: '●  POWER           CH 00'; position: absolute; bottom: -31px; left: 12px; right: 0; color: #4d4755; font: 700 9px var(--mono); letter-spacing: -.02em; }
+    .crt-screen { position: absolute; inset: 7px; border-radius: 40% / 19%; border: 10px solid #0b0b16; background: linear-gradient(155deg,rgba(255,255,255,.22),transparent 35%), repeating-linear-gradient(0deg,rgba(0,0,0,.13),rgba(0,0,0,.13) 2px,transparent 2px,transparent 5px), linear-gradient(90deg,#f77ea9 0 19%,#d7fc75 19% 40%,#82dcf4 40% 60%,#f9c36c 60% 80%,#b1a0f4 80% 100%); display: grid; place-items: center; overflow: hidden; }
+    .crt-screen::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse, transparent 45%, rgba(3,3,12,.5)); }
+    .crt-screen span { position: relative; z-index: 1; font: 700 clamp(21px, 2.9vw, 38px)/.9 var(--display); text-align: center; letter-spacing: -.07em; color: #fff; text-shadow: 3px 3px 0 #171324, -2px -2px 0 #171324; transform: rotate(5deg); }
+    .art-label { position: absolute; z-index: 2; border: 2px solid #151527; padding: 12px 16px; color: #191721; font: 700 13px/1.25 var(--mono); box-shadow: 5px 5px 0 #10101d; }
+    .label-one { top: 18%; right: -1%; background: var(--pink); transform: rotate(11deg); }
+    .label-two { left: -1%; bottom: 13%; background: var(--lime); transform: rotate(-10deg); }
+    .label-three { right: 0; bottom: 14%; background: var(--cyan); transform: rotate(6deg); }
+    .art-chip { position: absolute; z-index: 3; top: 10px; left: -16px; width: 94px; height: 94px; border: 2px dashed #d9c677; border-radius: 50%; background: var(--yellow); color: #1a1725; display: grid; place-items: center; text-align: center; font: 700 12px/1.25 var(--mono); transform: rotate(-16deg); }
+    .ticker { padding: 16px 0; border-block: 1px solid var(--line); background: rgba(255,255,255,.025); overflow: hidden; margin-top: 54px; }
+    .ticker-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; font: 700 10px var(--mono); letter-spacing: .07em; color: #aeb0c9; }
+    .ticker-inner b { color: var(--pink); font-size: 18px; }
+    .home-feature { padding: 76px 0 96px; }
+    .feature-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 28px; }
+    .feature { background: #181a2e; border: 1px solid var(--line); border-radius: 17px; padding: 24px; }
+    .feature-num { display: flex; justify-content: space-between; color: var(--pink); font: 700 12px var(--mono); }
+    .feature-num span { color: var(--cyan); font-size: 22px; }
+    .feature h3 { margin: 24px 0 8px; font: 700 23px/1.2 var(--display); letter-spacing: -.04em; }
+    .feature p { margin: 0; color: var(--muted); font-size: 14px; }
+    .home-cta { margin-top: 38px; display: flex; align-items: center; gap: 15px; font: 700 12px var(--mono); color: var(--lime); text-decoration: none; }
+    .home-cta:hover { text-decoration: underline; }
+
+    /* Museum */
+    .inside-page { padding: 72px 0 100px; }
+    .museum-headline { max-width: 730px; }
+    .room-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; margin-top: 42px; }
+    .room-card { position: relative; isolation: isolate; overflow: hidden; min-height: 367px; display: flex; flex-direction: column; text-decoration: none; padding: 24px; border: 1px solid rgba(255,255,255,.16); border-radius: 19px; background: #20243a; transition: transform .24s, border-color .24s, box-shadow .24s; }
+    .room-card:hover { transform: translateY(-6px); border-color: var(--room-accent); box-shadow: 0 12px 32px rgba(0,0,0,.26); }
+    .room-card::before { content: ''; position: absolute; z-index: -2; inset: 0; background: radial-gradient(circle at 79% 22%,var(--room-glow),transparent 46%),linear-gradient(140deg,#252945,#15182c); }
+    .room-card::after { content: ''; position: absolute; z-index: -1; width: 260px; height: 260px; right: -66px; top: 49px; border: 34px solid var(--room-accent); opacity: .1; border-radius: 49% 26% 53% 22%; transform: rotate(-26deg); }
+    .room-card-top { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+    .room-card-top span { color: var(--room-accent); font: 700 10px var(--mono); letter-spacing: .09em; }
+    .room-card-arrow { display: grid; place-items: center; width: 33px; height: 33px; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; font-size: 18px; transition: transform .2s; }
+    .room-card:hover .room-card-arrow { transform: translate(3px,-3px); }
+    .room-card-symbol { display: grid; place-items: center; align-self: end; width: 122px; height: 122px; margin-top: 8px; font: 700 104px/.95 var(--display); letter-spacing: -.08em; color: var(--room-accent); transform: rotate(-8deg); text-shadow: 5px 6px 0 #111425; }
+    .room-card-body { margin-top: auto; }
+    .room-card-body h3 { font: 700 clamp(22px,2.1vw,27px)/1.13 var(--display); letter-spacing: -.045em; margin: 0 0 10px; }
+    .room-card-body p { margin: 0; font-size: 13px; color: #bdc1d7; max-width: 290px; }
+    .room-card:nth-child(7) { grid-column: span 2; min-height: 260px; }
+    .room-card:nth-child(7) .room-card-symbol { position: absolute; top: 54px; right: 8%; font-size: 150px; }
+    .room-card:nth-child(7) .room-card-body { max-width: 460px; }
+    .museum-note { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 18px 20px; border: 1px dashed rgba(255,255,255,.21); border-radius: 13px; color: var(--muted); font-size: 13px; }
+    .museum-note strong { color: var(--cream); }
+
+    /* Room details */
+    .breadcrumb { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; font: 700 11px var(--mono); color: var(--muted); }
+    .breadcrumb a { color: var(--cyan); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .room-intro { position: relative; overflow: hidden; padding: clamp(25px, 5vw, 60px); border-radius: 22px; border: 1px solid var(--line); background: radial-gradient(circle at 86% 35%,var(--room-glow),transparent 33%),linear-gradient(135deg,#20243c,#121528); }
+    .room-intro::after { position: absolute; right: 2%; bottom: -105px; content: attr(data-number); color: var(--room-accent); opacity: .09; font: 700 clamp(210px,30vw,440px)/1 var(--display); letter-spacing: -.12em; pointer-events: none; }
+    .room-intro > * { position: relative; z-index: 1; }
+    .room-intro h1 { max-width: 780px; margin: 16px 0 17px; font: 700 clamp(43px, 7vw, 82px)/1 var(--display); letter-spacing: -.06em; }
+    .room-intro p { margin: 0; max-width: 690px; color: #d1d3e0; font-size: 16px; }
+    .topic-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 29px; }
+    .topic-chips span { border: 1px solid rgba(255,255,255,.25); padding: 8px 11px; border-radius: 100px; font: 700 10px var(--mono); }
+    .room-content { display: grid; grid-template-columns: minmax(0,1.6fr) minmax(245px,.9fr); gap: 20px; margin-top: 22px; }
+    .content-panel { border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.035); padding: 28px; }
+    .panel-label { margin: 0 0 14px; font: 700 11px var(--mono); color: var(--cyan); letter-spacing: .09em; }
+    .content-panel h2 { margin: 0 0 17px; font: 700 27px/1.13 var(--display); letter-spacing: -.035em; }
+    .topic-list { display: grid; gap: 13px; list-style: none; padding: 0; margin: 0; }
+    .topic-list li { display: flex; gap: 12px; color: #d3d6e4; font-size: 14px; }
+    .topic-list li::before { content: '✳'; color: var(--lime); font-size: 13px; flex: 0 0 auto; }
+    .room-aside { background: var(--lime); color: #1a2021; }
+    .room-aside .panel-label { color: #4a5037; }
+    .room-aside h2 { font-size: 28px; }
+    .room-aside p { font-size: 14px; line-height: 1.65; }
+    .room-aside .mini-bar { height: 5px; width: 70px; margin-top: 26px; background: #1c2423; border-radius: 6px; }
+    .exhibit-section { margin-top: 70px; }
+    .exhibit-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; margin-top: 28px; }
+    .exhibit-card { text-align: left; display: block; width: 100%; padding: 0; overflow: hidden; color: var(--cream); border: 1px solid var(--line); border-radius: 17px; background: #1a1c31; cursor: pointer; transition: transform .2s,border-color .2s; }
+    .exhibit-card:hover { transform: translateY(-5px); border-color: var(--cyan); }
+    .exhibit-visual { position: relative; height: 212px; overflow: hidden; background: linear-gradient(135deg, #5a446b, #202943); }
+    .exhibit-art { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 20px; background: radial-gradient(circle at 100% 5%,var(--art-color),transparent 53%),linear-gradient(145deg,#343353,#191e33); }
+    .exhibit-art::before { content: ''; position: absolute; height: 184px; width: 184px; right: -36px; top: 14px; border-radius: 50%; border: 22px solid var(--art-color); opacity: .27; }
+    .art-micro { z-index: 1; font: 700 10px var(--mono); letter-spacing: .12em; }
+    .art-word { z-index: 1; max-width: 92%; font: 700 36px/.95 var(--display); letter-spacing: -.07em; text-transform: uppercase; overflow-wrap: anywhere; }
+    .exhibit-visual img { position: absolute; z-index: 2; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .2s; }
+    .exhibit-visual.has-image img { opacity: 1; }
+    .media-play { position: absolute; z-index: 3; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; background: var(--lime); color: #131523; font-size: 25px; box-shadow: 0 7px 23px rgba(0,0,0,.38); }
+    .exhibit-copy { padding: 21px; }
+    .exhibit-copy small { display: block; color: var(--cyan); font: 700 10px var(--mono); letter-spacing: .1em; margin-bottom: 10px; }
+    .exhibit-copy strong { font: 700 19px/1.2 var(--display); display: block; min-height: 47px; letter-spacing: -.025em; }
+    .exhibit-copy span { display: inline-flex; gap: 8px; align-items: center; margin-top: 19px; font: 700 11px var(--mono); color: var(--lime); }
+    .room-bottom-nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); margin-top: 62px; padding-top: 22px; }
+
+    /* Comparison room */
+    .compare-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; margin-top: 25px; }
+    .compare-card { border: 1px solid var(--line); border-radius: 17px; background: #1a1d31; padding: 24px; }
+    .compare-card h3 { font: 700 25px var(--display); margin: 0 0 23px; }
+    .compare-block { margin-bottom: 18px; }
+    .compare-block:last-child { margin-bottom: 0; }
+    .compare-block small { display: inline-block; margin-bottom: 7px; padding: 4px 8px; border: 1px solid currentColor; border-radius: 5px; font: 700 10px var(--mono); color: var(--pink); }
+    .compare-block.now small { color: var(--lime); }
+    .compare-block p { margin: 0; font-size: 14px; color: #cbd0df; }
+    .comparison-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px; }
+    .comparison-summary .content-panel h3 { margin: 0 0 13px; font: 700 21px var(--display); }
+    .comparison-summary .content-panel p { margin: 0; font-size: 14px; color: var(--muted); }
+
+    /* Timeline */
+    .timeline { max-width: 910px; display: grid; gap: 18px; margin: 46px auto 0; position: relative; }
+    .timeline::before { content: ''; position: absolute; left: 26px; top: 24px; bottom: 24px; width: 2px; background: linear-gradient(var(--pink),var(--cyan),var(--lime)); }
+    .timeline-entry { position: relative; padding-left: 77px; }
+    .timeline-entry::before { content: ''; position: absolute; left: 14px; top: 36px; height: 26px; width: 26px; border: 6px solid var(--bg); box-shadow: 0 0 0 2px var(--pink); border-radius: 50%; background: var(--pink); }
+    .timeline-entry:nth-child(2)::before { box-shadow: 0 0 0 2px var(--cyan); background: var(--cyan); }
+    .timeline-entry:nth-child(3)::before { box-shadow: 0 0 0 2px var(--lime); background: var(--lime); }
+    .timeline-entry:nth-child(4)::before { box-shadow: 0 0 0 2px var(--yellow); background: var(--yellow); }
+    .timeline-card { display: grid; grid-template-columns: 190px 1fr; gap: 24px; border: 1px solid var(--line); background: #1a1c31; border-radius: 15px; padding: 28px; }
+    .timeline-card h3 { margin: 0; font: 700 28px/1.1 var(--display); color: var(--lime); letter-spacing: -.045em; }
+    .timeline-card p { margin: 0; color: #c4c8d9; font-size: 14px; }
+    .timeline-card small { display: block; color: var(--pink); font: 700 10px var(--mono); margin-bottom: 7px; }
+
+    /* References */
+    .reference-intro { max-width: 800px; margin: 22px 0 28px; }
+    .reference-list { margin: 0; padding-left: 27px; display: grid; gap: 0; }
+    .reference-list li { border-bottom: 1px solid var(--line); padding: 17px 10px 17px 7px; color: #cbd0df; font-size: 14px; overflow-wrap: anywhere; }
+    .reference-list li::marker { color: var(--pink); font: 700 11px var(--mono); }
+    .notice { border-left: 4px solid var(--yellow); background: rgba(255,219,124,.07); border-radius: 0 13px 13px 0; padding: 20px 22px; color: #e4e2d8; margin-top: 28px; font-size: 13px; }
+    .notice strong { color: var(--yellow); }
+
+    /* Modal */
+    .exhibit-dialog { position: fixed; inset: 0; width: min(860px,calc(100% - 30px)); max-height: min(91vh,940px); margin: auto; border: 1px solid rgba(255,255,255,.24); border-radius: 20px; overflow: auto; padding: 0; color: var(--cream); background: #171a2e; box-shadow: 0 40px 100px rgba(0,0,0,.7); }
+    .exhibit-dialog::backdrop { background: rgba(3,5,15,.84); backdrop-filter: blur(7px); }
+    .dialog-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; border-bottom: 1px solid var(--line); padding: 22px 24px; }
+    .dialog-head h2 { margin: 3px 0 0; font: 700 clamp(19px,3vw,27px)/1.2 var(--display); }
+    .dialog-close { width: 39px; height: 39px; flex: 0 0 auto; border-radius: 50%; border: 1px solid var(--line); color: white; background: #282c47; cursor: pointer; font-size: 23px; }
+    .dialog-body { padding: 24px; }
+    .dialog-description { color: #c9ccdb; margin: 19px 0 0; font-size: 14px; }
+    .dialog-poster { height: min(53vh,490px); border: 1px solid var(--line); border-radius: 13px; overflow: hidden; position: relative; }
+    .dialog-poster .art-word { font-size: clamp(44px,9vw,86px); max-width: 85%; }
+    .dialog-poster .exhibit-art::before { width: 390px; height: 390px; border-width: 56px; }
+    .dialog-poster img { object-fit: contain; background: #111425; }
+    .video-frame { aspect-ratio: 16/9; background: #070911; overflow: hidden; border-radius: 12px; }
+    .video-frame iframe { width: 100%; height: 100%; border: 0; }
+    .video-outlink { display: inline-flex; margin-top: 15px; color: var(--lime); font: 700 12px var(--mono); }
+
+    /* Footer */
+    .site-footer { border-top: 1px solid var(--line); background: #0a0b15; padding: 37px 0; }
+    .footer-inner { display: flex; align-items: flex-start; justify-content: space-between; gap: 28px; }
+    .footer-brand { font: 700 24px var(--display); letter-spacing: -.06em; }
+    .footer-inner p { margin: 6px 0 0; max-width: 520px; color: var(--muted); font-size: 12px; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; padding-top: 5px; }
+    .footer-links a { text-decoration: none; color: var(--cyan); font: 700 11px var(--mono); }
+    .footer-links a:hover { text-decoration: underline; }
+
+    @media (max-width: 1020px) {
+      .nav-meta { display: none; }
+      .hero-art { min-height: 440px; }
+      .hero-title { font-size: clamp(72px,10vw,114px); }
+      .crt { border-width: 12px; border-bottom-width: 36px; }
+      .room-grid, .exhibit-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .room-card:nth-child(7) { grid-column: span 2; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .compare-card { display: grid; grid-template-columns: 140px 1fr 1fr; gap: 20px; align-items: start; }
+      .compare-card h3 { margin: 0; }
+      .compare-block { margin: 0; }
+    }
+    @media (max-width: 760px) {
+      .container { width: min(var(--max), calc(100% - 36px)); }
+      .nav-inner { min-height: 65px; }
+      .menu-toggle { display: flex; }
+      .nav-links { position: absolute; top: calc(100% - 1px); left: 0; right: 0; display: none; padding: 14px 18px 20px; flex-direction: column; gap: 5px; border-bottom: 1px solid var(--line); background: #151728; box-shadow: 0 20px 32px rgba(0,0,0,.35); }
+      .nav-links.is-open { display: flex; }
+      .nav-links a { width: 100%; padding: 15px; }
+      .hero { padding: 58px 0 25px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 35px; }
+      .hero-title { font-size: clamp(80px, 15vw, 126px); margin-top: 25px; }
+      .hero-facts { margin-top: 36px; }
+      .hero-art { min-height: 440px; max-width: 540px; width: 100%; margin-inline: auto; }
+      .art-board { right: 19px; bottom: 20px; }
+      .ticker { margin-top: 35px; }
+      .ticker-inner { justify-content: center; gap: 8px 18px; }
+      .home-feature { padding: 60px 0; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature h3 { margin-top: 14px; }
+      .inside-page { padding: 43px 0 70px; }
+      .section-top { align-items: start; flex-direction: column; }
+      .section-heading { font-size: 40px; }
+      .room-grid { gap: 13px; }
+      .room-card { min-height: 325px; padding: 19px; }
+      .room-card-symbol { font-size: 74px; height: 110px; }
+      .room-card:nth-child(7) { min-height: 235px; }
+      .room-content { grid-template-columns: 1fr; }
+      .exhibit-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .exhibit-visual { height: 185px; }
+      .compare-card { display: block; }
+      .compare-card h3 { margin-bottom: 20px; }
+      .compare-block { margin-bottom: 18px; }
+      .timeline-card { grid-template-columns: 1fr; gap: 12px; padding: 22px; }
+      .footer-inner { flex-direction: column; }
+    }
+    @media (max-width: 520px) {
+      .hero-title { font-size: clamp(67px,17vw,94px); }
+      .hero-title .second-line::after { right: -5px; top: -12px; }
+      .hero-lead { font-size: 16px; }
+      .hero-actions .btn { flex: 1 1 100%; }
+      .hero-facts { gap: 18px; justify-content: space-between; }
+      .hero-facts strong { font-size: 22px; }
+      .hero-facts span { font-size: 9px; }
+      .hero-art { min-height: 350px; }
+      .art-board { inset: 23px 13px 17px 10px; }
+      .crt { border-width: 10px; border-bottom-width: 33px; border-radius: 18px; }
+      .crt-screen { border-width: 5px; }
+      .art-chip { height: 69px; width: 69px; font-size: 9px; top: -3px; left: -5px; }
+      .art-label { padding: 8px; font-size: 10px; }
+      .label-two { bottom: 7%; }
+      .label-three { bottom: 10%; }
+      .ticker-inner span:nth-of-type(n+4), .ticker-inner b:nth-of-type(n+4) { display: none; }
+      .room-grid, .exhibit-grid { grid-template-columns: 1fr; }
+      .room-card, .room-card:nth-child(7) { grid-column: auto; min-height: 300px; }
+      .room-card:nth-child(7) .room-card-symbol { top: 65px; font-size: 115px; }
+      .room-intro { padding: 27px 21px; }
+      .room-intro h1 { font-size: 43px; }
+      .content-panel { padding: 22px; }
+      .exhibit-visual { height: 220px; }
+      .exhibit-copy strong { min-height: auto; }
+      .comparison-summary { grid-template-columns: 1fr; }
+      .timeline-entry { padding-left: 52px; }
+      .timeline::before { left: 14px; }
+      .timeline-entry::before { left: 2px; }
+      .dialog-body { padding: 15px; }
+      .dialog-head { padding: 17px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+    }
+
+    /* Curated Wikimedia Commons photography and interactive video gallery */
+    .room-card-cover { position: relative; height: 155px; margin: 15px 0 21px; border-radius: 12px; overflow: hidden; isolation: isolate; background: linear-gradient(125deg,var(--room-glow),#181b2c); border: 1px solid rgba(255,255,255,.15); }
+    .room-card-cover::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg,transparent 35%,rgba(0,0,0,.25)); pointer-events: none; }
+    .room-card-cover img { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .35s, transform .35s; }
+    .room-card-cover.loaded img { opacity: 1; }
+    .room-card:hover .room-card-cover img { transform: scale(1.05); }
+    .room-cover-symbol { display: grid; place-items: center; height: 100%; font: 700 92px/1 var(--display); color: var(--room-accent); opacity: .76; }
+    .room-card:nth-child(7) { min-height: 330px; }
+    .room-card:nth-child(7) .room-card-cover { height: 155px; max-width: 100%; }
+    .room-card:nth-child(7) .room-card-body { max-width: 100%; }
+    .exhibit-photo-credit { font: 500 11px/1.55 var(--mono); color: var(--muted); margin: 12px 0 0; }
+    .exhibit-photo-credit a { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
+    .media-note { padding: 13px 15px; background: rgba(117,228,250,.055); border: 1px solid rgba(117,228,250,.22); border-radius: 10px; color: #d0d4e5; font-size: 12px; margin-top: 20px; }
+    .photo-source-badge { position: absolute; z-index: 3; bottom: 11px; left: 11px; padding: 5px 8px; border-radius: 6px; background: rgba(12,13,22,.86); border: 1px solid rgba(255,255,255,.2); color: #fff; font: 700 9px var(--mono); letter-spacing: .06em; }
+    @media (max-width: 520px) { .archive-strip {grid-template-columns:1fr 1fr !important;} .archive-strip a:last-child {display:none;} .room-card-cover { height: 147px; } .room-card:nth-child(7) { min-height: 320px; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="The Hinge — Home">
+        <span class="brand-mark" aria-hidden="true">H</span>
+        <span class="brand-text">THE HINGE<small>PH POP CULTURE / 2000–2010</small></span>
+      </a>
+      <nav class="nav-links" id="site-nav" aria-label="Main navigation">
+        <a data-nav="home" href="#home">Home</a>
+        <a data-nav="museum" href="#museum">Museum rooms</a>
+        <a data-nav="timeline" href="#timeline">Timeline</a>
+        <a data-nav="references" href="#references">References</a>
+      </nav>
+      <div class="nav-meta">DIGITAL<br>EXHIBITION_</div>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">☰</button>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="page" id="view-home" data-view="home" aria-label="Home">
+      <div class="hero">
+        <div class="container hero-grid">
+          <div>
+            <span class="kicker">An interactive digital exhibition</span>
+            <h1 class="hero-title"><span>THE</span><span class="second-line">HINGE.</span></h1>
+            <p class="hero-lead">A time capsule of Philippine pop culture from <strong>2000 to 2010</strong>—when television ruled, texts were everything, and an entire generation found itself online.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#museum">ENTER THE MUSEUM <span aria-hidden="true">↗</span></a>
+              <a class="btn btn-secondary" href="#timeline">EXPLORE THE TIMELINE <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="hero-facts" aria-label="Exhibition at a glance">
+              <div><strong>07</strong><span>EXHIBITION ROOMS</span></div>
+              <div><strong>2000–10</strong><span>A DECADE IN FOCUS</span></div>
+              <div><strong>PH</strong><span>MADE OF MEMORIES</span></div>
+            </div>
+          </div>
+          <div class="hero-art" role="img" aria-label="Retro-inspired graphic featuring a CRT television with color bars and early 2000s labels">
+            <div class="art-board">
+              <div class="art-board-head"><i></i><i></i><i></i><span>REWIND.EXE</span></div>
+              <div class="crt"><div class="crt-screen"><span>THE<br>2000s</span></div></div>
+            </div>
+            <div class="art-chip">100%<br>NOSTALGIA</div>
+            <div class="art-label label-one">✳ Y2K<br>MEMORIES</div>
+            <div class="art-label label-two">TXT ME!<br>✦ 160 CHARS</div>
+            <div class="art-label label-three">PRESS<br>REWIND ↶</div>
+          </div>
+        </div>
+      </div>
+      <div class="ticker" aria-label="Featured cultural touchstones"><div class="container ticker-inner"><span>OPM ROCK</span><b aria-hidden="true">✳</b><span>INTERNET CAFÉS</span><b aria-hidden="true">✳</b><span>FRIENDSTER</span><b aria-hidden="true">✳</b><span>Y2K FASHION</span><b aria-hidden="true">✳</b><span>SMS GENERATION</span></div></div>
+      <div class="container home-feature">
+        <span class="eyebrow">// WHAT'S INSIDE</span>
+        <div class="section-top">
+          <div><h2 class="section-heading">A decade worth<br>revisiting.</h2><p class="section-sub">More than nostalgia. Follow the connections between entertainment, identity, technology, and everyday Filipino life.</p></div>
+          <span class="pill">CURATED DIGITAL MUSEUM ↗</span>
+        </div>
+        <div class="feature-grid">
+          <div class="feature"><div class="feature-num">01 / LOOK <span aria-hidden="true">✳</span></div><h3>Fashion & identity</h3><p>See how style, beauty ideals, and youth communities shaped the way a generation expressed itself.</p></div>
+          <div class="feature"><div class="feature-num">02 / LISTEN <span aria-hidden="true">♫</span></div><h3>Music & media</h3><p>Revisit the era of OPM rock, television talent searches, and pop-culture moments.</p></div>
+          <div class="feature"><div class="feature-num">03 / CONNECT <span aria-hidden="true">⌘</span></div><h3>Technology & change</h3><p>From SMS and internet cafés to social profiles, explore the shift into digital life.</p></div>
+        </div>
+        <div class="archive-strip" aria-label="A few archival images from the decade" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0 12px">
+          <a href="#room-music" class="home-archive-img" style="min-height:130px;border-radius:12px;overflow:hidden;position:relative;background:#292b48;border:1px solid var(--line)"><img alt="Rico Blanco performing in 2009" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Rico_Blanco_%282009%29.jpg?width=850" style="width:100%;height:165px;object-fit:cover"><span style="position:absolute;left:10px;bottom:10px;background:#0d0e1bcc;padding:5px 8px;border-radius:6px;font:700 10px var(--mono)">OPM · 2009</span></a>
+          <a href="#room-forms" class="home-archive-img" style="min-height:130px;border-radius:12px;overflow:hidden;position:relative;background:#292b48;border:1px solid var(--line)"><img alt="Philippine Idol stage in 2006" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Philippine_Idol_Stage.jpg?width=850" style="width:100%;height:165px;object-fit:cover"><span style="position:absolute;left:10px;bottom:10px;background:#0d0e1bcc;padding:5px 8px;border-radius:6px;font:700 10px var(--mono)">TV · 2006</span></a>
+          <a href="#room-society" class="home-archive-img" style="min-height:130px;border-radius:12px;overflow:hidden;position:relative;background:#292b48;border:1px solid var(--line)"><img alt="A Manila jeepney in 2007" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Manila-jeepney.jpg?width=850" style="width:100%;height:165px;object-fit:cover"><span style="position:absolute;left:10px;bottom:10px;background:#0d0e1bcc;padding:5px 8px;border-radius:6px;font:700 10px var(--mono)">PH LIFE · 2007</span></a>
+        </div>
+        <a class="home-cta" href="#museum">EXPLORE ALL SEVEN ROOMS <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="page inside-page" id="view-museum" data-view="museum" aria-labelledby="museum-title" hidden>
+      <div class="container">
+        <div class="museum-headline"><span class="kicker">Welcome to the exhibition</span><h1 class="section-heading" id="museum-title" style="margin-top:20px">Pick a room.<br>Rewind a memory.</h1><p class="section-sub">Seven exhibitions. One transformational decade. Choose a room to uncover the ideas, sounds, screens, and stories that shaped Philippine pop culture.</p></div>
+        <div class="room-grid" id="room-grid"></div>
+        <div class="museum-note"><strong>✳ Explore at your own pace.</strong> Open any room to read its story and view the available video or poster exhibits.</div>
+      </div>
+    </section>
+
+    <div id="room-views"></div>
+
+    <section class="page inside-page" id="view-timeline" data-view="timeline" aria-labelledby="timeline-title" hidden>
+      <div class="container">
+        <span class="kicker">The evolution of an era</span>
+        <h1 class="section-heading" id="timeline-title" style="margin-top:19px">The Hinge<br><span style="color:var(--lime)">timeline.</span></h1>
+        <p class="section-sub">A high-level look at how youth culture moved from broadcast-centered experiences to new forms of digital connection.</p>
+        <div class="timeline">
+          <article class="timeline-entry"><div class="timeline-card"><div><small>CHAPTER 01</small><h3>2000–2002</h3></div><p>Y2K fashion, low-rise jeans, chunky shoes, and the rise of SMS texting shape everyday youth culture. Internet cafés become increasingly visible in urban life.</p></div></article>
+          <article class="timeline-entry"><div class="timeline-card"><div><small>CHAPTER 02</small><h3>2003–2006</h3></div><p>OPM rock makes waves in mainstream entertainment. Friendster becomes a social ritual, while Asian dramas and local television draw enthusiastic audiences.</p></div></article>
+          <article class="timeline-entry"><div class="timeline-card"><div><small>CHAPTER 03</small><h3>2007–2010</h3></div><p>Internet cafés, multiplayer games such as DotA and Counter-Strike, and reality talent programs remain important in youth leisure and entertainment. New social platforms gain traction.</p></div></article>
+          <article class="timeline-entry"><div class="timeline-card"><div><small>EPILOGUE / BEYOND 2010</small><h3>Today</h3></div><p>Digital payments, online marketplaces, social feeds, and networked communities become commonplace. Greater access also brings concerns about privacy and misinformation.</p></div></article>
+        </div>
+        <div style="margin-top:40px"><a href="#museum" class="btn btn-primary">EXPLORE THE EXHIBITS ↗</a></div>
+      </div>
+    </section>
+
+    <section class="page inside-page" id="view-references" data-view="references" aria-labelledby="references-title" hidden>
+      <div class="container">
+        <span class="kicker">Further reading & credits</span>
+        <h1 class="section-heading" id="references-title" style="margin-top:19px">References<br><span style="color:var(--lime)">& credits.</span></h1>
+        <p class="section-sub reference-intro">This exhibition draws on the supplied class presentations and an assortment of academic and popular-culture references.</p>
+        <div class="content-panel">
+          <p class="panel-label">PROJECT SOURCES</p>
+          <ul class="topic-list">
+            <li><span><strong>Original presentation:</strong> “Tracing the Pop: A Decade in PH Pop Culture (2000–2010).”</span></li>
+            <li><span><strong>Comparison presentation:</strong> “Filipino Society: Then & Now.”</span></li>
+            <li><span><strong>Media:</strong> Curated Creative Commons / public-domain photographs are displayed from Wikimedia Commons, with individual source credits. YouTube videos are embedded from their original uploads where playback is permitted.</span></li>
+          </ul>
+        </div>
+        <div class="content-panel" style="margin-top:20px">
+          <p class="panel-label">SELECTED ACADEMIC REFERENCES / FROM ORIGINAL WEBSITE</p>
+          <ol class="reference-list">
+            <li>Chua, B. H., &amp; Iwabuchi, K. (Eds.). (2008). <em>East Asian pop culture: Analysing the Korean wave</em>. Hong Kong University Press.</li>
+            <li>David, K. A. (2008). <em>Nation, self and citizenship: An invitation to Philippine sociology</em>. University of the Philippines Press.</li>
+            <li>Garchitorena, A. J. (2014). <em>Pop culture and the rise of social media in the Philippines: An overview</em>.</li>
+            <li>Maceda, T. G. (2007). <em>Problematizing the popular: The dynamics of Pinoy pop(ular) music and popular protest music</em>.</li>
+            <li>Pertierra, A. C. (2021). <em>Entertainment publics in the Philippines</em>.</li>
+            <li>Pertierra, R. (2006). <em>Transforming technologies: Altered selves: Mobile phones and internet use in the Philippines</em>. Institute of Southeast Asian Studies.</li>
+            <li>Pertierra, R. (2010). <em>The social impact of new media in the Philippines</em>. Bughaw.</li>
+            <li>Rafael, V. L. (2003). The cell phone and the crowd: Messianic politics in the contemporary Philippines. <em>Public Culture, 15</em>(3), 399–425.</li>
+            <li>Resurreccion, M. A. (2009). <em>Pop politics: Popular culture as a democratic space for active citizenship among Filipino youth</em>.</li>
+            <li>San Juan, E. (2006). <em>Working through the contradictions: From cultural theory to critical practice</em>. Bucknell University Press.</li>
+            <li>Sánchez, L. J. A. (2024). <em>The “Korean turn” in Philippine popular culture: The story so far</em>.</li>
+            <li>Tolentino, R. B. (2001). <em>National dances and the production of the national body</em>. University of the Philippines Press.</li>
+          </ol>
+          <div class="notice"><strong>Academic note:</strong> References above were retained from the supplied website. Some entries lack full publication details; verify each citation and the claims it supports before submitting as a formal APA 7 reference list.</div>
+        </div>
+        
+        <div class="content-panel" style="margin-top:20px">
+          <p class="panel-label">IMAGE CREDITS / WIKIMEDIA COMMONS</p>
+          <p class="section-sub">Photos are linked to their original file pages and credited in each exhibit. Different Creative Commons licenses apply to different images; follow each file page for reuse terms. Some photographs depict objects from the 2000s rather than being taken during that decade.</p>
+          <ol class="reference-list" id="media-credit-list"></ol>
+          <div class="media-note">This is an educational collection, not a claim that all the images were photographed in the Philippines or that every YouTube upload permits embedding. Photos and YouTube playback require an internet connection. The six original poster files can still be provided separately.</div>
+        </div>
+        <div class="notice"><strong>Media rights:</strong> Original video and image rights remain with their respective copyright holders. Embedding or crediting a work does not automatically grant permission to reuse it. Video availability and playback restrictions depend on the uploader and YouTube.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><div class="footer-brand">THE HINGE<span style="color:var(--pink)">.</span></div><p>Philippine Pop Culture, 2000–2010. A student-built digital exhibition about the stories that connected a generation.</p><p>© 2026 THE HINGE. Educational project.</p></div>
+      <div class="footer-links"><a href="#museum">Museum rooms</a><a href="#timeline">Timeline</a><a href="#references">Credits & references</a></div>
+    </div>
+  </footer>
+
+  <dialog class="exhibit-dialog" id="exhibit-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-head"><div><span class="eyebrow" id="dialog-type">EXHIBIT</span><h2 id="dialog-title">Exhibit</h2></div><button class="dialog-close" id="dialog-close" aria-label="Close exhibit dialog">×</button></div>
+    <div class="dialog-body" id="dialog-body"></div>
+  </dialog>
+
+  <script>
+    'use strict';
+    // Photos load from original Wikimedia Commons file URLs and are individually credited.
+    // The six original poster files may still be placed next to this HTML if available.
+    const rooms = [
+      {
+        slug: 'body', number: '01', name: 'Body & Self-Image', tagline: 'The looks that defined a generation.',
+        description: 'Explore celebrity-driven beauty, fashion, and youth self-expression during 2000–2010.',
+        topics: ['Low-rise jeans, side-swept bangs, and chunky skate shoes.', 'Y2K-inspired fashion and celebrity-driven beauty standards.', 'Youth identity, confidence, and belonging.'],
+        tags: ['Y2K', 'Fashion', 'Identity'], accent: '#ff8dbb', glow: 'rgba(255,104,167,.23)', symbol: '✳',
+        takeaway: 'Personal style became a visible language of belonging, influenced by celebrities, peers, and changing media.',
+      },
+      {
+        slug: 'music', number: '02', name: 'Music & Performance', tagline: 'Your soundtrack to the 2000s.',
+        description: 'Explore popular music and entertainment in the Philippines during the 2000s.',
+        topics: ['OPM rock renaissance and novelty dances.', 'Reality talent searches and Pinoy pop dreams.', 'Celebrity commercialization and music as youth expression.'],
+        tags: ['OPM', 'Television', 'Live acts'], accent: '#8be5ff', glow: 'rgba(100,217,250,.24)', symbol: '♫',
+        takeaway: 'Music, television, and performance helped turn personal tastes into shared cultural moments.',
+      },
+      {
+        slug: 'tech', number: '03', name: 'Technology & Digital', tagline: 'Loading the digital generation.',
+        description: 'Explore the early digital experiences that influenced communication, gaming, and online identity during 2000–2010.',
+        topics: ['Dial-up internet and internet cafés.', 'PC gaming and Counter-Strike.', 'Friendster, mobile texting, and early online identity.'],
+        tags: ['SMS', 'Gaming', 'Friendster'], accent: '#daff7a', glow: 'rgba(175,244,80,.17)', symbol: '@',
+        takeaway: 'Screens and networks created new spaces to talk, play, meet, and shape personal identity.',
+      },
+      {
+        slug: 'themes', number: '04', name: 'Intersecting Themes', tagline: 'Where influence meets identity.',
+        description: 'See how different parts of Philippine popular culture influenced and reinforced one another.',
+        topics: ['Celebrity and digital culture: idols enter online fan communities.', 'Globalization and transnational media: Asian dramas, anime, and global music.', 'Youth identity formation: local and global influences mix.', 'Affective and nostalgic attachments: shared media experiences become lasting memories.'],
+        tags: ['Globalization', 'Community', 'Nostalgia'], accent: '#ffd581', glow: 'rgba(255,200,102,.17)', symbol: '✦',
+        takeaway: 'The culture of the decade was formed by overlapping local experiences and international influences.',
+      },
+      {
+        slug: 'forms', number: '05', name: 'Forms of Pop Culture', tagline: 'Every screen, song and scene.',
+        description: 'Explore the formats and platforms through which pop culture was experienced.',
+        topics: ['Music, television, and performance arts.', 'Digital culture and gaming.', 'Fashion and personal style.', 'The relationship between traditional media and emerging digital platforms.'],
+        tags: ['Media', 'Television', 'Fashion'], accent: '#c7b8ff', glow: 'rgba(191,150,255,.22)', symbol: '▣',
+        takeaway: 'People experienced popular culture across formats, with each medium shaping how content spread.',
+      },
+      {
+        slug: 'patterns', number: '06', name: 'Patterns & Change', tagline: 'Then, next, and everything between.',
+        description: 'Understand what continued from earlier decades and what shifted as the 2000s became a bridge to the 2010s.',
+        topics: ['Youth subcultures, identity, and cultural continuity.', 'Transnational media consumption and local adaptation.', 'Commercialization of celebrity culture and performance.', 'Online identity, internet cafés, Asian dramas, and reality TV as important points of change.'],
+        tags: ['Change', 'History', 'Connections'], accent: '#84e6d7', glow: 'rgba(91,229,201,.2)', symbol: '↗',
+        takeaway: 'The 2000s did not replace earlier culture overnight; old habits and new media coexisted.',
+      },
+      {
+        slug: 'society', number: '07', name: 'Society: Then & Now', tagline: 'A changing Philippines in perspective.',
+        description: 'Compare everyday social, economic, and political life in the 2000s with the digital present.',
+        topics: ['Communication and community life.', 'Shopping, businesses, and digital payments.', 'Political participation, news, and public discussion.'],
+        tags: ['Social', 'Economic', 'Political'], accent: '#ffd581', glow: 'rgba(255,210,106,.21)', symbol: '↔',
+        takeaway: 'Connectivity opened new opportunities, while making digital literacy and privacy more important.',
+      },
+    ];
+
+    // Video IDs and poster filenames preserved from the supplied website.
+    // YouTube video owners can restrict embeds or remove videos at any time.
+    const exhibits = [
+      { id: 'p1', room: 'body', type: 'poster', title: 'Y2K Fashion & Emo/Skater Culture', image: 'room%201.jpeg', desc: 'Low-rise jeans, side-swept bangs, and chunky skate shoes.', word: 'Y2K / STYLE' },
+      { id: 'v1', room: 'music', type: 'video', title: 'Hale — Broken Sonnet', url: 'https://www.youtube.com/watch?v=WurY8WdS8Fw', word: 'OPM / ROCK' },
+      { id: 'v2', room: 'music', type: 'video', title: 'Sponge Cola — Jeepney', url: 'https://www.youtube.com/watch?v=KgxvglVEylo', word: 'OPM / HITS' },
+      { id: 'p2', room: 'music', type: 'poster', title: 'OPM Rock Renaissance', image: 'room%202.jpeg', desc: 'The role of prominent OPM acts such as Eraserheads, Rivermaya, and Kamikazee in the era.', word: 'OPM / ROCK' },
+      { id: 'v3', room: 'tech', type: 'video', title: 'Counter-Strike 1.6 Internet Café', url: 'https://www.youtube.com/watch?v=j5MvwIokLiw', word: 'LAN / PARTY' },
+      { id: 'p3', room: 'tech', type: 'poster', title: 'Dial-Up, PC Gaming, Friendster', image: 'room%203.jpeg', desc: 'The transition to digital culture.', word: 'GO / ONLINE' },
+      { id: 'v4', room: 'themes', type: 'video', title: 'Asianovela Theme Songs', url: 'https://www.youtube.com/watch?v=q4qdG57QufE', word: 'TV / HITS' },
+      { id: 'p4', room: 'themes', type: 'poster', title: 'Global Influences', image: 'room%204.jpeg', desc: 'Global influences shaping local tastes.', word: 'GLOBAL / LOCAL' },
+      { id: 'v5', room: 'forms', type: 'video', title: 'Star in a Million — Season 2', url: 'https://www.youtube.com/live/oJ-7LmWmr0o', word: 'TALENT / TV' },
+      { id: 'v6', room: 'forms', type: 'video', title: 'Itaktak Mo — Joey De Leon', url: 'https://www.youtube.com/watch?v=nDKfY_DqmSo', word: 'TV / DANCE' },
+      { id: 'p5', room: 'forms', type: 'poster', title: 'Philippine TV & Reality Shows', image: 'room%205.jpeg', desc: 'Reality talent searches and prime-time dramas.', word: 'ON / AIR' },
+      { id: 'p6', room: 'patterns', type: 'poster', title: 'Nostalgia & Change', image: 'room%206.jpeg', desc: 'How the 2000s bridged broadcast to networked culture.', word: 'THEN / NOW' },
+    ];
+
+
+    const curatedPhotos = [
+      {
+            "id": "fashion2008",
+            "room": "body",
+            "type": "photo",
+            "title": "Late-2000s fashion, 2008",
+            "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Late_2000s_fashion.jpg?width=1100",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Late_2000s_fashion.jpg",
+            "author": "Jonathan Lin",
+            "license": "CC BY-SA 2.0",
+            "desc": "Actual 2008 fashion photograph; representative late-2000s style.",
+            "word": "FASHION / 2008"
+      },
+      {
+            "id": "rico2009",
+            "room": "music",
+            "type": "photo",
+            "title": "Rico Blanco performing, 2009",
+            "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Rico_Blanco_%282009%29.jpg?width=1100",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rico_Blanco_%282009%29.jpg",
+            "author": "Johan Sisno",
+            "license": "CC BY 2.0",
+            "desc": "Rico Blanco performs with guitar during a live set in March 2009.",
+            "word": "LIVE / OPM"
+      },
+      {
+            "id": "nokia2003",
+            "room": "tech",
+            "type": "photo",
+            "title": "The Nokia 3310, photographed in 2003",
+            "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Nokia_3310.jpg?width=1100",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nokia_3310.jpg",
+            "author": "J-P Kärnä",
+            "license": "CC BY-SA 3.0",
+            "desc": "A period photograph of the mobile handset that became an early-2000s cultural icon.",
+            "word": "SMS / ERA"
+      },
+      {
+            "id": "friendster",
+            "room": "tech",
+            "type": "photo",
+            "title": "Friendster smiley icon, 2008",
+            "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Friendsterlogo.png?width=1100",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Friendsterlogo.png",
+            "author": "GeekGod / Iammrysh",
+            "license": "Public domain",
+            "desc": "A 2008 symbol of the social-networking era.",
+            "word": "FRIENDSTER"
+      },
+      {
+            "id": "cebu2009",
+            "room": "themes",
+            "type": "photo",
+            "title": "UP Cebu Otakufest cosplay, 2009",
+            "image": "https://commons.wikimedia.org/wiki/Special:FilePath/UP_Cebu_Otakufest_2009_Final_Fantasy_7_-_Tifa_and_Cloud_3.jpg?width=1100",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:UP_Cebu_Otakufest_2009_Final_Fantasy_7_-_Tifa_and_Cloud_3.jpg",
+            "author": "dbgg1979",
+            "license": "CC BY 2.0",
+            "desc": "Cosplayers at UP Cebu Otakufest, showing how global fan culture took local form.",
+            "word": "GLOBAL / LOCAL"
+      },
+      {
+            "id": "idol2006",
+            "room": "forms",
+            "type": "photo",
+            "title": "Philippine Idol stage, 2006",
+            "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Philippine_Idol_Stage.jpg?width=1100",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Philippine_Idol_Stage.jpg",
+            "author": "Jerome Trinona / jher25",
+            "license": "CC BY-SA 2.0",
+            "desc": "A Philippine Idol stage in SM Megamall, photographed November 2006.",
+            "word": "TV / TALENT"
+      },
+      {
+            "id": "cd2007",
+            "room": "patterns",
+            "type": "photo",
+            "title": "CD collection, 2007",
+            "image": "https://commons.wikimedia.org/wiki/Special:FilePath/CD_collection.jpg?width=1100",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:CD_collection.jpg",
+            "author": "Elizabeth Ellis",
+            "license": "CC BY-SA 2.0",
+            "desc": "A 2007 CD collection evokes the physical music formats still common as digital media grew.",
+            "word": "THEN / NOW"
+      },
+      {
+            "id": "jeep2007",
+            "room": "society",
+            "type": "photo",
+            "title": "A Manila jeepney, 2007",
+            "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Manila-jeepney.jpg?width=1100",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Manila-jeepney.jpg",
+            "author": "Not home",
+            "license": "Public domain",
+            "desc": "A Manila jeepney captured in 2007, representing daily life during the decade.",
+            "word": "EVERYDAY / PH"
+      },
+      {
+            "id": "jeep2005",
+            "room": "society",
+            "type": "photo",
+            "title": "Quezon City street scene, 2005",
+            "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Jeepney_Quezon_City.jpg?width=1100",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jeepney_Quezon_City.jpg",
+            "author": "Albert Hazan",
+            "license": "Public domain",
+            "desc": "A photographed jeepney in Quezon City in June 2005.",
+            "word": "QUEZON / 2005"
+      }
+];
+    const coverPhotos = Object.fromEntries(curatedPhotos.filter(p => ['fashion2008','rico2009','nokia2003','cebu2009','idol2006','cd2007','jeep2007'].includes(p.id)).map(p=>[p.room,p]));
+    exhibits.push(...curatedPhotos);
+    exhibits.push(
+      {id:'v-y2k',room:'body',type:'video',title:'Y2K Fashion History and Style',url:'https://www.youtube.com/watch?v=Kztnxd4lkZs',word:'Y2K / STYLE'},
+      {id:'v-friendster',room:'tech',type:'video',title:'How Filipinos Loved Friendster to Death',url:'https://www.youtube.com/watch?v=jzLsu5cuhDw',word:'SOCIAL / WEB'},
+      {id:'v-idol',room:'forms',type:'video',title:'Itaktak Mo — Official Music Video',url:'https://www.youtube.com/watch?v=XYQkSlMuxZY',word:'PINoy / TV'},
+      {id:'v-society',room:'society',type:'video',title:'Why EDSA People Power II Happened',url:'https://www.youtube.com/watch?v=qmL2h9gUW8M',word:'SOCIETY / THEN'}
+    );
+    const creditsList = document.getElementById('media-credit-list');
+    if (creditsList) curatedPhotos.forEach(photo => {
+      const item = document.createElement('li');
+      const anchor = document.createElement('a');
+      anchor.href=photo.sourceUrl; anchor.target='_blank'; anchor.rel='noopener noreferrer';
+      anchor.textContent=photo.title+' — '+photo.author+' ('+photo.license+')';
+      item.append(anchor); creditsList.append(item);
+    });
+
+    const comparison = [
+      { title: 'Social', then: 'Text messages, landlines, TV, and internet cafés played significant roles in keeping people connected.', now: 'Messaging apps, video calls, and social communities make many interactions nearly instantaneous.' },
+      { title: 'Economic', then: 'Shopping malls, physical stores, and television advertising were highly visible in everyday commerce.', now: 'Online marketplaces, digital storefronts, and cashless payment options are widely used.' },
+      { title: 'Political', then: 'Television, radio, newspapers, public meetings, and SMS chains helped shape news and civic discussion.', now: 'Social platforms can amplify campaigns and civic participation, alongside concerns about misinformation.' },
+    ];
+
+    const roomGrid = document.getElementById('room-grid');
+    const roomViews = document.getElementById('room-views');
+    const dialog = document.getElementById('exhibit-dialog');
+    const dialogBody = document.getElementById('dialog-body');
+    const nav = document.getElementById('site-nav');
+    const toggle = document.getElementById('menu-toggle');
+
+    function el(tag, className, text) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    }
+    function link(text, href, cls) {
+      const node = el('a', cls || '', text);
+      node.href = href;
+      return node;
+    }
+    function applyRoomStyle(node, room) {
+      node.style.setProperty('--room-accent', room.accent);
+      node.style.setProperty('--room-glow', room.glow);
+    }
+    function makeTags(room) {
+      const node = el('div','topic-chips');
+      room.tags.forEach(t => node.append(el('span','',t)));
+      return node;
+    }
+    function createArt(item, room, inDialog=false) {
+      const visual = el('div', inDialog ? 'dialog-poster exhibit-visual' : 'exhibit-visual');
+      const art = el('div','exhibit-art');
+      art.style.setProperty('--art-color',room.accent);
+      art.append(el('span','art-micro','THE HINGE / ' + room.number));
+      art.append(el('span','art-word',item.word));
+      visual.append(art);
+      if ((item.type === 'poster' || item.type === 'photo') && item.image) {
+        const img = document.createElement('img');
+        img.src = item.image;
+        img.alt = item.type === 'photo' ? item.title : item.title + ' poster';
+        img.loading = inDialog ? 'eager' : 'lazy';
+        img.addEventListener('load', () => visual.classList.add('has-image'));
+        img.addEventListener('error', () => img.remove());
+        visual.append(img);
+        if (item.type === 'photo' && !inDialog) visual.append(el('span','photo-source-badge','ARCHIVAL PHOTO ↗'));
+      }
+      if (item.type === 'video' && !inDialog) {
+        const id = getYoutubeId(item.url);
+        if (id) {
+          const img = document.createElement('img');
+          img.src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg';
+          img.alt = '';
+          img.loading = 'lazy';
+          img.addEventListener('load', () => visual.classList.add('has-image'));
+          img.addEventListener('error', () => img.remove());
+          visual.append(img);
+        }
+        visual.append(el('span','media-play','▶'));
+      }
+      return visual;
+    }
+    function getYoutubeId(url) {
+      try {
+        const parsed = new URL(url);
+        if (!['youtube.com','www.youtube.com','m.youtube.com','youtu.be'].includes(parsed.hostname)) return null;
+        const id = parsed.hostname === 'youtu.be' ? parsed.pathname.slice(1) : parsed.pathname.startsWith('/live/') ? parsed.pathname.split('/')[2] : parsed.searchParams.get('v');
+        return id && /^[A-Za-z0-9_-]{11}$/.test(id) ? id : null;
+      } catch { return null; }
+    }
+
+    function buildMuseum() {
+      rooms.forEach(room => {
+        const a = link('', '#room-' + room.slug, 'room-card');
+        applyRoomStyle(a, room);
+        const top = el('div','room-card-top');
+        top.append(el('span','',`ROOM ${room.number} / 07`),el('span','room-card-arrow','↗'));
+        const symbol = el('span','room-cover-symbol',room.symbol);
+        symbol.setAttribute('aria-hidden','true');
+        const preview = el('div','room-card-cover');
+        preview.append(symbol);
+        const featured = coverPhotos[room.slug];
+        if (featured) {
+          const photo = el('img'); photo.src = featured.image; photo.alt = '';
+          photo.loading = 'lazy'; photo.decoding = 'async';
+          photo.addEventListener('load',()=>preview.classList.add('loaded'));
+          photo.addEventListener('error',()=>photo.remove());
+          preview.append(photo);
+        }
+        const info = el('div','room-card-body');
+        info.append(el('h3','',room.name),el('p','',room.tagline));
+        a.append(top,preview,info);
+        roomGrid.append(a);
+      });
+    }
+    function buildRooms() {
+      rooms.forEach((room,index) => {
+        const section = el('section','page inside-page');
+        section.id = 'view-room-' + room.slug;
+        section.dataset.view = 'room-' + room.slug;
+        section.hidden = true;
+        section.setAttribute('aria-label',room.name);
+        const container = el('div','container');
+        const bc = el('div','breadcrumb');
+        bc.append(link('HOME','#home'),el('span','','/'),link('MUSEUM','#museum'),el('span','','/'),el('span','',`ROOM ${room.number}`));
+        const intro = el('div','room-intro');
+        applyRoomStyle(intro, room);
+        intro.dataset.number = room.number;
+        intro.append(el('span','eyebrow',`EXHIBITION ${room.number} / 07`),el('h1','',room.name),el('p','',room.description),makeTags(room));
+        const content = el('div','room-content');
+        const topicsPanel = el('div','content-panel');
+        topicsPanel.append(el('p','panel-label','// FEATURED TOPICS'),el('h2','','What you’ll explore'));
+        const topics = el('ul','topic-list');
+        room.topics.forEach(t => topics.append(el('li','',t)));
+        topicsPanel.append(topics);
+        const aside = el('aside','content-panel room-aside');
+        aside.append(el('p','panel-label','// THE BIG PICTURE'),el('h2','','Why it matters'),el('p','',room.takeaway),el('div','mini-bar'));
+        content.append(topicsPanel,aside);
+        container.append(bc,intro,content);
+
+        if (room.slug === 'society') {
+          const block = el('div','exhibit-section');
+          block.append(el('p','panel-label','// EVERYDAY LIFE IN PERSPECTIVE'),el('h2','section-heading','Society: Then & Now'));
+          const grid = el('div','compare-grid');
+          comparison.forEach(c => {
+            const card = el('article','compare-card');
+            card.append(el('h3','',c.title));
+            [['2000s',c.then,'compare-block'],['PRESENT',c.now,'compare-block now']].forEach(([label,value,cls])=>{
+              const b = el('div',cls); b.append(el('small','',label),el('p','',value)); card.append(b);
+            });
+            grid.append(card);
+          });
+          block.append(grid);
+          const extras = el('div','comparison-summary');
+          const benefit = el('div','content-panel');
+          benefit.append(el('h3','','✳ Opportunities'),el('p','','Faster access to information, new forms of online work and commerce, and connections across communities.'));
+          const challenge = el('div','content-panel');
+          challenge.append(el('h3','','✳ Challenges'),el('p','','Privacy risks, cyberbullying, misinformation, and unequal access to reliable connectivity.'));
+          extras.append(benefit,challenge); block.append(extras); container.append(block);
+        }
+        {
+          const list = exhibits.filter(e => e.room === room.slug);
+          if (list.length) {
+            const block = el('div','exhibit-section');
+            const head = el('div','section-top');
+            const left = el('div');
+            left.append(el('span','eyebrow','// EXHIBIT COLLECTION'),el('h2','section-heading','Watch & explore.'),el('p','section-sub','Explore curated historical images, original poster references, and YouTube video exhibits. Click any card to view.'));
+            head.append(left,el('span','pill',list.length + (list.length === 1 ? ' ITEM' : ' ITEMS')));
+            block.append(head);
+            const exhibitGrid = el('div','exhibit-grid');
+            list.forEach(item => {
+              const button = el('button','exhibit-card');
+              button.type = 'button';
+              button.setAttribute('aria-label',(item.type === 'video' ? 'Play video: ' : 'View photo or poster: ') + item.title);
+              button.append(createArt(item,room));
+              const info = el('div','exhibit-copy');
+              info.append(el('small','',item.type === 'video' ? '↗ FEATURED VIDEO' : item.type === 'photo' ? '✳ HISTORICAL PHOTO' : '✳ DIGITAL POSTER'),el('strong','',item.title),el('span','',item.type === 'video' ? 'PLAY VIDEO ↗' : item.type === 'photo' ? 'VIEW PHOTO ↗' : 'VIEW POSTER ↗'));
+              button.append(info);
+              button.addEventListener('click',()=>openExhibit(item,room));
+              exhibitGrid.append(button);
+            });
+            block.append(exhibitGrid); container.append(block);
+          }
+        }
+        const bottom = el('nav','room-bottom-nav');
+        bottom.setAttribute('aria-label','Room navigation');
+        const prev = rooms[index-1]; const next = rooms[index+1];
+        bottom.append(link('← ALL ROOMS','#museum','btn btn-secondary'));
+        if (next) bottom.append(link('NEXT ROOM ' + next.number + ' →','#room-' + next.slug,'btn btn-primary'));
+        else bottom.append(link('EXPLORE TIMELINE →','#timeline','btn btn-primary'));
+        container.append(bottom); section.append(container); roomViews.append(section);
+      });
+    }
+    function openExhibit(item,room) {
+      document.getElementById('dialog-type').textContent = item.type === 'video' ? 'FEATURED VIDEO' : item.type === 'photo' ? 'HISTORICAL PHOTOGRAPH' : 'DIGITAL POSTER';
+      document.getElementById('dialog-title').textContent = item.title;
+      dialogBody.replaceChildren();
+      if (item.type === 'poster' || item.type === 'photo') {
+        dialogBody.append(createArt(item,room,true),el('p','dialog-description',item.desc || 'Archive exhibit.'));
+        if (item.sourceUrl) {
+          const credit = el('p','exhibit-photo-credit','Photo: '+item.author+' · '+item.license+' · ');
+          const source = link('View original and license ↗',item.sourceUrl);
+          source.target='_blank'; source.rel='noopener noreferrer';
+          credit.append(source); dialogBody.append(credit);
+        }
+      } else {
+        const videoId = getYoutubeId(item.url);
+        const frame = el('div','video-frame');
+        if (videoId) {
+          const iframe = document.createElement('iframe');
+          iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0';
+          iframe.title = item.title;
+          iframe.loading = 'eager';
+          iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+          iframe.allowFullscreen = true;
+          frame.append(iframe);
+        } else {
+          frame.append(el('p','dialog-description','This video cannot be embedded from the supplied link.'));
+        }
+        const outside = link('WATCH ON YOUTUBE ↗', item.url, 'video-outlink');
+        outside.target = '_blank'; outside.rel = 'noopener noreferrer';
+        dialogBody.append(frame,outside,el('p','dialog-description','If the player is unavailable, use the YouTube link above. Playback depends on the original uploader.'));
+      }
+      if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open','');
+    }
+    function closeExhibit() {
+      if (dialog.open && typeof dialog.close === 'function') dialog.close();
+      else { dialog.removeAttribute('open'); dialogBody.replaceChildren(); }
+    }
+    function setMenu(open) {
+      nav.classList.toggle('is-open',open);
+      toggle.setAttribute('aria-expanded',String(open));
+      toggle.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');
+      toggle.textContent = open ? '×' : '☰';
+    }
+    function renderRoute() {
+      const route = (location.hash || '#home').slice(1);
+      const known = ['home','museum','timeline','references',...rooms.map(r=>'room-'+r.slug)];
+      const active = known.includes(route) ? route : 'home';
+      document.querySelectorAll('[data-view]').forEach(view => {
+        view.hidden = view.dataset.view !== active;
+      });
+      const navTarget = active.startsWith('room-') ? 'museum' : active;
+      document.querySelectorAll('[data-nav]').forEach(a => {
+        if (a.dataset.nav === navTarget) a.setAttribute('aria-current','page');
+        else a.removeAttribute('aria-current');
+      });
+      const room = rooms.find(r=>'room-'+r.slug === active);
+      document.title = (room ? room.name + ' — ' : active === 'home' ? '' : (active[0].toUpperCase()+active.slice(1))+' — ') + 'THE HINGE';
+      setMenu(false);
+      closeExhibit();
+      window.scrollTo({top:0,behavior:'instant'});
+      const visiblePage = document.querySelector('[data-view]:not([hidden])');
+      if (visiblePage) {
+        visiblePage.setAttribute('tabindex','-1');
+        visiblePage.focus({preventScroll:true});
+      }
+    }
+    buildMuseum();
+    buildRooms();
+    document.querySelector('.skip-link').addEventListener('click', event => {
+      event.preventDefault();
+      const main = document.getElementById('main-content');
+      main.focus({preventScroll:true});
+      main.scrollIntoView({behavior:'instant'});
+    });
+    toggle.addEventListener('click',()=>setMenu(!nav.classList.contains('is-open')));
+    document.addEventListener('keydown',event=>{ if (event.key === 'Escape') setMenu(false); });
+    document.getElementById('dialog-close').addEventListener('click',closeExhibit);
+    dialog.addEventListener('click',event=>{if(event.target===dialog) closeExhibit();});
+    dialog.addEventListener('close',()=>dialogBody.replaceChildren());
+    window.addEventListener('hashchange',renderRoute);
+    renderRoute();
+  </script>
+</body>
+</html>
