@@ -481,7 +481,17 @@
     @media(max-width:760px){.timeline-context{display:block}.timeline-context strong{display:block;margin-bottom:9px}.timeline-rich::before{left:9px}.timeline-rich .timeline-entry{padding-left:27px}.timeline-rich .timeline-entry::before{left:-3px;width:19px;height:19px;top:32px;border-width:4px}.timeline-year-card{padding:17px}.timeline-media-grid{grid-template-columns:1fr}.timeline-year-counter{display:none}.timeline-photo-wrap{height:205px}.timeline-video-thumb{flex-basis:37%;width:37%}.timeline-year-head h2{font-size:23px}.timeline-outro{padding:24px}.timeline-outro h2{font-size:28px}}
     @media(prefers-reduced-motion:reduce){.timeline-jump,.timeline-photo-wrap img{transition:none}}
 
-  </style>
+  
+    /* Reduced paint work while scrolling and opening the analog/internet door. */
+    .site-header{backdrop-filter:none;-webkit-backdrop-filter:none;background:#101120;}
+    .exhibit-dialog::backdrop{backdrop-filter:none;-webkit-backdrop-filter:none;}
+    .page{animation:none;}
+    .era-door{transition:transform 1.35s cubic-bezier(.19,.68,.1,1);}
+    .era-portal.is-open .era-door{filter:none;}
+    .era-portal.is-animating .era-door{will-change:transform;}
+    @media(max-width:760px){.era-door{transition-duration:1.05s;}}
+    @media(prefers-reduced-motion:reduce){.era-door{transition:none;}}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -1083,7 +1093,7 @@
         const img = document.createElement('img');
         img.src = item.image;
         img.alt = item.type === 'photo' ? item.title : item.title + ' AI-generated poster';
-        img.loading = inDialog ? 'eager' : 'lazy';
+        img.loading = inDialog ? 'eager' : 'lazy'; img.decoding = 'async';
         img.addEventListener('load', () => visual.classList.add('has-image'));
         img.addEventListener('error', () => img.remove());
         visual.append(img);
@@ -1144,8 +1154,12 @@
         roomGrid.append(a);
       });
     }
-    function buildRooms() {
+    const builtRooms = new Set();
+    function buildRooms(onlySlug) {
+      if (builtRooms.has(onlySlug)) return;
       rooms.forEach((room,index) => {
+        if (room.slug !== onlySlug) return;
+        builtRooms.add(room.slug);
         const section = el('section','page inside-page');
         section.id = 'view-room-' + room.slug;
         section.dataset.view = 'room-' + room.slug;
@@ -1269,6 +1283,7 @@
       const route = (location.hash || '#home').slice(1);
       const known = ['home','museum','timeline','future','references',...rooms.map(r=>'room-'+r.slug)];
       const active = known.includes(route) ? route : 'home';
+      if (active.startsWith('room-')) buildRooms(active.slice(5));
       document.querySelectorAll('[data-view]').forEach(view => {
         view.hidden = view.dataset.view !== active;
       });
@@ -1313,7 +1328,7 @@
     renderPhase3(2);
 
     buildMuseum();
-    buildRooms();
+    // Build the seven room pages only when opened.
     // Timeline clips deliberately use the original event year, NOT the YouTube upload year.
     // Reuse the same accessible YouTube video dialog as the seven museum rooms.
     document.querySelectorAll('[data-video-id]').forEach(button => {
@@ -1360,11 +1375,14 @@
     const portalCaption = document.getElementById('hinge-caption');
     if (portal && portalToggle) {
       const setHinge = (opened) => {
+        portal.classList.add('is-animating');
         portal.classList.toggle('is-open', opened);
         portalToggle.setAttribute('aria-pressed', String(opened));
         portalToggle.textContent = opened ? 'CLOSE THE HINGE ↶' : 'OPEN THE HINGE ↗';
         portalCaption.textContent = opened ? 'From TV and SMS to Friendster and the online world.' : 'Watch the old world open into the connected era.';
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) portal.classList.remove('is-animating');
       };
+      portal.querySelector('.era-door').addEventListener('transitionend', e=>{if(e.propertyName==='transform')portal.classList.remove('is-animating')});
       portalToggle.addEventListener('click', () => setHinge(!portal.classList.contains('is-open')));
       portal.addEventListener('click',()=>setHinge(!portal.classList.contains('is-open')));
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
