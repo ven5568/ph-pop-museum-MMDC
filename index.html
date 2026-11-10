@@ -393,6 +393,46 @@
     @media(max-width:760px){.hinge-experience{max-width:520px}.era-portal{height:385px}.analog-tv{height:175px}.net-window{min-height:160px}.hinge-control-row{margin-top:18px}}
     @media(max-width:430px){.era-portal{height:340px}.analog-tv{height:149px}.analog-bottom{margin-top:23px}.analog-cassette{width:78px;height:40px}.analog-eyebrow{font-size:9px}.era-net{padding:25px 18px}.net-tag{font-size:9px}.net-window{min-height:154px}.net-window-content strong{font-size:20px}.hinge-era-key{font-size:8px}}
     @media(prefers-reduced-motion:reduce){.era-door,.net-window{transition:none!important;animation:none!important}}
+  
+    /* PHASE 3 / BUILDING THE POP: class worksheet predictions (not established facts) */
+    .future-hero { position: relative; overflow: hidden; border:1px solid rgba(218,255,122,.3);border-radius:24px;padding:clamp(28px,5vw,56px); background: radial-gradient(circle at 92% 15%,rgba(117,228,250,.17),transparent 34%),radial-gradient(circle at 7% 92%,rgba(255,105,181,.13),transparent 30%),#191c32; }
+    .future-hero::after { content:'2030'; pointer-events:none; position:absolute;right:-7px;top:-37px;font:700 clamp(100px,21vw,250px)/1 var(--display);letter-spacing:-.11em;color:#fff;opacity:.035; }
+    .future-hero > * { position:relative; z-index:1; }
+    .future-hero h1 { margin:15px 0 16px; font:700 clamp(41px,6vw,76px)/.98 var(--display); letter-spacing:-.065em; }
+    .future-hero h1 em { font-style:normal; color:var(--lime); }
+    .future-hero p { max-width:720px; color:#d3d7e8; font-size:15px; line-height:1.65; }
+    .future-steps { display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin-top:28px; }
+    .future-step { display:flex;align-items:center;gap:10px;padding:10px 15px;border:1px solid rgba(255,255,255,.17);border-radius:100px;background:#0e1122;font:700 11px var(--mono);color:#f4f5fa; }
+    .future-step:last-child { border-color:rgba(218,255,122,.55); color:var(--lime); }
+    .future-arrow { color:var(--pink);font:700 18px var(--display); }
+    .future-layout-head { display:flex;justify-content:space-between;align-items:end;gap:18px;flex-wrap:wrap;margin-top:43px;margin-bottom:22px; }
+    .era-choices { display:flex;flex-wrap:wrap;gap:6px;padding:6px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.035); }
+    .era-choice { min-height:42px;padding:10px 15px;background:transparent;border:0;border-radius:9px;color:#bfc5d8;font:700 11px var(--mono);cursor:pointer; }
+    .era-choice:hover { color:white;background:rgba(255,255,255,.06); }
+    .era-choice[aria-pressed="true"] { color:#151524;background:var(--lime); }
+    .future-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;}
+    .future-card { --future-color:var(--cyan);background:#1a1e33;border:1px solid var(--line);border-radius:18px;padding:23px;min-width:0;transition:border-color .2s,transform .2s; }
+    .future-card:hover {border-color:var(--future-color); transform:translateY(-3px);}
+    .future-card-head {display:flex;gap:10px;justify-content:space-between;align-items:center;}
+    .future-card-head span {font:700 10px var(--mono);letter-spacing:.12em;color:var(--future-color);}
+    .future-icon {display:grid;place-items:center;width:39px;height:39px;border-radius:12px;background:rgba(255,255,255,.07);color:var(--future-color);font:700 24px var(--display);}
+    .future-card h3 {margin:20px 0 10px;font:700 27px/1.1 var(--display);letter-spacing:-.05em;}
+    .future-card-event {margin:0 0 17px;min-height:54px;font:700 17px/1.3 var(--display);color:var(--future-color);}
+    .future-card-list {margin:0;padding:0;list-style:none;display:grid;gap:9px;}
+    .future-card-list li {display:flex;gap:9px;align-items:start;padding:12px 11px;border-radius:9px;background:#12172b;color:#e1e4f0;font-size:13px;line-height:1.4;}
+    .future-card-list li::before {content:'✳';color:var(--future-color);flex:0 0 auto;}
+    .future-card-foot {border-top:1px solid var(--line);margin-top:20px;padding-top:15px;color:#b7bdd2;font-size:12px;}
+    .future-card-foot strong {color:#eceefa;}
+    .future-card-foot p {margin:4px 0 11px;}
+    .future-prediction {color:#c7da9c;}
+    .future-notice { margin-top:29px;border-left:4px solid var(--yellow);background:rgba(255,219,124,.07);padding:20px 22px;border-radius:0 13px 13px 0;color:#e2dfd0;font-size:13px; }
+    .future-source {margin-top:12px;color:var(--muted);font-size:12px;}
+    .future-source strong {color:var(--cream);}
+    .future-bottom { margin-top:30px;display:flex;gap:12px;flex-wrap:wrap; }
+    @media(max-width:1030px){.future-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+    @media(max-width:650px){.future-grid{grid-template-columns:1fr;}.future-hero{padding:25px 22px;}.future-step{font-size:10px;padding:9px 10px;}.future-arrow{display:none;}.future-layout-head{align-items:start;}.era-choice{flex:1;min-width:0;font-size:10px;padding:10px 10px;}.era-choices{width:100%;}.future-card-event{min-height:0;}}
+    @media(prefers-reduced-motion:reduce){.future-card{transition:none}.future-card:hover{transform:none}}
+
   </style>
 </head>
 <body>
@@ -407,6 +447,7 @@
         <a data-nav="home" href="#home">Home</a>
         <a data-nav="museum" href="#museum">Museum rooms</a>
         <a data-nav="timeline" href="#timeline">Timeline</a>
+        <a data-nav="future" href="#future">2030 Forecast</a>
         <a data-nav="references" href="#references">References</a>
       </nav>
       <div class="nav-meta">DIGITAL<br>EXHIBITION_</div>
@@ -425,6 +466,7 @@
             <div class="hero-actions">
               <a class="btn btn-primary" href="#museum">ENTER THE MUSEUM <span aria-hidden="true">↗</span></a>
               <a class="btn btn-secondary" href="#timeline">EXPLORE THE TIMELINE <span aria-hidden="true">→</span></a>
+              <a class="btn btn-secondary" href="#future">LOOK AHEAD TO 2030 <span aria-hidden="true">→</span></a>
             </div>
             <div class="hero-facts" aria-label="Exhibition at a glance">
               <div><strong>07</strong><span>EXHIBITION ROOMS</span></div>
@@ -495,6 +537,35 @@
       </div>
     </section>
 
+
+    <!-- Phase 3: original supplied workbook, 2000–2010 / present / 2030 -->
+    <section class="page inside-page" id="view-future" data-view="future" aria-labelledby="future-title" hidden>
+      <div class="container">
+        <div class="future-hero">
+          <span class="kicker">PHASE 03 / CLASS WORKBOOK</span>
+          <h1 id="future-title">BUILDING THE POP:<br><em>What comes next?</em></h1>
+          <p>The Hinge was a bridge from broadcast and texting culture to an internet-connected Philippines. The Phase 3 worksheet continues that story through the present and imagines where six aspects of Filipino life could be by 2030.</p>
+          <div class="future-steps" aria-label="Time periods covered">
+            <span class="future-step">2000–2010 / THEN</span><span class="future-arrow" aria-hidden="true">↗</span>
+            <span class="future-step">PRESENT / NOW</span><span class="future-arrow" aria-hidden="true">↗</span>
+            <span class="future-step">2030 / PREDICTION</span>
+          </div>
+        </div>
+        <div class="future-layout-head">
+          <div><span class="eyebrow">// THE SIX ASPECTS OF POPULAR CULTURE</span><h2 class="section-heading" style="margin-top:10px">Compare the eras.</h2><p class="section-sub">Select a period to explore all six categories. The trends and impacts come from the supplied class worksheet.</p></div>
+          <div class="era-choices" role="group" aria-label="Select time period for the six categories">
+            <button class="era-choice" type="button" data-phase-era="0" aria-pressed="false">2000s</button>
+            <button class="era-choice" type="button" data-phase-era="1" aria-pressed="false">Present</button>
+            <button class="era-choice" type="button" data-phase-era="2" aria-pressed="true">2030</button>
+          </div>
+        </div>
+        <div class="future-grid" id="phase3-grid" aria-live="polite"></div>
+        <div class="future-notice"><strong>2030 is a forecast, not a fact.</strong> AI-assisted news, virtual celebrities, digital voting tools, and other future developments on this page are <strong>group predictions from the worksheet</strong>, not announcements or guaranteed outcomes.</div>
+        <p class="future-source"><strong>Source:</strong> “MO-HUM080 Workbook Group 2 — PHASE 3 — Final Group WS 3,” section “BUILDING THE POP: Predicting the PH Popular Culture.” Content transcribed from the supplied worksheet.</p>
+        <div class="future-bottom"><a class="btn btn-primary" href="#timeline">← SEE THE HISTORICAL TIMELINE</a><a class="btn btn-secondary" href="#museum">REVISIT THE MUSEUM ↗</a></div>
+      </div>
+    </section>
+
     <section class="page inside-page" id="view-references" data-view="references" aria-labelledby="references-title" hidden>
       <div class="container">
         <span class="kicker">Further reading & credits</span>
@@ -505,6 +576,7 @@
           <ul class="topic-list">
             <li><span><strong>Original presentation:</strong> “Tracing the Pop: A Decade in PH Pop Culture (2000–2010).”</span></li>
             <li><span><strong>Comparison presentation:</strong> “Filipino Society: Then & Now.”</span></li>
+            <li><span><strong>Phase 3 workbook:</strong> “BUILDING THE POP: Predicting the PH Popular Culture,” from MO-HUM080 Group 2 Final Group WS 3. The 2030 column represents predictions from the class worksheet, not verified future outcomes.</span></li>
             <li><span><strong>Media:</strong> Curated Creative Commons / public-domain photographs are displayed from Wikimedia Commons, with individual source credits. YouTube videos are embedded from their original uploads where playback is permitted.</span></li>
           </ul>
         </div>
@@ -541,7 +613,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div><div class="footer-brand">THE HINGE<span style="color:var(--pink)">.</span></div><p>Philippine Pop Culture, 2000–2010. A student-built digital exhibition about the stories that connected a generation.</p><p>© 2026 THE HINGE. Educational project.</p></div>
-      <div class="footer-links"><a href="#museum">Museum rooms</a><a href="#timeline">Timeline</a><a href="#references">Credits & references</a></div>
+      <div class="footer-links"><a href="#museum">Museum rooms</a><a href="#timeline">Timeline</a><a href="#future">2030 Forecast</a><a href="#references">Credits & references</a></div>
     </div>
   </footer>
 
@@ -989,7 +1061,7 @@
     }
     function renderRoute() {
       const route = (location.hash || '#home').slice(1);
-      const known = ['home','museum','timeline','references',...rooms.map(r=>'room-'+r.slug)];
+      const known = ['home','museum','timeline','future','references',...rooms.map(r=>'room-'+r.slug)];
       const active = known.includes(route) ? route : 'home';
       document.querySelectorAll('[data-view]').forEach(view => {
         view.hidden = view.dataset.view !== active;
@@ -1010,6 +1082,30 @@
         visiblePage.focus({preventScroll:true});
       }
     }
+
+    // Data reproduced from the user-supplied Phase 3 worksheet. Predictions are not verified outcomes.
+    const phase3Aspects = [{"slug":"social","title":"Social","symbol":"◎","color":"#ff94c7","event":["Texting culture","Social media","More virtual interactions"],"points":[["Text messages","TikTok","Virtual communities"],["Friendster","Facebook","AI social platforms"],["Internet cafés","Smartphones","Smart devices"]],"trend":["Texting","Social media"],"impact":"Communication became faster.","future_impact":"More virtual connections."},{"slug":"economic","title":"Economic","symbol":"₱","color":"#ffda8a","event":["Malls and stores","Online shopping","AI-powered businesses"],"points":[["Shopping malls","E-commerce","AI shopping"],["TV ads","Influencers","Virtual ads"],["Cash payments","E-wallets","Cashless society"]],"trend":["Physical stores","Online shopping"],"impact":"Shopping became more convenient.","future_impact":"More automated businesses."},{"slug":"political","title":"Political","symbol":"✳","color":"#c3b3ff","event":["TV news and rallies","Online activism","More digital participation"],"points":[["EDSA II","Online debates","Digital voting tools"],["TV news","Social media news","AI-assisted news"],["Street rallies","Online petitions","Digital activism"]],"trend":["TV news","Digital activism"],"impact":"Information became more accessible.","future_impact":"Greater online participation."},{"slug":"cultural","title":"Cultural","symbol":"♫","color":"#daff7a","event":["OPM and teleseryes","P-pop and K-dramas","Global Filipino entertainment"],"points":[["OPM bands","P-pop","Global Filipino music"],["Teleseryes","Streaming shows","Interactive entertainment"],["Local celebrities","Online creators","Virtual celebrities"]],"trend":["TV and radio","Streaming and P-pop"],"impact":"Entertainment became more global.","future_impact":"More worldwide Filipino recognition."},{"slug":"environmental","title":"Environmental","symbol":"✿","color":"#8fe3a5","event":["Clean-up drives","Climate campaigns","Greener lifestyles"],"points":[["Clean-up drives","Climate campaigns","Sustainable communities"],["Plastic use","Reusable products","Less plastic waste"],["TV awareness","Online advocacy","AI monitoring"]],"trend":["Local clean-ups","Climate campaigns"],"impact":"Awareness increased.","future_impact":"More sustainable communities."},{"slug":"others","title":"Others / Technology","symbol":"⌘","color":"#75e4fa","event":["Internet cafés","Smartphones and AI","Advanced digital technology"],"points":[["Texting","Messaging apps","AI assistants"],["Blogs","Vlogs","Virtual content"],["Basic phones","Smartphones","Smarter devices"]],"trend":["Basic internet","AI and smartphones"],"impact":"Technology became part of daily life.","future_impact":"Greater use of AI and smart devices."}];
+    const phase3Labels = ['2000–2010 / CHOSEN DECADE','PRESENT / TODAY','2030 / PREDICTION'];
+    function renderPhase3(eraIndex) {
+      const target=document.getElementById('phase3-grid');
+      if (!target) return;
+      target.replaceChildren();
+      document.querySelectorAll('[data-phase-era]').forEach(btn => btn.setAttribute('aria-pressed',String(Number(btn.dataset.phaseEra)===eraIndex)));
+      phase3Aspects.forEach((aspect,i) => {
+        const article=el('article','future-card');article.style.setProperty('--future-color',aspect.color);
+        const head=el('div','future-card-head');head.append(el('span','',String(i+1).padStart(2,'0')+' / '+phase3Labels[eraIndex]),el('span','future-icon',aspect.symbol));article.append(head);
+        article.append(el('h3','',aspect.title),el('p','future-card-event',aspect.event[eraIndex]));
+        const list=el('ul','future-card-list');aspect.points.forEach((point)=>list.append(el('li','',point[eraIndex])));article.append(list);
+        const foot=el('div','future-card-foot');
+        if(eraIndex===0){foot.append(el('strong','','OBSERVABLE TREND / THEN'),el('p','',aspect.trend[0]));}
+        if(eraIndex===1){foot.append(el('strong','','OBSERVABLE TREND / PRESENT'),el('p','',aspect.trend[1]),el('strong','','PAST → PRESENT IMPACT'),el('p','',aspect.impact));}
+        if(eraIndex===2){foot.append(el('strong','','PROJECTED 2030 IMPACT'),el('p','future-prediction',aspect.future_impact));}
+        article.append(foot);target.append(article);
+      });
+    }
+    document.querySelectorAll('[data-phase-era]').forEach(button=>button.addEventListener('click',()=>renderPhase3(Number(button.dataset.phaseEra))));
+    renderPhase3(2);
+
     buildMuseum();
     buildRooms();
     // A tactile 3D hinge: from broadcast life to early social internet.
