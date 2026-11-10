@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0d0e1b">
+  <meta name="theme-color" content="#11161b">
   <meta name="description" content="THE HINGE is an interactive digital museum exploring Philippine popular culture, youth identity, music, and technology from 2000 to 2010.">
   <title>THE HINGE — A Decade in Philippine Pop Culture</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0d0e1b;
@@ -789,6 +789,327 @@
       .lobby-year-overlay strong { font-size: 14px; line-height: 1.25; }
     }
 
+  
+/* ==============================================================
+   THE HINGE — EDITORIAL MUSEUM / 2026
+   Restrained visual system: archival imagery, typesetting, spacing.
+   Original exhibits, animated hinge, and source disclosures preserved.
+   ============================================================== */
+:root {
+  --bg:#11161b; --bg-raised:#161d22; --panel:#1b2228; --panel-2:#222b32;
+  --cream:#eceae3; --muted:#aab1b3; --line:rgba(222,226,224,.16);
+  --pink:#ba97a3; --cyan:#9ac9cd; --lime:#b9cfc7; --yellow:#c9bd9e;
+  --display:'Instrument Sans', 'DM Sans', Arial, sans-serif;
+  --body:'Instrument Sans', Arial, sans-serif;
+  --mono:'IBM Plex Mono', monospace; --editorial:'Cormorant Garamond',Georgia,serif;
+  --max:1240px; --ui-card:#1a2328; --ui-radius:10px;
+}
+html { scroll-behavior:smooth; }
+body { background:var(--bg); color:var(--cream); font-family:var(--body); font-size:15px; line-height:1.68; }
+body::before { background:none; }
+::selection { background:var(--cyan); color:#0c1416; }
+:focus-visible { outline:2px solid var(--cyan); outline-offset:3px; }
+.page { animation:editorialPageIn .28s ease both; }
+@keyframes editorialPageIn { from{ opacity:.55 } to{ opacity:1 } }
+.container { width:min(var(--max),calc(100% - 92px)); }
+.section-heading { letter-spacing:-.056em; line-height:1.01; font-weight:600; text-wrap:balance; }
+.section-sub { font-size:16px; color:#abb7b7; line-height:1.75; max-width:64ch; }
+.kicker, .eyebrow, .panel-label { color:var(--cyan); font-weight:500; letter-spacing:.1em; }
+.kicker::before { width:18px; height:1px; border-radius:0; box-shadow:none; }
+.pill { border-radius:3px; font-weight:500; color:#c9ceca; border-color:rgba(255,255,255,.17); background:none; }
+.inside-page { padding-top:84px; padding-bottom:110px; }
+
+/* Masthead feels like a museum identity, not a dashboard */
+.site-header { background:#12181ceF; backdrop-filter:none; -webkit-backdrop-filter:none; border-bottom:1px solid rgba(232,232,226,.18); }
+.nav-inner { min-height:74px; }
+.brand { gap:14px; }
+.brand-mark { color:var(--cream); background:transparent; border:1px solid #a4b8b7; border-radius:3px; box-shadow:none; transform:none; font:600 21px var(--display); width:37px; height:37px; }
+.brand-text { font-weight:700; letter-spacing:-.055em; font-size:16px; }
+.brand-text small { color:#85999b; letter-spacing:.08em; font-weight:500; }
+.nav-links { gap:2px; }
+.nav-links a { font-family:var(--body); font-weight:500; font-size:13px; letter-spacing:-.01em; color:#b4bcbd; border:0; border-bottom:1px solid transparent; border-radius:0; padding:13px 15px; }
+.nav-links a:hover { background:transparent; color:#f6f6f1; border-bottom-color:#6b8688; }
+.nav-links a[aria-current="page"] { background:transparent; color:var(--cream); border-bottom-color:var(--cyan); }
+.nav-meta { font-size:9px; font-weight:500; color:#8eaaaa; padding-left:21px; }
+.menu-toggle { border-radius:4px; background:#1d272c; }
+
+/* 01 / Hero. Dramatic typography balanced against the interactive artifact. */
+.hero { padding:105px 0 52px; position:relative; }
+.hero:before { content:''; position:absolute; inset:0; pointer-events:none; opacity:.24;
+  background-image:linear-gradient(90deg,transparent calc(50% - .5px),rgba(255,255,255,.055) 50%, transparent calc(50% + .5px)); }
+.hero-grid { grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr); gap:clamp(40px,5.5vw,88px); align-items:center; }
+.hero-edition { display:flex; justify-content:space-between; max-width:510px; gap:18px; border-top:1px solid #51656a; padding-top:14px; margin-bottom:47px;
+  font:500 10px/1.5 var(--mono); letter-spacing:.09em; color:#8ba6a8; }
+.hero .kicker { color:#bfcecb; }
+.hero-title { font:600 clamp(79px,10.1vw,148px)/.82 var(--display); letter-spacing:-.105em; margin:28px 0 38px; }
+.hero-title .second-line { color:var(--cream); }
+.hero-title .second-line::after { content:'2000—2010'; transform:none; right:-3px; top:-22px; font:500 10px/1.2 var(--mono); letter-spacing:.06em; color:var(--cyan); }
+.hero-lead { font-size:clamp(17px,1.6vw,20px); line-height:1.66; color:#b8c5c3; max-width:530px; margin-bottom:20px; letter-spacing:-.013em; }
+.hero-lead strong { color:var(--cream); font-weight:600; }
+.hero-editorial-note { display:flex; align-items:center; gap:14px; margin:0 0 34px; color:#d0c5b9; font:italic 500 clamp(23px,3.2vw,35px)/1.1 var(--editorial); }
+.hero-editorial-note span { font:500 10px/1.4 var(--mono); letter-spacing:.11em; color:var(--cyan); }
+.hero-actions { gap:11px; }
+.btn { border-radius:3px; box-shadow:none; font:600 11px/1.4 var(--mono); letter-spacing:.015em; min-height:51px; padding:14px 17px; transition:background .18s, border-color .18s, color .18s; }
+.btn:hover { transform:none; }
+.btn-primary { color:#142024; background:#d4e0da; }
+.btn-primary:hover { background:#fff; }
+.btn-secondary { color:#d1d8d5; background:transparent; border-color:#445459; }
+.btn-secondary:hover { border-color:#d1d8d5; }
+.hero-facts { margin-top:62px; gap:46px; padding-top:23px; }
+.hero-facts strong { font-size:26px; font-weight:600; }
+.hero-facts span { color:#92a1a4; letter-spacing:.08em; font-weight:500; }
+
+/* Interactive hinge stays central, with material-like border and subdued surroundings */
+.era-portal { border-radius:7px; background:#131d24; box-shadow:12px 12px 0 #090e12,0 30px 60px rgba(0,0,0,.18); }
+.era-portal::before { border-radius:9px; border-color:rgba(221,226,224,.18); }
+.era-frame { border-color:#29343a; border-radius:6px; }
+.era-door { border-radius:6px; }
+.hinge-control-row button { border-radius:3px; }
+.hinge-era-key strong { color:#adbec1 !important; }
+.hinge-era-key span { color:#728f94; }
+
+/* The collage becomes an archival contact sheet; image motion remains continuous. */
+.lobby-collage-band { margin-top:34px; padding:52px 0 64px; background:#171e22; border-block:1px solid rgba(255,255,255,.1); }
+.lobby-collage-head { margin-bottom:32px; align-items:end; }
+.lobby-collage-head .section-heading { max-width:750px; font-size:clamp(35px,5.8vw,76px); font-weight:600; line-height:.97; }
+.lobby-collage-head .section-heading span { color:#9db5b5; font-style:italic; font-family:var(--editorial); font-size:1.05em; font-weight:500; }
+.lobby-collage-head .section-sub { font-size:14px; max-width:550px; margin-top:22px; }
+.lobby-collage-viewport { -webkit-mask-image:linear-gradient(to right, transparent,#000 3%,#000 97%,transparent);
+  mask-image:linear-gradient(to right, transparent,#000 3%,#000 97%,transparent); }
+.lobby-collage-track { gap:12px; animation-duration:75s; padding:3px 20px; }
+.lobby-year-card { flex-basis:224px; min-width:224px; width:224px; border-radius:2px; background:#202a2e; border:1px solid #566268; box-shadow:none; }
+.lobby-year-card:hover { transform:none; border-color:var(--cyan); }
+.lobby-year-image-wrap { aspect-ratio:4/5; }
+.lobby-year-image-wrap img { filter:saturate(.48) contrast(1.04) brightness(.86); transition:filter .4s, transform .4s; }
+.lobby-year-card:hover .lobby-year-image-wrap img { filter:saturate(.9) contrast(1.02); transform:scale(1.035); }
+.lobby-year-card::after { background:linear-gradient(180deg,rgba(9,15,18,.05) 5%,rgba(9,15,18,.26) 55%,rgba(7,11,13,.94) 100%); }
+.lobby-year-number { background:transparent; color:#e2e6e0; border:0; padding:0; font:500 10px/1.3 var(--mono); letter-spacing:.16em; }
+.lobby-year-overlay { gap:9px; padding:16px 18px 18px; }
+.lobby-year-overlay strong { font:600 16px/1.28 var(--display); letter-spacing:-.025em; }
+.ticker { margin-top:0; background:#101519; padding:13px 0; }
+.ticker-inner { font-weight:500; color:#99aaa9; }
+
+/* Quiet, typographic exhibition index */
+.home-feature { padding-top:97px; padding-bottom:112px; }
+.feature-grid { gap:0; margin-top:37px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.feature { border:none; border-right:1px solid var(--line); border-radius:0; background:transparent; padding:34px 30px 43px 0; }
+.feature:not(:first-child) { padding-left:28px; }
+.feature:last-child { border-right:none; }
+.feature-num { color:var(--cyan); font-weight:500; font-size:10px; letter-spacing:.05em; }
+.feature-num span { color:#607f82; font-size:17px; }
+.feature h3 { font-weight:600; margin-top:45px; font-size:26px; letter-spacing:-.04em; }
+.feature p { font-size:14px; line-height:1.7; color:#a7b2b3; max-width:35ch; }
+.home-archive-kicker { display:flex; justify-content:space-between; gap:20px; padding-top:45px; margin-top:10px;
+  color:#93aaa9; font:500 10px/1.5 var(--mono); letter-spacing:.07em; }
+.archive-strip { gap:16px!important; margin:22px 0 17px!important; }
+.home-archive-img { border-radius:2px!important; background:#20292f!important; border-color:#38484e!important; }
+.home-archive-img img { height:203px!important; filter:saturate(.63) contrast(1.03); transition:filter .2s; }
+.home-archive-img:hover img { filter:saturate(.95); }
+.home-archive-img span { border-radius:1px!important; padding:7px 9px!important; background:#0f181bdd!important; font-family:var(--mono)!important; font-weight:500!important; }
+.home-cta { border-radius:2px; font-weight:600; }
+
+/* Magazine index / asymmetrical seven-room layout */
+.museum-headline { max-width:940px; }
+.museum-headline h1 { font-size:clamp(52px,7vw,98px); font-weight:600; margin-block:19px 22px!important; }
+.museum-headline .section-sub { max-width:700px; }
+.room-grid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:16px; margin-top:65px; }
+.room-card { grid-column:span 2; background:#1a2328; padding:20px; min-height:0; border-color:rgba(232,232,226,.15); border-radius:4px; box-shadow:none; transition:border-color .2s; }
+.room-card:hover { transform:none; box-shadow:none; border-color:#9eb5b5; }
+.room-card:nth-child(1), .room-card:nth-child(7) {
+  grid-column:span 6; display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
+  grid-template-rows:auto 1fr; column-gap:36px; min-height:320px; padding:27px;
+}
+.room-card:nth-child(1) .room-card-top, .room-card:nth-child(7) .room-card-top { grid-column:1; grid-row:1; }
+.room-card:nth-child(1) .room-card-body, .room-card:nth-child(7) .room-card-body { grid-column:1; grid-row:2; align-self:end; }
+.room-card:nth-child(1) .room-card-cover, .room-card:nth-child(7) .room-card-cover {
+  grid-column:2; grid-row:1/span 2; aspect-ratio:auto; height:100%; margin:0; min-height:260px; }
+.room-card:nth-child(1) .room-card-body h3, .room-card:nth-child(7) .room-card-body h3 { font-size:clamp(31px,3vw,43px); }
+.room-card:nth-child(5), .room-card:nth-child(6) { grid-column:span 3; }
+.room-card-top { border-bottom:1px solid rgba(222,226,224,.15); padding-bottom:12px; }
+.room-card-top span:first-child { color:#90a7aa; font:500 10px/1.5 var(--mono); letter-spacing:.08em; }
+.room-card-arrow { border-radius:50%; background:transparent; border:1px solid #4b6466; color:#b4cac8; font-size:18px; }
+.room-card-cover { border-radius:2px; overflow:hidden; aspect-ratio:16/10; margin:16px 0 24px; background:#283237; }
+.room-card:nth-child(7) .room-card-cover { border-radius:2px; }
+.room-card-cover img { filter:saturate(.65) contrast(1.01); transition:filter .4s, transform .4s; }
+.room-card:hover .room-card-cover img { filter:saturate(.93); transform:scale(1.035); }
+.room-photo-label { background:#0e161ae4; color:#c8d5d1; font:500 9px/1.3 var(--mono); letter-spacing:.06em; border-radius:1px; border-color:#45595b; }
+.room-card-body h3 { font-weight:600; font-size:clamp(22px,2.3vw,28px); line-height:1.18; margin-bottom:10px; }
+.room-card-body p { font-size:14px; color:#a9b8b9; }
+.room-card-action { margin-top:27px; border-color:#455155; color:#b9d0ca; font:500 10px/1.6 var(--mono); }
+.museum-note { margin-top:36px; background:transparent; border-radius:2px; border:1px solid #44545a; }
+.museum-note strong { color:#c3d3cf; }
+
+/* Room detail pages: calm, museum-label design language */
+.breadcrumb { color:#93a8a9; }
+.breadcrumb a:hover { color:var(--cream); }
+.room-intro { background:#1b2429; border:1px solid #44565c; border-radius:3px; box-shadow:none; }
+.room-intro:after { opacity:.018; }
+.room-intro h1 { font-size:clamp(48px,6vw,78px); font-weight:600; letter-spacing:-.067em; }
+.room-intro p { color:#bbc6c4; max-width:72ch; }
+.topic-chips span { border-radius:2px; color:#bed0cd; background:#223036; border-color:#4f6265; }
+.content-panel,.compare-card { border-radius:3px; background:#192228; border-color:#34474d; }
+.content-panel h2,.compare-card h3 { font-weight:600; }
+.room-aside { background:#202c31; }
+.topic-list li { color:#c9d2ce; }
+.topic-list li::marker { color:var(--cyan); }
+.exhibit-section { margin-top:84px; }
+.exhibit-grid { gap:18px; }
+.exhibit-card { background:#1a2429; border-radius:3px; border-color:#3f4b4f; transition:border-color .2s; }
+.exhibit-card:hover { transform:none; border-color:#a7c5c4; }
+.exhibit-visual { background:#243036; }
+.exhibit-visual img { filter:saturate(.8); }
+.exhibit-copy { padding:25px 23px 22px; gap:12px; }
+.exhibit-copy strong { font-weight:600; font-size:20px; }
+.exhibit-copy small,.exhibit-copy span { color:#adceca; font-weight:500; }
+.exhibit-copy span { border-top-color:#3e5357; }
+.compare-block { border-color:#3f4d52; }
+
+/* Documentary archive / reduced chrome, better hierarchy */
+.timeline-context { background:#1b282d; border-color:#41565a; border-radius:2px; }
+.timeline-year-nav { border-bottom:1px solid #36474c; padding-bottom:22px; }
+.timeline-jump { background:transparent; border-radius:2px; color:#acbfbd; border-color:#3c5054; font-weight:500; }
+.timeline-jump:hover { transform:none; background:#223237; border-color:#8bb5b5; }
+.timeline-rich::before { background:#3d575e; }
+.timeline-rich .timeline-entry::before, .timeline-rich .timeline-entry:nth-child(3n)::before, .timeline-rich .timeline-entry:nth-child(3n+2)::before {
+  box-shadow:0 0 0 2px #8eb7b6; background:#8eb7b6; }
+.timeline-year-card { border-radius:3px; box-shadow:none; background:#1a2429; border-color:#374a4e; padding:clamp(26px,3.5vw,39px); }
+.timeline-year-head h2 { font-size:clamp(24px,3vw,37px); line-height:1.15; font-weight:600; }
+.timeline-year-head h2 span { color:#abc5c3; font-family:var(--editorial); font-style:italic; font-size:1.25em; font-weight:500; }
+.timeline-year-summary { font-size:15px; line-height:1.75; max-width:75ch; }
+.timeline-year-tag,.timeline-original-date { color:#a0c0bf; font-weight:500; }
+.timeline-media-photo,.timeline-media-video { background:#121c21; border-color:#304248; border-radius:2px; padding:11px; }
+.timeline-photo-wrap { border-radius:1px; }
+.timeline-media-kicker { color:#acc3c0; font-weight:500; }
+.timeline-photo-badge { border-radius:1px; background:#101b20dd; }
+.timeline-video-button { background:#233138; border-radius:2px; }
+.timeline-video-button:hover { background:#334449; outline-color:#accdc5; }
+.timeline-play-icon { background:#b9cfc7; color:#182228; box-shadow:none; }
+.timeline-outro { background:#233138; border-color:#526a6b; border-radius:3px; }
+
+/* Clearer forecasting that reads as an exhibition, not a product dashboard */
+.future-hero { background:#1b2429; border-color:#405359; border-radius:3px; }
+.future-hero h1 { font-weight:600; letter-spacing:-.063em; }
+.future-hero h1 em { color:#aecbc5; }
+.future-steps { gap:10px; }
+.future-step { background:transparent; border-color:#536469; border-radius:2px; font-weight:500; }
+.future-step:last-child { color:#c9d9cf; border-color:#66847f; }
+.future-arrow { color:#718c8d; }
+.era-choices { border-radius:3px; background:#1b262b; border-color:#3d5055; }
+.era-choice { border-radius:2px; font-weight:500; }
+.era-choice[aria-pressed="true"] { background:#cfddd6; color:#1c272b; }
+.future-grid { gap:16px; }
+.future-card { --future-color:#a7c6c5 !important; background:#1a2328; border-radius:3px; border-color:#3b4d51; box-shadow:none; }
+.future-card:hover { border-color:#8daaaa; transform:none; }
+.future-card h3 { font-weight:600; }
+.future-card-list li { background:#222d32; border-radius:2px; }
+.future-icon { border-radius:2px; background:#27363a; }
+.future-notice { border-radius:0; border-left-color:#bcae8e; background:#27302e; }
+.future-prediction { color:#d2d6c0; }
+
+/* References and footer */
+.reference-panel,.ref-list { border-color:#3b4e52; }
+.site-footer { background:#10171a; border-top-color:#3b4e52; }
+.footer-links a:hover { color:var(--cream); }
+
+/* Sensible mobile and tablet editing */
+@media (max-width:1150px) {
+  .nav-inner { gap:17px; }
+  .nav-links a { padding-inline:10px; }
+  .hero-grid { gap:42px; }
+  .hero-title { font-size:clamp(75px,9vw,116px); }
+}
+@media (max-width:980px) {
+  .container { width:min(var(--max),calc(100% - 60px)); }
+  .room-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .room-card { grid-column:span 1; }
+  .room-card:nth-child(1),.room-card:nth-child(7) { grid-column:span 2; }
+  .room-card:nth-child(5),.room-card:nth-child(6) { grid-column:span 1; }
+  .nav-meta { display:none; }
+  .hero-grid { grid-template-columns:1fr; }
+  .hero { padding-top:68px; }
+  .hero-edition { max-width:none; margin-bottom:34px; }
+  .hero-title { font-size:clamp(80px,15vw,136px); }
+  .hinge-experience { max-width:650px; margin-inline:auto; width:100%; }
+  .lobby-collage-head .section-heading { font-size:clamp(43px,6vw,64px); }
+}
+@media (max-width:760px) {
+  .container { width:calc(100% - 36px); }
+  .site-header { background:#12181c; }
+  .nav-inner { min-height:65px; }
+  .brand-text { font-size:14px; }
+  .nav-links { background:#172127; border:1px solid #41575a; }
+  .nav-links a { border-bottom:1px solid #33484c; }
+  .hero { padding:52px 0 35px; }
+  .hero-edition { font-size:9px; gap:9px; margin-bottom:24px; }
+  .hero-title { font-size:clamp(74px,16.5vw,120px); margin:22px 0 28px; }
+  .hero-editorial-note { font-size:27px; }
+  .hero-facts { gap:26px; margin-top:37px; }
+  .lobby-collage-band { padding:43px 0 47px; margin-top:22px; }
+  .lobby-collage-head .section-heading { font-size:clamp(37px,7vw,51px); }
+  .lobby-year-card { flex-basis:188px; min-width:188px; width:188px; }
+  .lobby-collage-track { animation-duration:69s; }
+  .home-feature { padding-block:70px 78px; }
+  .feature-grid { grid-template-columns:1fr; }
+  .feature, .feature:not(:first-child) { border:0; border-bottom:1px solid var(--line); padding:27px 0; }
+  .feature:last-child { border-bottom:0; }
+  .feature h3 { margin-top:20px; }
+  .home-archive-kicker { flex-direction:column; gap:4px; }
+  .archive-strip { gap:7px!important; }
+  .home-archive-img img { height:140px!important; }
+  .museum-headline h1 { font-size:clamp(46px,7vw,60px); }
+  .room-grid { margin-top:37px; gap:13px; }
+  .room-card { padding:18px; }
+  .room-card:nth-child(1),.room-card:nth-child(7) { column-gap:19px; padding:20px; min-height:265px; }
+  .room-card:nth-child(1) .room-card-cover,.room-card:nth-child(7) .room-card-cover { min-height:200px; }
+  .room-card:nth-child(1) .room-card-body h3,.room-card:nth-child(7) .room-card-body h3 { font-size:26px; }
+  .future-card { padding:24px; }
+}
+@media (max-width:620px) {
+  .room-grid { grid-template-columns:1fr; }
+  .room-card,.room-card:nth-child(1),.room-card:nth-child(7),.room-card:nth-child(5),.room-card:nth-child(6) {
+    grid-column:1; display:flex; flex-direction:column; padding:18px; min-height:0; gap:0;
+  }
+  .room-card:nth-child(1) .room-card-top,.room-card:nth-child(1) .room-card-cover,.room-card:nth-child(1) .room-card-body,
+  .room-card:nth-child(7) .room-card-top,.room-card:nth-child(7) .room-card-cover,.room-card:nth-child(7) .room-card-body { grid-column:auto; grid-row:auto; }
+  .room-card:nth-child(1) .room-card-cover,.room-card:nth-child(7) .room-card-cover { height:auto; min-height:0; aspect-ratio:16/10; margin:17px 0 21px; }
+  .room-card:nth-child(1) .room-card-body h3,.room-card:nth-child(7) .room-card-body h3 { font-size:24px; }
+  .archive-strip { grid-template-columns:repeat(3,minmax(0,1fr))!important; }
+  .home-archive-img img { height:107px!important; }
+  .home-archive-img span { font-size:8px!important; left:4px!important; bottom:4px!important; }
+  .hero-title { font-size:clamp(67px,17vw,95px); }
+  .hero-title .second-line::after { top:-16px; font-size:8px; }
+}
+@media (max-width:430px) {
+  .hero-edition span:last-child { text-align:right; }
+  .hero-lead { font-size:16px; }
+  .hero-editorial-note { font-size:23px; }
+  .hero-actions { gap:8px; }
+  .hero-actions .btn { width:100%; }
+  .hero-facts strong { font-size:23px; }
+  .room-card-cover { aspect-ratio:16/10; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .page { animation:none!important; }
+  .lobby-collage-track { animation:none!important; }
+  .lobby-year-image-wrap img,.room-card-cover img { transition:none!important; }
+}
+
+  
+/* Playback control for the decade-long archival filmstrip */
+.collage-motion-control {
+  flex:0 0 auto; border:1px solid #597175; background:#1d282d; color:#cfdfd9;
+  border-radius:2px; min-height:39px; padding:10px 14px; cursor:pointer;
+  font:500 10px/1.4 var(--mono); letter-spacing:.06em;
+}
+.collage-motion-control:hover,.collage-motion-control:focus-visible { border-color:#b5d1cc; }
+.lobby-collage-track.is-paused { animation-play-state:paused; }
+@media(max-width:760px){.collage-motion-control{align-self:flex-start}}
+
+  
+.lobby-year-image-wrap { position:relative; }
+.lobby-year-card.is-fallback .lobby-year-image-wrap::after { content:'ILLUSTRATIVE CONTEXT'; position:absolute; top:12px; left:12px;
+  font:500 9px/1.4 var(--mono); letter-spacing:.05em; color:#e0e6e2; background:#10181ed9; padding:5px 7px; border:1px solid #567076; }
+
   </style>
 </head>
 <body>
@@ -816,13 +1137,15 @@
       <div class="hero">
         <div class="container hero-grid">
           <div>
+            <div class="hero-edition"><span>THE HINGE / ISSUE Nº 01</span><span>PHILIPPINES · 2000—2010</span></div>
             <span class="kicker">An interactive digital exhibition</span>
             <h1 class="hero-title"><span>THE</span><span class="second-line">HINGE.</span></h1>
             <p class="hero-lead">A time capsule of Philippine pop culture from <strong>2000 to 2010</strong>—when television ruled, texts were everything, and an entire generation found itself online.</p>
+            <p class="hero-editorial-note"><span aria-hidden="true">01 — 10</span> Between broadcast and belonging.</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#museum">ENTER THE MUSEUM <span aria-hidden="true">↗</span></a>
+              <a class="btn btn-primary" href="#museum">EXPLORE THE COLLECTION <span aria-hidden="true">↗</span></a>
               <a class="btn btn-secondary" href="#timeline">EXPLORE THE TIMELINE <span aria-hidden="true">→</span></a>
-              <a class="btn btn-secondary" href="#future">LOOK AHEAD TO 2030 <span aria-hidden="true">→</span></a>
+              <a class="btn btn-secondary" href="#future">THE FUTURE / 2030 <span aria-hidden="true">→</span></a>
             </div>
             <div class="hero-facts" aria-label="Exhibition at a glance">
               <div><strong>07</strong><span>EXHIBITION ROOMS</span></div>
@@ -851,100 +1174,100 @@
       <section class="lobby-collage-band" aria-label="Moving collage of Philippine pop culture highlights from 2000 to 2010">
         <div class="container lobby-collage-head">
           <div>
-            <span class="eyebrow">// LOBBY COLLAGE</span>
-            <h2 class="section-heading">From <span>2000</span> to <span>2010</span>, one moving line of memories.</h2>
-            <p class="section-sub">A continuous collage of key moments from each year of the decade. Click any panel to jump straight to that year in the full timeline.</p>
+            <span class="eyebrow">// A MOVING ARCHIVE / 2000—2010</span>
+            <h2 class="section-heading">A decade in <span>motion.</span></h2>
+            <p class="section-sub">Eleven moments, one continuous archival strip. Select a year to enter its original story, photographs, and video references.</p>
           </div>
-          <span class="pill">YEAR-BY-YEAR PREVIEW ↗</span>
+          <button class="collage-motion-control" id="collage-motion-toggle" type="button" aria-pressed="false" aria-label="Pause moving year collage">Ⅱ &nbsp; PAUSE COLLAGE</button>
         </div>
         <div class="lobby-collage-viewport">
           <div class="lobby-collage-track">
             <a class="lobby-year-card" href="#timeline-year-2000">
-              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/dRvyf35hDE4/hqdefault.jpg" alt="2000 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/dRvyf35hDE4/hqdefault.jpg" alt="2000 timeline context image" loading="lazy" decoding="async" data-backup-room="forms"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2000</span><strong>Pangako Sa ’Yo begins the teleserye era</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2001">
-              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/kVGdsJWLKxs/hqdefault.jpg" alt="2001 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/kVGdsJWLKxs/hqdefault.jpg" alt="2001 timeline context image" loading="lazy" decoding="async" data-backup-room="society"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2001</span><strong>EDSA II: text messages meet street protests</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2002">
-              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/vb0jRsFHdsE/hqdefault.jpg" alt="2002 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/vb0jRsFHdsE/hqdefault.jpg" alt="2002 timeline context image" loading="lazy" decoding="async" data-backup-room="forms"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2002</span><strong>TV news and teleseryes still lead</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2003">
-              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Nokia_3310.jpg" alt="2003 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Nokia_3310.jpg" alt="2003 timeline context image" loading="lazy" decoding="async" data-backup-room="tech"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2003</span><strong>Meteor Garden reaches Philippine screens</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2004">
-              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/qG8--KSTcpk/hqdefault.jpg" alt="2004 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/qG8--KSTcpk/hqdefault.jpg" alt="2004 timeline context image" loading="lazy" decoding="async" data-backup-room="forms"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2004</span><strong>Star Circle Quest turns aspiring stars into a TV event</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2005">
-              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Jeepney_Quezon_City.jpg/960px-Jeepney_Quezon_City.jpg" alt="2005 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Jeepney_Quezon_City.jpg/960px-Jeepney_Quezon_City.jpg" alt="2005 timeline context image" loading="lazy" decoding="async" data-backup-room="society"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2005</span><strong>Pinoy Big Brother opens its doors</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2006">
-              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Philippine_Idol_Stage.jpg/960px-Philippine_Idol_Stage.jpg" alt="2006 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Philippine_Idol_Stage.jpg/960px-Philippine_Idol_Stage.jpg" alt="2006 timeline context image" loading="lazy" decoding="async" data-backup-room="forms"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2006</span><strong>Philippine Idol brings music competition to TV</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2007">
-              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/CD_collection.jpg/960px-CD_collection.jpg" alt="2007 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/CD_collection.jpg/960px-CD_collection.jpg" alt="2007 timeline context image" loading="lazy" decoding="async" data-backup-room="music"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2007</span><strong>Itaktak Mo becomes a dance craze</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2008">
-              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Late_2000s_fashion.jpg/960px-Late_2000s_fashion.jpg" alt="2008 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Late_2000s_fashion.jpg/960px-Late_2000s_fashion.jpg" alt="2008 timeline context image" loading="lazy" decoding="async" data-backup-room="body"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2008</span><strong>The Eraserheads reunion becomes an OPM milestone</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2009">
-              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Rico_Blanco_(2009).jpg/960px-Rico_Blanco_(2009).jpg" alt="2009 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Rico_Blanco_(2009).jpg/960px-Rico_Blanco_(2009).jpg" alt="2009 timeline context image" loading="lazy" decoding="async" data-backup-room="music"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2009</span><strong>Rico Blanco releases Antukin</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2010">
-              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/R5pN3FgaHTQ/hqdefault.jpg" alt="2010 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/R5pN3FgaHTQ/hqdefault.jpg" alt="2010 timeline context image" loading="lazy" decoding="async" data-backup-room="society"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2010</span><strong>The first nationwide automated election</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2000" aria-hidden="true" tabindex="-1">
-              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/dRvyf35hDE4/hqdefault.jpg" alt="2000 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/dRvyf35hDE4/hqdefault.jpg" alt="2000 timeline context image" loading="lazy" decoding="async" data-backup-room="forms"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2000</span><strong>Pangako Sa ’Yo begins the teleserye era</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2001" aria-hidden="true" tabindex="-1">
-              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/kVGdsJWLKxs/hqdefault.jpg" alt="2001 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/kVGdsJWLKxs/hqdefault.jpg" alt="2001 timeline context image" loading="lazy" decoding="async" data-backup-room="society"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2001</span><strong>EDSA II: text messages meet street protests</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2002" aria-hidden="true" tabindex="-1">
-              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/vb0jRsFHdsE/hqdefault.jpg" alt="2002 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/vb0jRsFHdsE/hqdefault.jpg" alt="2002 timeline context image" loading="lazy" decoding="async" data-backup-room="forms"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2002</span><strong>TV news and teleseryes still lead</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2003" aria-hidden="true" tabindex="-1">
-              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Nokia_3310.jpg" alt="2003 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Nokia_3310.jpg" alt="2003 timeline context image" loading="lazy" decoding="async" data-backup-room="tech"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2003</span><strong>Meteor Garden reaches Philippine screens</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2004" aria-hidden="true" tabindex="-1">
-              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/qG8--KSTcpk/hqdefault.jpg" alt="2004 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/qG8--KSTcpk/hqdefault.jpg" alt="2004 timeline context image" loading="lazy" decoding="async" data-backup-room="forms"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2004</span><strong>Star Circle Quest turns aspiring stars into a TV event</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2005" aria-hidden="true" tabindex="-1">
-              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Jeepney_Quezon_City.jpg/960px-Jeepney_Quezon_City.jpg" alt="2005 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Jeepney_Quezon_City.jpg/960px-Jeepney_Quezon_City.jpg" alt="2005 timeline context image" loading="lazy" decoding="async" data-backup-room="society"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2005</span><strong>Pinoy Big Brother opens its doors</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2006" aria-hidden="true" tabindex="-1">
-              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Philippine_Idol_Stage.jpg/960px-Philippine_Idol_Stage.jpg" alt="2006 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Philippine_Idol_Stage.jpg/960px-Philippine_Idol_Stage.jpg" alt="2006 timeline context image" loading="lazy" decoding="async" data-backup-room="forms"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2006</span><strong>Philippine Idol brings music competition to TV</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2007" aria-hidden="true" tabindex="-1">
-              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/CD_collection.jpg/960px-CD_collection.jpg" alt="2007 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/CD_collection.jpg/960px-CD_collection.jpg" alt="2007 timeline context image" loading="lazy" decoding="async" data-backup-room="music"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2007</span><strong>Itaktak Mo becomes a dance craze</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2008" aria-hidden="true" tabindex="-1">
-              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Late_2000s_fashion.jpg/960px-Late_2000s_fashion.jpg" alt="2008 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Late_2000s_fashion.jpg/960px-Late_2000s_fashion.jpg" alt="2008 timeline context image" loading="lazy" decoding="async" data-backup-room="body"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2008</span><strong>The Eraserheads reunion becomes an OPM milestone</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2009" aria-hidden="true" tabindex="-1">
-              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Rico_Blanco_(2009).jpg/960px-Rico_Blanco_(2009).jpg" alt="2009 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Rico_Blanco_(2009).jpg/960px-Rico_Blanco_(2009).jpg" alt="2009 timeline context image" loading="lazy" decoding="async" data-backup-room="music"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2009</span><strong>Rico Blanco releases Antukin</strong></div>
             </a>
 <a class="lobby-year-card" href="#timeline-year-2010" aria-hidden="true" tabindex="-1">
-              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/R5pN3FgaHTQ/hqdefault.jpg" alt="2010 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/R5pN3FgaHTQ/hqdefault.jpg" alt="2010 timeline context image" loading="lazy" decoding="async" data-backup-room="society"></div>
               <div class="lobby-year-overlay"><span class="lobby-year-number">2010</span><strong>The first nationwide automated election</strong></div>
             </a>
           </div>
@@ -955,14 +1278,15 @@
       <div class="container home-feature">
         <span class="eyebrow">// WHAT'S INSIDE</span>
         <div class="section-top">
-          <div><h2 class="section-heading">A decade worth<br>revisiting.</h2><p class="section-sub">More than nostalgia. Follow the connections between entertainment, identity, technology, and everyday Filipino life.</p></div>
-          <span class="pill">CURATED DIGITAL MUSEUM ↗</span>
+          <div><h2 class="section-heading">Stories worth<br>remembering.</h2><p class="section-sub">The rooms bring together the music, media, technology, and everyday objects that defined a generation. Curated for context, not just nostalgia.</p></div>
+          <span class="pill">THE PERMANENT COLLECTION</span>
         </div>
         <div class="feature-grid">
           <div class="feature"><div class="feature-num">01 / LOOK <span aria-hidden="true">✳</span></div><h3>Fashion & identity</h3><p>See how style, beauty ideals, and youth communities shaped the way a generation expressed itself.</p></div>
           <div class="feature"><div class="feature-num">02 / LISTEN <span aria-hidden="true">♫</span></div><h3>Music & media</h3><p>Revisit the era of OPM rock, television talent searches, and pop-culture moments.</p></div>
           <div class="feature"><div class="feature-num">03 / CONNECT <span aria-hidden="true">⌘</span></div><h3>Technology & change</h3><p>From SMS and internet cafés to social profiles, explore the shift into digital life.</p></div>
         </div>
+        <div class="home-archive-kicker"><span>ARCHIVE SELECTION / 2006—2009</span><span>DOCUMENTARY PHOTOS & PERIOD REFERENCES</span></div>
         <div class="archive-strip" aria-label="A few archival images from the decade" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0 12px">
           <a href="#room-music" class="home-archive-img" style="min-height:130px;border-radius:12px;overflow:hidden;position:relative;background:#292b48;border:1px solid var(--line)"><img alt="Rico Blanco performing in 2009" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Rico_Blanco_(2009).jpg/960px-Rico_Blanco_(2009).jpg" style="width:100%;height:165px;object-fit:cover"><span style="position:absolute;left:10px;bottom:10px;background:#0d0e1bcc;padding:5px 8px;border-radius:6px;font:700 10px var(--mono)">OPM · 2009</span></a>
           <a href="#room-forms" class="home-archive-img" style="min-height:130px;border-radius:12px;overflow:hidden;position:relative;background:#292b48;border:1px solid var(--line)"><img alt="Philippine Idol stage in 2006" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Philippine_Idol_Stage.jpg/960px-Philippine_Idol_Stage.jpg" style="width:100%;height:165px;object-fit:cover"><span style="position:absolute;left:10px;bottom:10px;background:#0d0e1bcc;padding:5px 8px;border-radius:6px;font:700 10px var(--mono)">TV · 2006</span></a>
@@ -974,7 +1298,7 @@
 
     <section class="page inside-page" id="view-museum" data-view="museum" aria-labelledby="museum-title" hidden>
       <div class="container">
-        <div class="museum-headline"><span class="kicker">Welcome to the exhibition</span><h1 class="section-heading" id="museum-title" style="margin-top:20px">Pick a room.<br>Rewind a memory.</h1><p class="section-sub">Seven exhibitions. One transformational decade. Choose a room to uncover the ideas, sounds, screens, and stories that shaped Philippine pop culture.</p></div>
+        <div class="museum-headline"><span class="kicker">THE COLLECTION / SEVEN ROOMS</span><h1 class="section-heading" id="museum-title" style="margin-top:20px">Seven rooms.<br>One changing culture.</h1><p class="section-sub">Explore seven connected perspectives on Philippine life between 2000 and 2010. Each room brings together contextual writing, source photographs, original video links, and clearly labeled illustrated posters.</p></div>
         <div class="room-grid" id="room-grid"></div>
         <div class="museum-note"><strong>✳ Explore at your own pace.</strong> Open any room to read its story and view the available video or poster exhibits.</div>
       </div>
@@ -985,7 +1309,7 @@
     <section class="page inside-page" id="view-timeline" data-view="timeline" aria-labelledby="timeline-title" hidden>
   <div class="container">
     <span class="kicker">ARCHIVE / 2000–2010</span>
-    <h1 class="section-heading" id="timeline-title" style="margin-top:19px">THE HINGE<br><span style="color:var(--lime)">year by year.</span></h1>
+    <h1 class="section-heading" id="timeline-title" style="margin-top:19px">An archive<br><span class="editorial-italic">in time.</span></h1>
     <p class="section-sub">Eleven years. Real moments from Philippine television, music, youth culture and the shift from analog life to the internet. Open each video, explore the period pictures and read the dated sources.</p>
     <div class="timeline-context"><strong>HOW THE DATES WORK</strong><span>Years here refer to the <em>original show premiere, event, recording or song release</em> — not necessarily the date a video was uploaded to YouTube. Photos are labeled as event photographs, period context, or archival video stills.</span></div>
     <nav class="timeline-year-nav" aria-label="Jump to a year">
@@ -1539,15 +1863,25 @@
         const featured = coverPhotos[room.slug];
         if (featured) {
           const photo = el('img');
-          photo.alt = room.name + ' AI-generated museum poster';
+          photo.alt = featured.title + ' — contextual image for ' + room.name;
           photo.loading = 'lazy'; photo.decoding = 'async';
-          const candidates = [posterPaths[room.slug], featured.image, coverFallbackPhotos[room.slug]];
+          // Prefer sourced photography; local AI illustration is a clear, labelled backup.
+          const candidates = [featured.image, posterPaths[room.slug], coverFallbackPhotos[room.slug]];
+          const label = el('span','room-photo-label','PHOTO REFERENCE / ' + room.number);
           let next = 0;
-          photo.addEventListener('load', () => { if(photo.naturalWidth > 5) preview.classList.add('loaded'); else photo.dispatchEvent(new Event('error')); });
-          photo.addEventListener('error',()=>{ if(next < candidates.length) photo.src = candidates[next++]; else photo.remove(); });
+          photo.addEventListener('load', () => {
+            if (photo.naturalWidth <= 5) { photo.dispatchEvent(new Event('error')); return; }
+            preview.classList.add('loaded');
+            const isPoster = next === 2;
+            label.textContent = isPoster ? 'AI-GENERATED POSTER / ' + room.number : next === 3 ? 'ILLUSTRATED BACKUP / ' + room.number : 'PHOTO REFERENCE / ' + room.number;
+            if (isPoster) photo.alt = room.name + ' — AI-generated illustrative poster';
+          });
+          photo.addEventListener('error', () => {
+            if (next < candidates.length) photo.src = candidates[next++];
+            else photo.remove();
+          });
           photo.src = candidates[next++];
           preview.append(photo);
-          const label = el('span','room-photo-label','AI-GENERATED POSTER / ' + room.number);
           preview.append(label);
         }
         const info = el('div','room-card-body');
@@ -1813,6 +2147,44 @@
     document.getElementById('dialog-close').addEventListener('click',closeExhibit);
     dialog.addEventListener('click',event=>{if(event.target===dialog) closeExhibit();});
     dialog.addEventListener('close',()=>dialogBody.replaceChildren());
+    // Resilient archival strips: if an external source fails, use a labelled
+    // contextual illustration from the supplied class materials, never a broken image.
+    function safeIllustrationFallback(img, room, card) {
+      if (!img || !room) return;
+      const fallback = coverFallbackPhotos[room];
+      if (!fallback) return;
+      const apply = () => {
+        if (img.dataset.fallbackApplied) return;
+        img.dataset.fallbackApplied = 'true';
+        img.src = fallback;
+        img.alt = 'Context illustration from the classroom presentation, not a photograph of this event';
+        if (card) card.classList.add('is-fallback');
+        const caption = card?.querySelector('.home-photo-tag') || (card?.matches('.home-archive-img') ? card.querySelector('span') : null);
+        if (caption) caption.textContent = 'ILLUSTRATIVE CONTEXT';
+      };
+      img.addEventListener('error',apply,{once:true});
+      if (img.complete && img.naturalWidth===0) apply();
+    }
+    document.querySelectorAll('.lobby-year-card:not([aria-hidden]) img[data-backup-room]').forEach(img => {
+      safeIllustrationFallback(img,img.dataset.backupRoom,img.closest('.lobby-year-card'));
+    });
+    document.querySelectorAll('.lobby-year-card[aria-hidden] img[data-backup-room]').forEach(img => {
+      safeIllustrationFallback(img,img.dataset.backupRoom,img.closest('.lobby-year-card'));
+    });
+    ['music','forms','society'].forEach((room,i) => {
+      const img = document.querySelectorAll('.home-archive-img img')[i];
+      if (img) safeIllustrationFallback(img,room,img.closest('.home-archive-img'));
+    });
+    const collageControl = document.getElementById('collage-motion-toggle');
+    const collageTrack = document.querySelector('.lobby-collage-track');
+    if (collageControl && collageTrack) {
+      collageControl.addEventListener('click', () => {
+        const paused = collageTrack.classList.toggle('is-paused');
+        collageControl.setAttribute('aria-pressed',String(paused));
+        collageControl.setAttribute('aria-label',paused?'Play moving year collage':'Pause moving year collage');
+        collageControl.textContent = paused?'▶  PLAY COLLAGE':'Ⅱ  PAUSE COLLAGE';
+      });
+    }
     window.addEventListener('hashchange',renderRoute);
     renderRoute();
   </script>
