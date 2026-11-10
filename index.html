@@ -709,6 +709,86 @@
       .timeline-video-button { min-height: 92px; padding: 9px; }
     }
 
+  
+
+    /* =====================================================
+       LOBBY YEAR COLLAGE — 2000 to 2010 moving one-line strip
+       ===================================================== */
+    .lobby-collage-band {
+      position: relative; overflow: hidden; padding: 20px 0 26px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,99,173,.14), transparent 35%),
+        radial-gradient(circle at 85% 25%, rgba(85,183,255,.12), transparent 32%),
+        linear-gradient(180deg, rgba(14,17,34,.9), rgba(10,12,24,.96));
+    }
+    .lobby-collage-head {
+      display: flex; justify-content: space-between; align-items: end; gap: 24px;
+      margin-bottom: 20px;
+    }
+    .lobby-collage-head .section-heading {
+      font-size: clamp(28px, 4vw, 44px); margin: 10px 0 0;
+    }
+    .lobby-collage-head .section-heading span { color: var(--lime); }
+    .lobby-collage-viewport {
+      position: relative; overflow: hidden; width: 100%;
+      mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+    }
+    .lobby-collage-track {
+      display: flex; gap: 16px; width: max-content; align-items: stretch;
+      will-change: transform; animation: lobbyCollageScroll 58s linear infinite;
+      padding: 6px 24px 2px;
+    }
+    .lobby-collage-track:hover { animation-play-state: paused; }
+    .lobby-year-card {
+      position: relative; flex: 0 0 240px; width: 240px; min-width: 240px;
+      border-radius: 18px; overflow: hidden; background: #171b30;
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 18px 42px rgba(0,0,0,.28);
+      text-decoration: none; color: #fff; transform: translateZ(0);
+    }
+    .lobby-year-card::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(10,12,25,.02), rgba(10,12,25,.05) 35%, rgba(10,12,25,.8));
+      pointer-events: none;
+    }
+    .lobby-year-card:hover { transform: translateY(-4px); border-color: rgba(170,255,140,.45); }
+    .lobby-year-image-wrap { aspect-ratio: 4 / 5; overflow: hidden; background: #111425; }
+    .lobby-year-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .lobby-year-overlay {
+      position: absolute; inset: auto 0 0 0; z-index: 1;
+      display: flex; flex-direction: column; gap: 7px; padding: 16px;
+    }
+    .lobby-year-number {
+      display: inline-flex; width: fit-content; padding: 4px 8px; border-radius: 999px;
+      background: rgba(167,255,109,.14); border: 1px solid rgba(167,255,109,.28);
+      color: var(--lime); font: 700 10px/1.4 var(--mono); letter-spacing: .08em;
+    }
+    .lobby-year-overlay strong {
+      font: 700 18px/1.24 var(--display); letter-spacing: -.03em;
+      text-wrap: balance; text-shadow: 0 6px 24px rgba(0,0,0,.45);
+    }
+    @keyframes lobbyCollageScroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 8px)); } }
+    @media (prefers-reduced-motion: reduce) {
+      .lobby-collage-track { animation: none; }
+      .lobby-year-card:hover { transform: none; }
+    }
+    @media (max-width: 900px) {
+      .lobby-collage-head { align-items: stretch; flex-direction: column; gap: 12px; }
+      .lobby-year-card { flex-basis: 210px; width: 210px; min-width: 210px; }
+      .lobby-year-overlay strong { font-size: 16px; }
+    }
+    @media (max-width: 640px) {
+      .lobby-collage-band { padding: 16px 0 20px; }
+      .lobby-collage-head { margin-bottom: 14px; }
+      .lobby-collage-track { gap: 12px; padding-inline: 18px; animation-duration: 48s; }
+      .lobby-year-card { flex-basis: 180px; width: 180px; min-width: 180px; border-radius: 15px; }
+      .lobby-year-overlay { padding: 12px; gap: 5px; }
+      .lobby-year-overlay strong { font-size: 14px; line-height: 1.25; }
+    }
+
   </style>
 </head>
 <body>
@@ -767,6 +847,110 @@
             </div>
         </div>
       </div>
+      
+      <section class="lobby-collage-band" aria-label="Moving collage of Philippine pop culture highlights from 2000 to 2010">
+        <div class="container lobby-collage-head">
+          <div>
+            <span class="eyebrow">// LOBBY COLLAGE</span>
+            <h2 class="section-heading">From <span>2000</span> to <span>2010</span>, one moving line of memories.</h2>
+            <p class="section-sub">A continuous collage of key moments from each year of the decade. Click any panel to jump straight to that year in the full timeline.</p>
+          </div>
+          <span class="pill">YEAR-BY-YEAR PREVIEW ↗</span>
+        </div>
+        <div class="lobby-collage-viewport">
+          <div class="lobby-collage-track">
+            <a class="lobby-year-card" href="#timeline-year-2000">
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/dRvyf35hDE4/hqdefault.jpg" alt="2000 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2000</span><strong>Pangako Sa ’Yo begins the teleserye era</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2001">
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/kVGdsJWLKxs/hqdefault.jpg" alt="2001 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2001</span><strong>EDSA II: text messages meet street protests</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2002">
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/vb0jRsFHdsE/hqdefault.jpg" alt="2002 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2002</span><strong>TV news and teleseryes still lead</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2003">
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Nokia_3310.jpg" alt="2003 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2003</span><strong>Meteor Garden reaches Philippine screens</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2004">
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/qG8--KSTcpk/hqdefault.jpg" alt="2004 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2004</span><strong>Star Circle Quest turns aspiring stars into a TV event</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2005">
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Jeepney_Quezon_City.jpg/960px-Jeepney_Quezon_City.jpg" alt="2005 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2005</span><strong>Pinoy Big Brother opens its doors</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2006">
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Philippine_Idol_Stage.jpg/960px-Philippine_Idol_Stage.jpg" alt="2006 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2006</span><strong>Philippine Idol brings music competition to TV</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2007">
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/CD_collection.jpg/960px-CD_collection.jpg" alt="2007 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2007</span><strong>Itaktak Mo becomes a dance craze</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2008">
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Late_2000s_fashion.jpg/960px-Late_2000s_fashion.jpg" alt="2008 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2008</span><strong>The Eraserheads reunion becomes an OPM milestone</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2009">
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Rico_Blanco_(2009).jpg/960px-Rico_Blanco_(2009).jpg" alt="2009 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2009</span><strong>Rico Blanco releases Antukin</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2010">
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/R5pN3FgaHTQ/hqdefault.jpg" alt="2010 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2010</span><strong>The first nationwide automated election</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2000" aria-hidden="true" tabindex="-1">
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/dRvyf35hDE4/hqdefault.jpg" alt="2000 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2000</span><strong>Pangako Sa ’Yo begins the teleserye era</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2001" aria-hidden="true" tabindex="-1">
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/kVGdsJWLKxs/hqdefault.jpg" alt="2001 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2001</span><strong>EDSA II: text messages meet street protests</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2002" aria-hidden="true" tabindex="-1">
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/vb0jRsFHdsE/hqdefault.jpg" alt="2002 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2002</span><strong>TV news and teleseryes still lead</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2003" aria-hidden="true" tabindex="-1">
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Nokia_3310.jpg" alt="2003 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2003</span><strong>Meteor Garden reaches Philippine screens</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2004" aria-hidden="true" tabindex="-1">
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/qG8--KSTcpk/hqdefault.jpg" alt="2004 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2004</span><strong>Star Circle Quest turns aspiring stars into a TV event</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2005" aria-hidden="true" tabindex="-1">
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Jeepney_Quezon_City.jpg/960px-Jeepney_Quezon_City.jpg" alt="2005 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2005</span><strong>Pinoy Big Brother opens its doors</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2006" aria-hidden="true" tabindex="-1">
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Philippine_Idol_Stage.jpg/960px-Philippine_Idol_Stage.jpg" alt="2006 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2006</span><strong>Philippine Idol brings music competition to TV</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2007" aria-hidden="true" tabindex="-1">
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/CD_collection.jpg/960px-CD_collection.jpg" alt="2007 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2007</span><strong>Itaktak Mo becomes a dance craze</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2008" aria-hidden="true" tabindex="-1">
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Late_2000s_fashion.jpg/960px-Late_2000s_fashion.jpg" alt="2008 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2008</span><strong>The Eraserheads reunion becomes an OPM milestone</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2009" aria-hidden="true" tabindex="-1">
+              <div class="lobby-year-image-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Rico_Blanco_(2009).jpg/960px-Rico_Blanco_(2009).jpg" alt="2009 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2009</span><strong>Rico Blanco releases Antukin</strong></div>
+            </a>
+<a class="lobby-year-card" href="#timeline-year-2010" aria-hidden="true" tabindex="-1">
+              <div class="lobby-year-image-wrap"><img src="https://i.ytimg.com/vi/R5pN3FgaHTQ/hqdefault.jpg" alt="2010 collage image" loading="lazy" decoding="async"></div>
+              <div class="lobby-year-overlay"><span class="lobby-year-number">2010</span><strong>The first nationwide automated election</strong></div>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <div class="ticker" aria-label="Featured cultural touchstones"><div class="container ticker-inner"><span>OPM ROCK</span><b aria-hidden="true">✳</b><span>INTERNET CAFÉS</span><b aria-hidden="true">✳</b><span>FRIENDSTER</span><b aria-hidden="true">✳</b><span>Y2K FASHION</span><b aria-hidden="true">✳</b><span>SMS GENERATION</span></div></div>
       <div class="container home-feature">
         <span class="eyebrow">// WHAT'S INSIDE</span>
