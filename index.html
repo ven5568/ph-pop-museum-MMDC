@@ -493,6 +493,222 @@
     .era-portal.is-animating .era-door { will-change:transform; }
     @media(max-width:760px) { .era-door { transition-duration:1.05s; } }
     @media(prefers-reduced-motion:reduce) { .era-door { transition:none; } }
+
+
+    /* =====================================================
+       THE HINGE / UI POLISH — Spacing, rhythm, and legibility
+       Keeps original content, artwork, colors and motion.
+       ===================================================== */
+    :root {
+      --space-1: 8px;
+      --space-2: 12px;
+      --space-3: 16px;
+      --space-4: 20px;
+      --space-5: 24px;
+      --space-6: 32px;
+      --space-7: 48px;
+      --ui-radius: 20px;
+      --ui-card: #1b1e33;
+    }
+    body { font-size: 15px; line-height: 1.65; }
+    .page, .content-panel, .room-card, .exhibit-card, .compare-card, .future-card,
+    .timeline-year-card, .timeline-media-photo, .timeline-media-video { min-width: 0; }
+    .container { width: min(var(--max), calc(100% - 72px)); }
+    .section-top { align-items: flex-end; gap: 24px; margin-bottom: 32px; }
+    .section-heading { line-height: 1.09; letter-spacing: -.045em; text-wrap: balance; }
+    .section-sub { max-width: 64ch; font-size: 15px; line-height: 1.7; color: #c1c6d9; text-wrap: pretty; }
+    .inside-page { padding-block: 68px 104px; }
+    .eyebrow, .panel-label { line-height: 1.65; }
+    .pill { line-height: 1.45; white-space: nowrap; }
+
+    /* Seven clickable museum room cards */
+    .room-grid { gap: 22px; margin-top: 38px; align-items: stretch; }
+    .room-card {
+      min-height: 0; padding: 22px; border-radius: var(--ui-radius);
+      display: flex; flex-direction: column; background: var(--ui-card);
+    }
+    .room-card-top { align-items: center; min-height: 36px; }
+    .room-card-top span:first-child { font-size: 10px; line-height: 1.4; }
+    .room-card-arrow { width: 35px; height: 35px; flex: 0 0 35px; }
+    .room-card-cover, .room-card:nth-child(7) .room-card-cover {
+      width: 100%; height: auto; aspect-ratio: 16 / 9;
+      margin: 18px 0 21px; border-radius: 13px;
+    }
+    .room-card-body { margin-top: auto; display: flex; flex-direction: column; align-items: flex-start; min-height: 0; }
+    .room-card-body h3 {
+      font: 700 clamp(21px, 2vw, 26px)/1.16 var(--display);
+      margin: 0 0 9px; letter-spacing: -.04em; text-wrap: balance;
+      overflow-wrap: anywhere;
+    }
+    .room-card-body p {
+      max-width: 38ch; margin: 0; font-size: 14px; line-height: 1.6;
+      color: #c2c8dc; text-wrap: pretty;
+    }
+    .room-card-action {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-top: 17px; padding-top: 13px;
+      border-top: 1px solid rgba(255,255,255,.14);
+      font: 700 10px/1.5 var(--mono); letter-spacing: .07em;
+      color: var(--room-accent);
+    }
+    /* The seventh room is an intentionally featured, full-width finale. */
+    .room-card:nth-child(7) {
+      grid-column: 1 / -1; display: grid;
+      grid-template-columns: minmax(0,.9fr) minmax(0,1.15fr);
+      grid-template-rows: auto 1fr; column-gap: 32px; align-items: stretch;
+      min-height: 295px; padding: 26px;
+    }
+    .room-card:nth-child(7) .room-card-top { grid-column: 1; grid-row: 1; }
+    .room-card:nth-child(7) .room-card-cover {
+      grid-column: 2; grid-row: 1 / span 2;
+      height: 100%; min-height: 228px; aspect-ratio: auto; margin: 0;
+    }
+    .room-card:nth-child(7) .room-card-body {
+      grid-column: 1; grid-row: 2; align-self: end; max-width: 100%;
+    }
+    .room-card:nth-child(7) .room-card-body h3 { font-size: clamp(25px,3vw,34px); }
+    .museum-note { gap: 14px; line-height: 1.6; margin-top: 30px; padding: 19px 22px; }
+
+    /* Room intros, feature lists, and comparison cards */
+    .breadcrumb { margin-bottom: 25px; line-height: 1.6; }
+    .room-intro { padding: clamp(32px, 4.5vw, 58px); }
+    .room-intro h1 { margin-block: 18px 18px; font-size: clamp(40px,6vw,72px); line-height: 1.055; text-wrap: balance; }
+    .room-intro p { line-height: 1.7; text-wrap: pretty; }
+    .topic-chips { margin-top: 25px; gap: 9px; }
+    .topic-chips span { line-height: 1.5; }
+    .room-content { gap: 22px; margin-top: 23px; }
+    .content-panel { padding: 30px; }
+    .content-panel h2 { font-size: 26px; line-height: 1.2; }
+    .topic-list { gap: 15px; }
+    .topic-list li { gap: 14px; line-height: 1.65; text-wrap: pretty; }
+    .room-aside p { line-height: 1.7; }
+    .exhibit-section { margin-top: 64px; }
+    .compare-grid, .comparison-summary { gap: 22px; }
+    .compare-card { padding: 26px; }
+    .compare-card h3 { line-height: 1.2; margin-bottom: 22px; }
+    .compare-block p { line-height: 1.65; }
+    .room-bottom-nav { gap: 16px; margin-top: 68px; }
+
+    /* Exhibit image cards: evenly spaced titles and bottom-aligned actions */
+    .exhibit-grid { gap: 22px; margin-top: 27px; align-items: stretch; }
+    .exhibit-card {
+      height: 100%; display: flex; flex-direction: column;
+      border-radius: var(--ui-radius); background: var(--ui-card);
+    }
+    .exhibit-visual { flex: 0 0 auto; width: 100%; height: auto; aspect-ratio: 16 / 10; }
+    .exhibit-copy { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding: 23px 23px 21px; }
+    .exhibit-copy small { margin: 0; font: 700 10px/1.6 var(--mono); letter-spacing: .07em; }
+    .exhibit-copy strong {
+      font: 700 clamp(18px,1.7vw,21px)/1.25 var(--display);
+      min-height: 0; letter-spacing: -.035em;
+      overflow-wrap: anywhere; text-wrap: balance;
+    }
+    .exhibit-copy span {
+      margin-top: auto; padding-top: 16px; width: 100%;
+      border-top: 1px solid rgba(255,255,255,.13);
+      font: 700 10px/1.5 var(--mono); color: var(--lime);
+    }
+
+    /* Past → Present → 2030 forecasting cards */
+    .future-grid { gap: 21px; align-items: stretch; }
+    .future-card { display: flex; flex-direction: column; padding: 25px; border-radius: var(--ui-radius); }
+    .future-card-head { gap: 12px; align-items: flex-start; }
+    .future-card-head span:first-child { line-height: 1.5; }
+    .future-card h3 { font-size: 27px; margin: 19px 0 10px; line-height: 1.18; text-wrap: balance; }
+    .future-card-event { font-size: 17px; min-height: 0; margin-bottom: 19px; line-height: 1.4; text-wrap: pretty; }
+    .future-card-list { gap: 10px; margin-bottom: 24px; }
+    .future-card-list li { padding: 13px; gap: 11px; border-radius: 10px; line-height: 1.5; }
+    .future-card-foot { margin-top: auto; padding-top: 17px; font-size: 12px; line-height: 1.55; }
+    .future-card-foot strong { display: block; line-height: 1.55; }
+    .future-card-foot p { margin: 5px 0 12px; }
+    .future-layout-head { margin-bottom: 25px; }
+    .future-hero p { line-height: 1.7; }
+    .era-choice { line-height: 1.45; }
+
+    /* Timeline year cards: better media separation and reading rhythm */
+    .timeline-rich { gap: 24px; }
+    .timeline-year-card { padding: clamp(22px,3.2vw,32px); border-radius: var(--ui-radius); }
+    .timeline-year-head h2 { line-height: 1.19; text-wrap: balance; }
+    .timeline-year-summary { font-size: 14px; line-height: 1.75; text-wrap: pretty; }
+    .timeline-original-date { line-height: 1.7; margin-bottom: 24px; }
+    .timeline-media-grid { gap: 19px; align-items: stretch; }
+    .timeline-media-photo, .timeline-media-video { padding: 14px; border-radius: 14px; }
+    .timeline-photo-wrap { height: auto; aspect-ratio: 16 / 10; }
+    .timeline-photo-credit { line-height: 1.6; }
+    .timeline-media-kicker { line-height: 1.5; }
+    .timeline-video-button { min-height: 107px; gap: 15px; }
+    .timeline-video-title { line-height: 1.38; overflow-wrap: anywhere; }
+    .timeline-source-row { gap: 13px; line-height: 1.65; }
+    .timeline-year-nav { row-gap: 10px; }
+    .reference-list li { line-height: 1.7; }
+    .dialog-head h2 { line-height: 1.3; text-wrap: balance; }
+    .dialog-description { line-height: 1.7; }
+
+    /* Responsive typography and card density */
+    @media (max-width: 1020px) {
+      .room-card:nth-child(7) { grid-column: 1 / -1; }
+      .exhibit-grid { gap: 18px; }
+      .room-grid { gap: 18px; }
+    }
+    @media (max-width: 760px) {
+      .container { width: min(var(--max), calc(100% - 36px)); }
+      .inside-page { padding-block: 47px 76px; }
+      .section-top { align-items: stretch; gap: 14px; }
+      .section-heading { font-size: clamp(32px, 6.5vw, 41px); }
+      .section-sub { font-size: 14px; }
+      .room-grid { gap: 17px; margin-top: 31px; }
+      .room-card { padding: 18px; }
+      .room-card-cover { margin-block: 16px 17px; }
+      .room-card-body h3 { font-size: 22px; }
+      .room-card-body p { font-size: 13px; }
+      .room-card:nth-child(7) { padding: 21px; column-gap: 18px; min-height: 280px; }
+      .room-card:nth-child(7) .room-card-cover { min-height: 218px; }
+      .room-card:nth-child(7) .room-card-body h3 { font-size: 25px; }
+      .room-content { gap: 15px; }
+      .content-panel { padding: 24px; }
+      .exhibit-grid { gap: 16px; }
+      .exhibit-copy { padding: 19px; }
+      .future-grid { gap: 16px; }
+      .future-card { padding: 22px; }
+      .timeline-year-card { padding: 22px; }
+      .timeline-media-grid { gap: 14px; }
+      .timeline-year-nav { flex-wrap: nowrap; overflow-x: auto; padding: 2px 2px 12px; scrollbar-width: thin; }
+      .timeline-jump { flex: 0 0 auto; }
+    }
+    @media (max-width: 680px) {
+      .room-grid { grid-template-columns: 1fr; }
+      .room-card, .room-card:nth-child(7) {
+        grid-column: auto; display: flex; flex-direction: column;
+        gap: 0; min-height: 0; padding: 20px;
+      }
+      .room-card:nth-child(7) .room-card-top,
+      .room-card:nth-child(7) .room-card-cover,
+      .room-card:nth-child(7) .room-card-body { grid-column: auto; grid-row: auto; }
+      .room-card:nth-child(7) .room-card-cover {
+        margin: 17px 0 19px; height: auto; min-height: 0;
+        aspect-ratio: 16 / 9;
+      }
+      .room-card:nth-child(7) .room-card-body h3 { font-size: 23px; }
+      .room-card-cover { aspect-ratio: 16 / 9; }
+      .room-card-body h3 { font-size: 23px; }
+      .room-card-body p { font-size: 14px; }
+      .exhibit-grid { grid-template-columns: 1fr; }
+      .exhibit-visual { aspect-ratio: 16 / 9; }
+      .exhibit-copy strong { font-size: 20px; }
+      .future-card-event { font-size: 16px; }
+    }
+    @media (max-width: 430px) {
+      .room-card, .room-card:nth-child(7) { padding: 17px; }
+      .room-card-cover, .room-card:nth-child(7) .room-card-cover { margin-block: 15px 17px; }
+      .room-intro { padding: 28px 22px; }
+      .room-intro h1 { font-size: clamp(36px, 10vw, 43px); }
+      .content-panel { padding: 22px; }
+      .future-card { padding: 21px; }
+      .timeline-rich .timeline-entry { padding-left: 25px; }
+      .timeline-year-card { padding: 19px; }
+      .timeline-video-button { min-height: 92px; padding: 9px; }
+    }
+
   </style>
 </head>
 <body>
@@ -1151,7 +1367,7 @@
           preview.append(label);
         }
         const info = el('div','room-card-body');
-        info.append(el('h3','',room.name),el('p','',room.tagline));
+        info.append(el('h3','',room.name),el('p','',room.tagline),el('span','room-card-action','EXPLORE ROOM ↗'));
         a.append(top,preview,info);
         roomGrid.append(a);
       });
