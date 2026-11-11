@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#11161b">
+  <meta name="theme-color" content="#101a20">
   <meta name="description" content="THE HINGE is an interactive digital museum exploring Philippine popular culture, youth identity, music, and technology from 2000 to 2010.">
   <title>THE HINGE — A Decade in Philippine Pop Culture</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1109,6 +1109,255 @@ body::before { background:none; }
 .lobby-year-image-wrap { position:relative; }
 .lobby-year-card.is-fallback .lobby-year-image-wrap::after { content:'ILLUSTRATIVE CONTEXT'; position:absolute; top:12px; left:12px;
   font:500 9px/1.4 var(--mono); letter-spacing:.05em; color:#e0e6e2; background:#10181ed9; padding:5px 7px; border:1px solid #567076; }
+
+
+/* ============================================================
+   THE HINGE / BALANCED LIGHT EDITORIAL MUSEUM 2026
+   Warm archival paper, dark ink, dark opening scene.
+   Applied after Premium Editorial CSS; functional behavior intact.
+   ============================================================ */
+:root {
+  --paper:#f5f3ed;
+  --paper-soft:#eeeae1;
+  --paper-card:#fffefa;
+  --ink:#25343b;
+  --ink-2:#536269;
+  --hairline:#d9dcd8;
+  --teal-ink:#38656a;
+  --rose-ink:#925d69;
+}
+body { background:var(--paper); }
+body::before { display:none; }
+/* Preserve the dark, tactile analog → internet introduction and controls. */
+#view-home { background:var(--paper); color:var(--ink); }
+#view-home .hero {
+  background:#101a20; color:#f5f3ed;
+  --cream:#f7f5ed; --muted:#bdcac9; --line:rgba(255,255,255,.14);
+  --cyan:#a9cdd1; --lime:#d2e0d3; --pink:#d49dac;
+}
+#view-home .hero::before { opacity:.13; }
+#view-home .hero .hero-facts strong { color:#f4f1e9; }
+#view-home .hero .hero-lead { color:#cbd3d0; }
+#view-home .hero .btn-primary { background:#d3dfd8; color:#15272c; }
+#view-home .hero .btn-secondary { color:#f0f0e9; border-color:#667779; }
+#view-home .hero .btn-secondary:hover { background:#29373c; }
+#view-home .hero .hinge-control-row small { color:#becdc9; }
+
+/* Brighter archival photo ribbon. Stronger imagery, less dark processing. */
+#view-home .lobby-collage-band {
+  background:#e9e7df; color:var(--ink);
+  border-top:1px solid #d4d6d0; border-bottom:1px solid #d2d6d0;
+  margin-top:0; padding:54px 0 61px;
+  --cream:var(--ink); --muted:var(--ink-2); --line:var(--hairline);
+  --cyan:var(--teal-ink); --lime:var(--teal-ink);
+}
+#view-home .lobby-collage-head .section-heading { color:#283940; }
+#view-home .lobby-collage-head .section-heading span { color:#47777a; }
+#view-home .lobby-collage-head .section-sub { color:#536169; }
+#view-home .lobby-collage-band .eyebrow { color:#406d72; }
+#view-home .lobby-collage-band .pill { background:#fcfaf5; border-color:#c9d1cf; color:#385d64; }
+#view-home .lobby-year-card { background:#fffaf2; border-color:#d1d5d0; box-shadow:0 8px 24px rgba(43,51,50,.08); }
+#view-home .lobby-year-card:hover { border-color:#507b7d; }
+#view-home .lobby-year-image-wrap img { filter:saturate(.94) contrast(1.01) brightness(1.04); }
+#view-home .lobby-year-card:hover .lobby-year-image-wrap img { filter:saturate(1.04) brightness(1.04); }
+#view-home .lobby-year-card::after { background:linear-gradient(180deg,transparent 15%,rgba(12,23,28,.08) 48%,rgba(13,24,29,.87) 100%); }
+#view-home .collage-motion-control { background:#fcfaf5; border-color:#b8c8c6; color:#385d64; }
+#view-home .collage-motion-control:hover { background:#fff; border-color:#477a7a; }
+#view-home .ticker { background:#dfe6e2; border-color:#c4d0cb; }
+#view-home .ticker-inner { color:#34575c; }
+
+/* White, gallery-like introduction after the moving decade strip. */
+#view-home .home-feature {
+  color:var(--ink); --cream:var(--ink); --muted:var(--ink-2);
+  --line:var(--hairline); --cyan:var(--teal-ink); --lime:var(--teal-ink);
+}
+#view-home .home-feature .section-heading, #view-home .home-feature .feature h3 { color:var(--ink); }
+#view-home .home-feature .section-sub, #view-home .home-feature .feature p { color:var(--ink-2); }
+#view-home .home-feature .feature-grid { border-color:var(--hairline); }
+#view-home .home-feature .feature { border-color:var(--hairline); }
+#view-home .home-feature .feature-num { color:#436f72; }
+#view-home .home-feature .pill { background:#fffefa; color:#40656a; border-color:#d1d9d3; }
+#view-home .home-archive-kicker { color:#677674; }
+#view-home .home-archive-img { border:1px solid #d3d9d2 !important; background:#e4e8e5 !important; }
+#view-home .home-archive-img img { filter:saturate(.92) contrast(1.02); }
+#view-home .home-archive-img:hover img { filter:saturate(1.04); }
+#view-home .home-cta { background:#315b60; color:#fdfbf4; border-color:#315b60; }
+
+/* Every non-home route uses warm paper + museum ink, including generated room pages. */
+.inside-page {
+  background:var(--paper); color:var(--ink);
+  --bg:#f5f3ed; --bg-raised:#fffefa; --panel:#fffefa; --panel-2:#f1ede5;
+  --cream:var(--ink); --muted:var(--ink-2); --line:var(--hairline);
+  --cyan:var(--teal-ink); --lime:#41695e; --pink:var(--rose-ink); --yellow:#89703c;
+}
+.inside-page .section-heading, .inside-page h1, .inside-page h2, .inside-page h3 { color:var(--ink); }
+.inside-page .section-heading, .inside-page .museum-headline h1 { letter-spacing:-.065em; }
+.inside-page .section-sub, .inside-page .room-card-body p { color:var(--ink-2); }
+.inside-page .kicker { color:#4a716c; }
+.inside-page .kicker::before { box-shadow:none; }
+.inside-page .eyebrow, .inside-page .panel-label { color:#446d70; }
+.inside-page .pill { border-color:#d0d8d2; color:#3c6668; background:#fffefa; }
+.inside-page .editorial-italic { color:#557a7e; }
+.inside-page .btn-primary { background:#355d61; color:#fffefa; border-color:#355d61; }
+.inside-page .btn-primary:hover { background:#284f55; }
+.inside-page .btn-secondary { color:#365e63; border:1px solid #a9bdb7; background:#fffefa; }
+.inside-page .btn-secondary:hover { color:#213e43; background:#edf1ec; }
+.inside-page strong, .inside-page b { text-wrap:pretty; }
+
+/* Room index: light photographic cards with dark readable copy. */
+.inside-page .room-card {
+  background:#fffefa; border:1px solid #d5dad5; color:var(--ink);
+  box-shadow:0 4px 16px rgba(35,52,54,.045);
+}
+.inside-page .room-card:hover { border-color:#83a5a2; box-shadow:0 10px 28px rgba(35,52,54,.08); }
+.inside-page .room-card-top { border-bottom-color:#e1e5e0; }
+.inside-page .room-card-top span:first-child { color:#546e72; }
+.inside-page .room-card-arrow { color:#345c61; border-color:#b6cecb; }
+.inside-page .room-card-cover { background:#e0e7e1; border-color:#e0e3df; }
+.inside-page .room-card-cover img { filter:saturate(.96) contrast(1.02) brightness(1.02); }
+.inside-page .room-card:hover .room-card-cover img { filter:saturate(1.04) contrast(1.01); }
+.inside-page .room-card-body h3 { color:#26383f; }
+.inside-page .room-card-body p { color:#526269; }
+.inside-page .room-card-action { color:#386268; border-color:#d9e0db; }
+.inside-page .room-photo-label { background:rgba(20,36,40,.89); color:white; border-color:rgba(255,255,255,.3); }
+.inside-page .museum-note {
+  background:#e9eeea; border:1px solid #d1ded7; color:#43565b;
+}
+.inside-page .museum-note strong { color:#315e61; }
+
+
+/* Remove legacy dark decorative plate behind otherwise-white room cards. */
+.inside-page .room-card::before { background:none; }
+.inside-page .room-card::after { opacity:.07; }
+/* Image placeholders and AI illustrations keep bright titles against dark artwork. */
+.inside-page .exhibit-art { color:#f7f6ef; }
+.inside-page .exhibit-art .art-word,
+.inside-page .exhibit-art .art-micro { color:#f7f6ef; text-shadow:0 2px 16px rgba(0,0,0,.2); }
+.inside-page .media-play { background:#cae0dc; color:#17363c; }
+
+/* Room narratives, topic cards, evidence galleries. */
+.inside-page .breadcrumb { color:#536c70; }
+.inside-page .breadcrumb a { color:#376b6f; }
+.inside-page .room-intro {
+  background:#e8ede9; border:1px solid #cfdad6; color:#28393f; box-shadow:none;
+}
+.inside-page .room-intro h1 { color:#26373d; }
+.inside-page .room-intro p { color:#50646a; }
+.inside-page .topic-chips span { background:#fffefa; border-color:#cad8d3; color:#3c6568; }
+.inside-page .content-panel, .inside-page .compare-card {
+  background:#fffefa; border:1px solid #dadfd9; color:#293b41;
+}
+.inside-page .content-panel h2, .inside-page .compare-card h3 { color:#2d3b41; }
+.inside-page .panel-label { color:#456f72; }
+.inside-page .topic-list li { color:#495b61; }
+.inside-page .room-aside { background:#ebefe9; border-color:#d1dad3; }
+.inside-page .room-aside h2, .inside-page .room-aside p { color:#3f5559; }
+.inside-page .room-aside .mini-bar { background:#60837e; }
+.inside-page .exhibit-card { background:#fffefa; border-color:#d8dfd9; color:#293b41; }
+.inside-page .exhibit-card:hover { border-color:#8ca9a4; }
+.inside-page .exhibit-copy strong { color:#28373d; }
+.inside-page .exhibit-copy small, .inside-page .exhibit-copy span { color:#436d70; }
+.inside-page .exhibit-copy span { border-top-color:#e2e6e1; }
+.inside-page .exhibit-photo-credit { color:#607173; }
+.inside-page .exhibit-photo-credit a { color:#315f64; }
+.inside-page .compare-card { background:#fffefa; }
+.inside-page .compare-block p { color:#4d5e64; }
+.inside-page .compare-block small { color:#945f69; }
+.inside-page .compare-block.now small { color:#3f7163; }
+.inside-page .comparison-summary .content-panel p { color:#56686c; }
+.inside-page .room-bottom-nav { border-color:#d4dcd5; }
+
+/* Documentary timeline: readable light cards, photos at their original brightness. */
+.inside-page .timeline-context { background:#e7ede8; border-color:#cbded7; color:#445960; }
+.inside-page .timeline-context strong { color:#39646a; }
+.inside-page .timeline-context em { color:#2a454a; }
+.inside-page .timeline-year-nav { border-bottom-color:#d4ded7; }
+.inside-page .timeline-jump {
+  background:#fffefa; color:#3b6268; border-color:#bdcfca;
+}
+.inside-page .timeline-jump:hover, .inside-page .timeline-jump:focus-visible {
+  background:#e1eeea; color:#244c50; border-color:#66928d;
+}
+.inside-page .timeline-rich::before { background:#aac3bd; }
+.inside-page .timeline-rich .timeline-entry::before,
+.inside-page .timeline-rich .timeline-entry:nth-child(3n)::before,
+.inside-page .timeline-rich .timeline-entry:nth-child(3n+2)::before {
+  border-color:#f5f3ed; background:#497875; box-shadow:0 0 0 2px #6b9792;
+}
+.inside-page .timeline-year-card { background:#fffefa; border-color:#d7ded8; box-shadow:0 5px 16px rgba(30,50,50,.045); }
+.inside-page .timeline-year-head h2 { color:#28393f; }
+.inside-page .timeline-year-head h2 span { color:#49777a; }
+.inside-page .timeline-year-counter { color:#63777a; }
+.inside-page .timeline-year-tag, .inside-page .timeline-original-date { color:#41686d; }
+.inside-page .timeline-year-summary { color:#4e6167; }
+.inside-page .timeline-media-photo, .inside-page .timeline-media-video { background:#f4f3ed; border-color:#dbe2dc; }
+.inside-page .timeline-media-kicker { color:#55777a; }
+.inside-page .timeline-photo-credit, .inside-page .timeline-upload-note { color:#5a6d70; }
+.inside-page .timeline-photo-source, .inside-page .timeline-youtube-link, .inside-page .timeline-source-row a { color:#31666b; }
+.inside-page .timeline-video-button { background:#e7eeeb; color:#293d43; }
+.inside-page .timeline-video-button:hover { background:#d9e6e1; }
+.inside-page .timeline-video-title { color:#283c41; }
+.inside-page .timeline-play-icon { background:#436f72; color:white; }
+.inside-page .timeline-source-row { color:#627378; border-color:#e1e5df; }
+.inside-page .timeline-outro { background:#e4ebe6; border-color:#cbdad3; color:#263c42; }
+.inside-page .timeline-outro p, .inside-page .timeline-source-note { color:#58696a; }
+
+/* Past / Present / 2030 forecast becomes a printed exhibition, not a dark dashboard. */
+.inside-page .future-hero {
+  background:#e4ece7; border:1px solid #c7d7ce; color:#273b41;
+}
+.inside-page .future-hero::after { color:#4f7775; opacity:.07; }
+.inside-page .future-hero h1 { color:#283b42; }
+.inside-page .future-hero h1 em { color:#487875; }
+.inside-page .future-hero p { color:#516369; }
+.inside-page .future-step { background:#fffefa; color:#42656a; border-color:#bfd2cb; }
+.inside-page .future-step:last-child { color:#2f665e; border-color:#9fbfb1; }
+.inside-page .future-arrow { color:#7c9694; }
+.inside-page .era-choices { background:#e9eee9; border-color:#c7d6cf; }
+.inside-page .era-choice { color:#4b6769; }
+.inside-page .era-choice:hover { color:#243f43; background:#dce7e1; }
+.inside-page .era-choice[aria-pressed="true"] { background:#345d62; color:#fffefa; }
+.inside-page .future-card {
+  --future-color:#427478 !important; background:#fffefa;
+  border-color:#d8dfd8; color:#293b41;
+}
+.inside-page .future-card:hover { border-color:#8ab0a9; }
+.inside-page .future-card h3 { color:#293b41; }
+.inside-page .future-icon { background:#e5eeea; color:#356e70; }
+.inside-page .future-card-event { color:#3c6b6e; }
+.inside-page .future-card-list li { background:#f1f4ef; color:#42565a; }
+.inside-page .future-card-foot { color:#57696b; border-color:#dfe4df; }
+.inside-page .future-card-foot strong { color:#344b50; }
+.inside-page .future-prediction { color:#476e59; }
+.inside-page .future-notice { background:#f3ecd9; color:#655538; border-color:#bba571; }
+.inside-page .future-source, .inside-page .future-source strong { color:#607170; }
+
+/* Sources and credit notes remain easy to read on paper-colored panels. */
+.inside-page .reference-list li { color:#45565b; border-color:#dde1dd; }
+.inside-page .reference-list li::marker { color:#9c7379; }
+.inside-page .notice { background:#f5efdf; color:#66583c; border-color:#b39c65; }
+.inside-page .notice strong { color:#7d6335; }
+.inside-page .media-note { color:#4e6063; background:#e8f0eb; border-color:#d0e0d8; }
+.inside-page .content-panel .section-sub { color:#53656a; }
+.inside-page .room-aside .panel-label { color:#3e6566; }
+
+/* Clean editorial footer after the light collections. */
+.site-footer { background:#e7e9e3; color:#293a3f; border-top:1px solid #cbd5d0; }
+.site-footer .footer-brand { color:#26383d; }
+.site-footer .footer-inner p { color:#536469; }
+.site-footer .footer-links a { color:#39686b; }
+.site-footer .footer-links a:hover { color:#244e53; }
+
+@media (max-width:760px) {
+  #view-home .lobby-collage-band { padding:37px 0 42px; }
+  .inside-page { padding-block:43px 79px; }
+  .inside-page .timeline-year-card { padding:22px; }
+  .inside-page .future-hero { padding:29px 23px; }
+  .inside-page .room-card { box-shadow:none; }
+}
+@media (prefers-reduced-motion:reduce) {
+  #view-home .lobby-year-image-wrap img { transition:none; }
+}
 
   </style>
 </head>
